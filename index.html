@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Kibuba 3.0</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/swipebox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);
+      .grey { background: #ccc; }
+      .greytxt { color: #ccc; }
+      #user_menu { float: right }
+      #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
+      #user_menu div:last-child { border-right: 0; } 
+      .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
+      .dropdown-menu { border-radius: 0; border: 0; left: auto;  }
+      .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; }
+      .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background: #009BDC; color: #fff; }
+      .main-menu .full { width: 1170px; left: 0;}
+      .nav li {position: static;}
+      .nav>li>a {text-transform: uppercase; font-size: 18px;}
+      /*.nav>li>a:hover { background: #C7C7C7 !important; transition: all 100ms linear; }*/
+      .dropdown-menu ul { list-style: none; margin: 0; padding: 0 }
+      .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-left: 25px; padding-right: 5px; font-family: arial, sans-serif}
+      .dropdown-menu a:hover { background: #2C2C2C; color: #fff; text-decoration: none; box-shadow: 0 6px 12px rgba(0,0,0,.175);}
+      
+      .dropdown-header { font-size: 15px; font-weight: 600; padding: 12px 5px 0; }
+      li.dropdown-header a, li.special-item a {font-family: 'Roboto Slab', 'Times New Roman', serif; padding-left:5px;}
+      .infonav {height: 30px; margin: 10px 0; font-size: 18px}
+      .infonav ul {border-left: 1px solid; list-style: none; margin: 0; padding: 0; height: 30px;}
+      .infonav li { display: inline-block; padding: 0 10px;}
+      .infonav a {color:#2C2C2C;}
+      .infonav strong {font-weight: 600}
+      .breadcrumb { background: transparent; font-size: 11px}
+      .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
+      .breadcrumb a {color: #808080; }
+      .breadcrumb a:hover {text-decoration: none;color: #FF6600}
+
+      .izdelek-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
+      .naslov figure {margin-top: 15px;}
+      .naslov h1 {margin-top: 10px;}
+      .naslov .box {}
+      .izdelek-menu ul {list-style: none; margin: 0;padding: 0}
+      .izdelek-menu li {display: inline-block; position: relative;}
+      .izdelek-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
+      .izdelek-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
+      .izdelek-menu .active a { background: #FF6600; color: #fff;}
+      .izdelek-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
+h2 { font-weight: 600; }
+      .ocena { font-size: 12px; }
+      .ocena img { margin-right: 10px; vertical-align: text-bottom; }
+      .ocena strong { color: #FF6600; font-weight: 400}
+      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
+      p { font-size: 13px; }
+      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
+      .cena strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
+      .cena.akcija strong { color: #FF6600; display:inline-block; margin-left: 30px;}
+      .cena.storz {background: #E3E7B4;   padding: 0 15px; line-height:45px; }
+      .cena.storz span, .cena.kupcija span {float: right; }
+      .cena.storz i { background-image: url(img/storz.png);background-repeat: no-repeat; display: inline-block; width: 25px; height: 26px; vertical-align: middle; margin-right: 10px;}
+      .cena.kupcija {background: #FFE6B2; padding: 0 15px; line-height:45px; }
+      .cena.kupcija i { margin-right: 10px; font-size: 26px; vertical-align: middle;}
+      .zaloga { color: #70AB07; text-decoration: underline;}
+      .zaloga span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
+      .zaloga.brez span { background: #AD1E2D; }
+      .naslov.is_stuck { background: #fff; box-shadow: 0px 26px 23px 24px #fff ; z-index: 2 }
+      .naslov.is_stuck figure, .naslov.is_stuck .novo { display: none; }
+      .naslov.is_stuck .izdelek-menu { float: right; padding-top: 15px; }
+      .naslov.is_stuck h1 { position: absolute; width: 70%; left: -75%; top: -20px; font-size: 20px; background: #fff; padding: 20px 0; box-shadow: 0px 26px 23px 24px #fff }
+      .popust  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px;}
+      .popust .storz {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
+      nav.navbar.is_stuck { z-index: 10; }
+
+.button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
+.button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
+
+      .izdelek-moznosti .form-group {width: 50%}
+      .izdelek-moznosti select {width: 100% !important}
+      .izdelek-moznosti button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
+      .izdelek-moznosti button:hover {border: none; background: #000}
+      .popust { vertical-align: bottom; }
+      .popust a {text-decoration: none; color: #000; opacity: .3;}
+      .popust a:hover { opacity: 0.6; }
+      .barve {list-style: none; margin: 0; padding: 0;}
+      .barve li {display: inline-block; margin: 0;}
+      .barve a { display: inline-block; width: 23px; height: 23px; margin-right: 5px; }
+      .barve .orange a { background: #DD4320; }
+      .barve .blue a {background: #397FA5;}
+      .barve .black a {background: #1A1718;}
+      .barve .green a {background: #A1B007;}
+      .barve a:hover {box-shadow: -1px 1px 0px 0px #000;}
+      .kosarica { margin: 20px 0; color: #FF6600; }
+      .kosarica i { margin-right: 10px }
+      .kosarica button { background: #FF6600; color: #fff; margin-left: 0;} 
+
+.easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
+.easyzoom a { display: inline-block;width: 100% }
+.easyzoom img {  vertical-align: bottom;}
+.easyzoom.is-loading img {  cursor: progress;}
+.easyzoom.is-ready img {  cursor: crosshair;}
+.easyzoom.is-error  img {  cursor: not-allowed;}
+.easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
+.easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
+.easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
+.easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
+/*.thumbnails { list-style: none; padding: 0; margin: 15px 20px 0;}*/
+/*.thumbnails li {display: inline-block;}*/
+.thumbnails a {display: inline-block;   text-align: center;}
+
+/* Tiny Carousel */
+#slider1 {    height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
+#slider1 .viewport {height: 73px ;overflow: hidden;    position: relative;}
+#slider1 .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
+#slider1 .next {    right: 0;    left: auto;    top: 25%;}
+#slider1 .buttons:hover {    color: #FF6600;    background: #fff;}
+#slider1 .disable {    visibility: hidden;}
+#slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
+#slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
+
+.komplet { font-family: 'Roboto Slab', serif; overflow: auto }
+.komplet h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+.komplet ul { margin: 0; padding: 0; list-style: none; }
+.komplet li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
+.komplet article { width: 90%; margin: 0 auto; padding: 5px 20px;}
+.komplet article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+.komplet figure { line-height: 255px;}
+.komplet img { vertical-align: middle; }
+.komplet h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
+.komplet strong {display: block; line-height: 35px;}
+
+.fotografije {font-family: 'Roboto Slab', serif;overflow: auto;}
+.fotografije .button {float: right;}
+.button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
+.fotografije .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
+.fotografije h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
+.fotografije ul {margin: 0; padding: 0; list-style: none;}
+.fotografije li {width: 20%; float: left; min-width: 155px;}
+.fotografije li a:hover {opacity: .7;}
+.fotografije figure { width: 150px; margin: 0 auto; }
+figure.disabled {}
+.fotografije figcaption { text-align: center; }
+.fotografije .overlay { position: absolute;height: 150px; line-height: 140px; width: 150px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
+.overlay a { text-decoration: none; font-size: 50px; color: #fff; }
+.fotografije figcaption { margin-top: 10px; }
+
+.opis {margin-top: 2.5em}
+.opis h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
+table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
+table img { float: left; margin-right: 5px; }
+.cat { font-weight: 600; }
+td strong {color: #FF6600;}
+th {width: 30%; vertical-align: top;}
+
+.promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
+.promo { font-family: 'Roboto Slab', serif; }
+.promo h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+.promo ul { margin: 0; padding: 0; list-style: none; }
+.promo li { width: 20%; float: left; text-align: center;  }
+.promo article { width: 90%; margin: 0 auto;}
+.promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+.promo figure { line-height: 150px;}
+.promo img { vertical-align: middle; }
+.promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
+.promo strong {display: block; line-height: 35px;}
+
+.mnenja ul { margin: 0; padding: 0; list-style: none; }
+.mnenja li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
+.mnenja li:first-child { border-top: none; }
+.mnenja h2, .mnenja h3 {  font-family: 'Roboto Slab', serif;  }
+.mnenja h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em; }
+.mnenja h3 {font-size: 15px; }
+.mnenja img { vertical-align: baseline; margin-right: 10px }
+.mnenje-ocena { color: #808080; }
+.mnenja .button { background: #D3D4D5 ; color: #58595B; }
+.mnenja .button:hover { background: #949699 ; color: #fff; }
+
+.sidebar { font-family: 'Roboto Slab', serif;  }
+.sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
+.button.akcije  { background: #FFAD00; color: #fff;  }
+.button.storzi {background: #A1B007;color: #fff;}
+.button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
+.placilo h4 {font-size: 12px;}
+.placilo i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
+.akcije strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
+.storzi strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
+.storzi span { display: inline-block; vertical-align: middle; width: 45%;}
+
+.sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+.sidebar ul { margin: 0; padding: 0; list-style: none; }
+.sidebar li {  }
+.sidebar li:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+.sidebar figure { line-height: 150px; display: inline-block;}
+.sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
+.sidebar del {display: block;}
+.sidebar strong.znizanje { color: #FF6600; }
+.sidebar h4 { display: inline-block; font-size: 13px;}
+.sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
+.sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
+.sidebar select {float: right; margin-top: 20px; }
+
+footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
+.footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
+footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
+footer h3 { font-size:14px; font-weight:700;}
+footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
+footer li { line-height:21px; }
+footer li:before { content: "> "; }
+footer li a {color:#2d2d2d;}
+footer li a:hover {color:#000;}
+.footer-side h3 {margin-top: 0;}
+
+h3 {font-family: 'Roboto Slab', serif; }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <header style="padding: 20px;">
+        <div class="row visible-xs-block visible-sm-block">
+          <div class="col-xs-2">Meni</div>
+          <div class="col-xs-2">Iskanje</div>
+          <div class="col-xs-4">Logo</div>
+          <div class="col-xs-2">Mail</div>
+          <div class="col-xs-2">Cart</div>
+        </div>
+        <div class="row hidden-xs hidden-sm">
+          <div class="col-md-3">
+            <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
+          </div>
+          <div class="col-md-4 search_wrap" style="padding-top: 22px">
+            <form>
+              <div class="input-group">
+                <div class="input-group-btn search-panel">
+                  <button type="button" class="btn btn-default dropdown-toggle grey" data-toggle="dropdown" style=" border-radius: 0">
+                    <span id="search_concept">Vse</span> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#contains">Vse</a></li>
+                    <li><a href="#its_equal">Izbrano kategorijo</a></li>
+                    <li><a href="#less_than">Clanki</a></li>
+                  </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="išči po trgovini ..." style="border-right: 0;">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="border-left: 0; border-radius: 0"><i class="fa fa-search greytxt"></i></button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-5 pull-right" id="user_menu"  style="padding-top: 28px; text-align: right;">
+            <div><i class="fa fa-user"></i> Prijavi se</div>
+            <div>O nas <span class="caret"></span></div>
+            <div><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija">Slovenija</div>
+            <div><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></div>
+          </div>
+        </div> 
+        </header>
+        <nav class="navbar navbar-default main-menu">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse row">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oblačila <span class="caret"></span></a>
+                  <div class="dropdown-menu row full">
+                    <div class="col-md-3">
+                      <ul>
+                        <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški z membrano</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski z membrano</a></li>
+                        <li class="dropdown-header"><a href="#">Srednje visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški pohodniški čevlji</a></li>
+                        <li class="dropdown-header"><a href="#">Zimski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Kolesarski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                        <li class="dropdown-header"><a href="#">Čevlji za prosti čas</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                     </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Plezalniki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Na elastiko</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški</a></li>
+                        <li class="dropdown-header"><a href="#">Poletna obutev</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
+                      </ul>                  
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Dodatki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Popravilo</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vložki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Grelci za obutev</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Obutev <span class="caret"></span></a>
+                  <div class="dropdown-menu row full">
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški z membrano</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski z membrano</a></li>
+                        <li class="dropdown-header"><a href="#">Srednje visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški pohodniški čevlji</a></li>
+                        <li class="dropdown-header"><a href="#">Zimski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Kolesarski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                        <li class="dropdown-header"><a href="#">Čevlji za prosti čas</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Plezalniki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Na elastiko</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški</a></li>
+                        <li class="dropdown-header"><a href="#">Poletna obutev</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
+                      </ul>                  
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Dodatki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Popravilo</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vložki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Grelci za obutev</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oprema <span class="caret"></span></a>
+                  <div class="dropdown-menu row full">
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški z membrano</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski z membrano</a></li>
+                        <li class="dropdown-header"><a href="#">Srednje visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Visoki pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški pohodniški čevlji</a></li>
+                        <li class="dropdown-header"><a href="#">Zimski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
+                        <li class="dropdown-header"><a href="#">Kolesarski čevlji</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                        <li class="dropdown-header"><a href="#">Čevlji za prosti čas</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Plezalniki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na ježke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moške na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženske na vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Na elastiko</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški</a></li>
+                        <li class="dropdown-header"><a href="#">Poletna obutev</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Ženski sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Moški sandali</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
+                      </ul>                  
+                    </div>
+                    <div class="col-md-3">
+                      <ul class="">
+                        <li class="dropdown-header"><a href="#">Dodatki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Popravilo</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Vložki</a></li>
+                        <li><a href="#"><span class="right-caret"></span> Grelci za obutev</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ostale kategorije <span class="caret"></span></a>
+                  <div class="dropdown-menu row" style="width: 600px;">
+                    <div class="col-md-6">
+                      <ul class="">
+                        <li class="special-item"><a href="#">VSE ZA TURNO SMUČANJE</a></li>
+                        <li class="special-item"><a href="#">TEČAJNIŠKI NABOR</a></li>
+                        <li class="special-item"><a href="#">PRIPRAVITE SE NA MARATON</a></li>
+                        <li class="special-item"><a href="#">NA KAMPIRANJE Z DRUŽINO</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Jakne, puhovke in flisi</a></li>
+                        <li><a href="#">Hlače</a></li>
+                        <li><a href="#">Športno perilo</a></li>
+                        <li><a href="#">Pokrivala, kape in rokavice</a></li>
+                        <li><a href="#">Majice in puloverji</a></li>
+                        <li><a href="#">Obutev</a></li>
+                        <li><a href="#">Nahrbtniki in torbe</a></li>
+                        <li><a href="#">Svetilke in elektronika</a></li>
+                        <li><a href="#">Pohodniške palice</a></li>
+                        <li><a href="#">Zimska oprema</a></li>
+                        <li><a href="#">Očala</a></li>
+                        <li><a href="#">Spalne vreče in podloge</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul class="">
+                        <li><a href="#">Plezalna oprema</a></li>
+                        <li><a href="#">Popotniška oprema</a></li>
+                        <li><a href="#">Nogavice in gamaše</a></li>
+                        <li><a href="#">Šotori in kamp oprema</a></li>
+                        <li><a href="#">Kolesa in prikolice</a></li>
+                        <li><a href="#">Kolesarska oblačila</a></li>
+                        <li><a href="#">Kolesarska oprema</a></li>
+                        <li><a href="#">Zdravje in higiena</a></li>
+                        <li><a href="#">Hrana in pijača</a></li>
+                        <li><a href="#">Impregnacija in čistila</a></li>
+                        <li><a href="#">Orientacija in preživetje</a></li>
+                        <li><a href="#">Trening in Slackline</a></li>
+                        <li><a href="#">Oprema za pse</a></li>
+                        <li><a href="#">Obeski</a></li>
+                        <li><a href="#">Literatura</a></li>
+                        <li><a href="#">Darilni boni</a></li>
+                        <li><a href="#">Pustolovščine</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="pull-right infonav">
+                <ul class="">
+                  <li><a href="mailto:info@kibuba.com">info@kibuba.com</a></li>
+                  <li><strong>080 35 56</strong></li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+      </div>
+    </div>
+    <div class="container" >
+      <div class="row" id="main">
+        <div class="col-md-9">
+          <div class="row">
+            <ol class="breadcrumb">
+            <li><a href="#">Katalog</a></li>
+            <li><a href="#">Jakne, puhovke in flisi</a></li>
+            <li><a href="#">Puhovke in Primaloft</a></li>
+            <li><a href="#">Lahke</a></li>
+            <li class="active">Lahka puhovka Montane Featherlite</li>
+            </ol>
+
+            <div class="col-md-5">
+              <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+                <a href="img/Puh1-lg.jpg"><img src="img/Puh1.jpg" alt="" width="200" height="350"></a>
+              </div>
+              <div id="slider1">
+                <a class="buttons prev" href="#"><i class="fa fa-chevron-left"></i></a>
+                <div class="viewport">
+                  <ul class="thumbnails overview">
+                    <li><a href="img/Puh1-lg.jpg" data-standard="img/Puh1.jpg"><img src="img/Puh1-tm.jpg" alt=""></a></li>
+                    <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt=""></a></li>
+                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
+                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
+                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
+                  </ul>
+                </div>
+                <a class="buttons next" href="#"><i class="fa fa-chevron-right"></i></a>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="naslov">
+                <div class="izdelek-menu">
+                  <ul>
+                    <li><a href="#opis">Opis izdelka</a></li>
+                    <li><a href="#mnenja">Mnenja uporabnikov</a></li>
+                    <li><a href="#slike">Fotografije uporabnikov</a></li>
+                  </ul>
+                </div>
+                <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
+                <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite</h1>
+              </div>
+              <p class="ocena"><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">Na podlagi <strong>34</strong> ocen</p>
+              <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
+              <p class="cena">redna cena:  <strong>219,90&euro;</strong></p>
+              <p class="cena akcija">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></p>
+              <p class="cena storz"><span>v primeru, da imate <em>23,45</em> storža</span><i></i>cena s storži:  <strong>179,90&euro;</strong></p>
+              <p class="cena kupcija"><span>dodajte <em>15</em> storžev</span><i class="fa fa-dot-circle-o"></i>kibubina kupčija  <strong>149,90&euro;</strong></p>
+              <p class="zaloga"><span>na zalogi</span>Predvidena dostava na vaš naslov: petek, 18.09.2015</p>
+              <p class="zaloga brez"><span>ni na zalogi</span></p>
+              <div class="izdelek-moznosti">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>-- Izberite velikost --</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>L</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">izpis zaloge</button>
+                  <div class="popust">
+                    <a href="#">
+                      <i class="storz"></i>
+                      <strong>DO 20%</strong> CENEJE
+                    </a>
+                  </div>
+                  <h5>Barve:</h5>
+                  <ul class="barve">
+                    <li class="orange"><a href="#"></a></li>
+                    <li class="blue"><a href="#"></a></li>
+                    <li class="black"><a href="#"></a></li>
+                    <li class="green"><a href="#"></a></li>
+                  </ul>
+                  <div class="kosarica"><button class="btn btn-primary">Dodaj v košarico</button><i class="fa fa-truck"></i>Brezplačna dostava</div>
+                  <img src="img/social.png">
+                </form>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <aside class="komplet">
+                <h2 class="target">Nakup v kompletu je cenejši</h2>
+                <ul>
+                  <li>
+                    <article>
+                      <figure><a href="#"><img src="img/komplet1.jpg"></a></figure>
+                      <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
+                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <strong>219,90€</strong>
+                    </article>
+                  </li>
+                  <li>
+                    <article>
+                      <figure><a href="#"><img src="img/komplet2.jpg"></a></figure>
+                      <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
+                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <strong>219,90€</strong>
+                    </article>
+                  </li>
+                  <li>
+                    <article>
+                      <figure><a href="#"><img src="img/komplet3.jpg"></a></figure>
+                      <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
+                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <strong>219,90€</strong>
+                    </article>
+                  </li>
+                </ul>
+              </aside>
+              <section class="fotografije">
+                <a href="" class="button black">dodaj svojo fotografijo</a><h2 class="target" id="slike">Fotografije uporabnikov</h2>
+                <ul>
+                  <li><figure><a href="#"><img src="img/uporabnik1.jpg"></a><figcaption>J. K. Kamnik</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik2.jpg"></a><figcaption>Đ. M. Medvode</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik3.jpg"></a><figcaption>M. P., Celje</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik4.jpg"></a><figcaption>J. K., Murska Sobota</figcaption></figure></li>
+                  <li><figure class="disabled"><div class="overlay"><a href="#">+32</a></div><img src="img/uporabnik5.jpg"></figure></li>
+                </ul>
+                <p></p>
+              </section> 
+              <section class="opis">
+                <h2 class="target"  id="opis">Opis izdelka</h2>
+                <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Zunanji sloj:</th>
+                          <td><img src="img/mat-brand1.jpg"><strong>PEAQ® Down</strong>. hitro sušeč material, ki odlično diha in je udoben za nošenje.</td>
+                        </tr>
+                        <tr>
+                          <th>Rokavi:</th>
+                          <td>Artikulirano oblikovani rokavi. Omogočajo nemoteno gibanje in preprečujejo dvigovanje celotnega vetrovke ob premikanju rok.</td>
+                        </tr>
+                        <tr>
+                          <th>Polnilo:</th>
+                          <td><img src="img/mat-brand2.jpg"><strong>PERTEX Quantum</strong>. Lahek material, 100% nepropusten za veter.</td>
+                        </tr>
+                        <tr>
+                          <th>Kapuca:</t>
+                          <td>Tri točkovno popolnoma nastavljiva kapuca, ki jo lahko nosite preko plezalne čelade.</td>
+                        </tr>
+                        <tr>
+                          <th>Zadnji del:</th>
+                          <td>Podaljšan hrbet</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-6">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Rokavi:</th>
+                          <td>Elastičen konec rokavov</td>
+                        </tr>
+                        <tr>
+                          <th>Zadrga:</th>
+                          <td>YKK sprednja zadrga</td>
+                        </tr>
+                        <tr>
+                          <th>Kapuca:</th>
+                          <td>Tri točkovno popolnoma nastavljiva kapuca, ki jo lahko nosite preko plezalne čelade.</td>
+                        </tr>
+                        <tr>
+                          <th>Zadnji del:</th>
+                          <td>Podaljšan hrbet</td>
+                        </tr>
+                        <tr>
+                          <th>Rokavi:</th>
+                          <td>Artikulirano oblikovani rokavi. Omogočajo nemoteno gibanje in preprečujejo dvigovanje celotnega vetrovke ob premikanju rok.</td>
+                        </tr>
+                        <tr>
+                          <th>Žepi:</th>
+                          <td>Dva sprednja žepa z zadrgo</td>
+                        </tr>
+                        <tr>
+                          <th>Dodelava:</th>
+                          <td>Elastika za stisnjenje spodnjega robu jakne omogoča zaščito proti vetru</td>
+                        </tr>
+                        <tr>
+                          <th>Dodatki:</th>
+                          <td>Dodana majhna vrečka za shranjevanje</td>
+                        </tr>
+                        <tr>
+                          <th>Teža polnila:</th>
+                          <td>Puh (g): 140 </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+              <aside class="promo">
+                  <h2 class="target">Ne spreglejte</h2>
+                  <ul class="clearfix">
+                    <li>
+                      <article>
+                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <h4>Montane Featherlite</h4>
+                        <strong>219,90€</strong>
+                        <a href="" class="button">v košarico</a>
+                      </article>
+                    </li>
+                    <li>
+                      <article>
+                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <h4>Sea to Summit Bomber</h4>
+                        <strong>24,90€</strong>
+                        <a href="" class="button">v košarico</a>
+                      </article>
+                    </li>
+                    <li>
+                      <article>
+                        <figure><a href="#"><img src="img/spregled3.jpg"></a></figure>
+                        <h4>Lifeventure Print Towel</h4>
+                        <strong>19,90€</strong>
+                        <a href="" class="button">v košarico</a>
+                      </article>
+                    </li>
+                    <li>
+                      <article>
+                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <h4>Scarpa Boostic</h4>
+                        <strong>119,90€</strong>
+                        <a href="" class="button">v košarico</a>
+                      </article>
+                    </li>
+                    <li>
+                      <article>
+                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <h4>Sea to Summit Dry 19</h4>
+                        <strong>32,90€</strong>
+                        <a href="" class="button">v košarico</a>
+                      </article>
+                    </li>
+                  </ul>
+              </aside>
+              <section class="mnenja">
+                <h2 class="target" id="mnenja">Mnenja uporabnikov</h2>
+                <ul>
+                  <li>
+                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Nejc V., Ljubljana</h3>
+                    <p>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</p>
+                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                  </li>
+                  <li>
+                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Primož O., Kamnik</h3>
+                    <p>Kaj vam je na izdelku všeč? to da je kratka in jo lahko normalno nosim pri varovanju. -lahka, topla Kaj vam na izdelku ni všeč? Nič. Ostala opažanja: zadrga se ne zapre vedno dobro!</p>
+                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                  </li>
+                  <li>
+                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Nejc V., Ljubljana</h3>
+                    <p>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</p>
+                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+            <aside class="sidebar">
+              <div class="button akcije"><strong>124</strong> izdelkov v akciji</div>          
+              <div class="button storzi"><strong>storži</strong><span>nagrajujemo zvestobo</span></div>
+              <div class="button placilo"><i class=""></i><h4>Varno in zanesljivo nakupovanje</h4>
+                <img src="img/placilo.png" alt="kartice"> 
+              </div>
+              <h3>Sorodni izdelki</h3>
+              <select class="">
+                <option>velikost</option>
+                <option>M</option>
+                <option>S</option>
+                <option>L</option>
+              </select>
+              <ul>
+                  <li>
+                    <figure><a href="#"><img src="img/sidebar-item1.jpg" alt="1"></a></figure>
+                    <figcaption>
+                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                      <strong>299,90€</strong>
+                    </figcaption>
+                  </li>
+                  <li>
+                    <figure><a href="#"><img src="img/sidebar-item2.jpg" alt="1"></a></figure>
+                    <figcaption>
+                      <h4>Ženska puhovka Montane North Star</h4>
+                      <del>299,90€</del>
+                      <strong class="znizanje">179,90€</strong>
+                      <div class="button rep">-32%</div>
+                    </figcaption>
+                  </li>
+                  <li>
+                    <figure><img src="img/sidebar-item3.jpg" alt="1"></a></figure>
+                    <figcaption>
+                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                      <strong>299,90€</strong>
+                    </figcaption>
+                  </li>
+                  <li>
+                    <figure><img src="img/sidebar-item4.jpg" alt="1"></a></figure>
+                    <figcaption>
+                      <h4>Ženska puhovka Montane North Star</h4>
+                      <strong>299,90€</strong>
+                    </figcaption>
+                  </li>
+                  <li>
+                    <figure><img src="img/sidebar-item1.jpg" alt="1"></a></figure>
+                    <figcaption>
+                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                      <strong>299,90€</strong>
+                    </figcaption>
+                  </li>
+                </ul>
+                <a href="#">več izdelkov iz kategorije...</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer style="background: #DEDFDF; margin-top: 30px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <section class="footer-main">
+            <p><strong>Kibuba d.o.o.</strong><br>Selo pri Vodicah 11c<br>1217 Vodice
+            </p>
+            <ul>
+              <li><a href="#">080 35 56</a></li>
+              <li><a href="#">info@kibuba.com</a></li>
+            </ul>
+            <br>
+            <h3>Lokacije</h3>
+            <ul>
+              <li><a href="#">BTC</a></li>
+                <li><a href="#">Mercator center Šiška</a></li>
+                <li><a href="#">Supernova Rudnik</a></li>
+                <li><a href="#">TUŠ Kranj</a></li>
+                <li><a href="#">Mercator Celje</a></li>
+                <li><a href="#">Avenue Mall Zagreb</a></li>
+            </ul>
+            <h3>Lokacije</h3>
+            <ul>
+              <li><a href="#">BTC</a></li>
+                <li><a href="#">Mercator center Šiška</a></li>
+                <li><a href="#">Supernova Rudnik</a></li>
+                <li><a href="#">TUŠ Kranj</a></li>
+                <li><a href="#">Mercator Celje</a></li>
+                <li><a href="#">Avenue Mall Zagreb</a></li>
+            </ul>
+            <h3>Lokacije</h3>
+            <ul>
+              <li><a href="#">BTC</a></li>
+                <li><a href="#">Mercator center Šiška</a></li>
+                <li><a href="#">Supernova Rudnik</a></li>
+                <li><a href="#">TUŠ Kranj</a></li>
+                <li><a href="#">Mercator Celje</a></li>
+                <li><a href="#">Avenue Mall Zagreb</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <section class="footer-side">
+              <h3>Lokacije</h3>
+              <ul>
+                <li><a href="#">BTC</a></li>
+                <li><a href="#">Mercator center Šiška</a></li>
+                <li><a href="#">Supernova Rudnik</a></li>
+                <li><a href="#">TUŠ Kranj</a></li>
+                <li><a href="#">Mercator Celje</a></li>
+                <li><a href="#">Avenue Mall Zagreb</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky-kit.min.js"></script>
+    <script src="js/easyzoom.js" type="text/javascript"></script>
+    <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
+    <script src="js/jquery.tinycarousel.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function()
+    {
+      $('#slider1').tinycarousel({
+        infinite: false,
+        animationTime: 100
+    });
+    });
+
+    var $easyzoom = $('.easyzoom').easyZoom();
+    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+    $('.thumbnails').on('click', 'a', function(e) {
+      var $this = $(this);
+
+      e.preventDefault();
+
+      // Use EasyZoom's `swap` method
+      api1.swap($this.data('standard'), $this.attr('href'));
+    });
+
+var allLinks = $('.thumbnails a').map( function() {
+    var arr = []
+    var obj = {};
+    obj['href'] = $(this).attr('href');
+    arr.push(obj);
+    return arr;
+}).get();
+ 
+
+$('.easyzoom').click( function() {
+  $.swipebox( allLinks );
+} );
+
+    $('.swipebox').swipebox();
+
+      $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+          e.preventDefault();
+          var param = $(this).attr("href").replace("#","");
+          var concept = $(this).text();
+          $('.search-panel span#search_concept').text(concept);
+          $('.input-group #search_param').val(param);
+        });
+      });
+
+
+$(document).ready(function(){
+  $(".izdelek-menu a").click(function(e) {
+    e.preventDefault();
+ 
+    anchorScroll( $(this), $($(this).attr("href")), 100 );
+  });
+});
+ 
+function anchorScroll(this_obj, that_obj, base_speed) {
+  var this_offset = this_obj.offset();
+  var that_offset = that_obj.offset();
+  var gap = $(".navbar").outerHeight() + $(".naslov").outerHeight() + 50;
+  var offset_diff = Math.abs(that_offset.top - this_offset.top);
+  var speed       = (offset_diff * base_speed) / 1000;
+ 
+  $("html,body").animate({
+    scrollTop: that_offset.top - gap
+  }, speed);
+}
+
+      $(window).on('scroll', function() {
+    $('.target').each(function() {
+        if($(window).scrollTop() >= ($(this).offset().top) -165) {
+
+            var id = $(this).attr('id');
+            $('.izdelek-menu li').removeClass('active');
+            $('.izdelek-menu a[href=#'+ id +']').parent().addClass('active');
+        }
+    });
+});
+$(".navbar").stick_in_parent({
+  parent: "body"
+});
+
+$(".sidebar").stick_in_parent({
+  offset_top: $(".navbar").outerHeight(),
+    parent: "#main"
+});
+
+$('.sidebar')
+.on('sticky_kit:bottom', function(e) {
+    $(this).parent().css('position', 'static');
+})
+.on('sticky_kit:unbottom', function(e) {
+    $(this).parent().css('position', 'relative');
+})
+
+$(".naslov").stick_in_parent({
+  parent: "#main",
+  offset_top: $(".navbar").outerHeight()
+});
+
+    </script>
+  </body>
+</html>
