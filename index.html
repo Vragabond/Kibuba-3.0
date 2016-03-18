@@ -12,10 +12,10 @@
     <link href="css/swipebox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
       .grey { background: #ccc; }
       .greytxt { color: #ccc; }
-      #user_menu { float: right }
+      #user_menu { float: right; font-size: 13px; }
       #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       #user_menu div:last-child { border-right: 0; } 
       .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
@@ -53,13 +53,17 @@
       .izdelek-menu .active a { background: #FF6600; color: #fff;}
       .izdelek-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
 h2 { font-weight: 600; }
-      .ocena { font-size: 12px; }
-      .ocena img { margin-right: 10px; vertical-align: text-bottom; }
-      .ocena strong { color: #FF6600; font-weight: 400}
+
+      .rating { font-size: 12px; }
+      .rating img { vertical-align: text-bottom; position: relative;}
+      .rating strong { color: #FF6600; font-weight: 400}
+      .rating figure { background: #A8A8A8; height: 17px; width: 90px; margin-right: 10px; position: relative; display: inline-block;}
+      .rating span { position: absolute; display: inline-block; background: #FFBA00; height: 17px}
       h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
       p { font-size: 13px; }
       .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
       .cena strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
+
       .cena.akcija strong { color: #FF6600; display:inline-block; margin-left: 30px;}
       .cena.storz {background: #E3E7B4;   padding: 0 15px; line-height:45px; }
       .cena.storz span, .cena.kupcija span {float: right; }
@@ -71,11 +75,12 @@ h2 { font-weight: 600; }
       .zaloga.brez span { background: #AD1E2D; }
       .naslov.is_stuck { background: #fff; box-shadow: 0px 26px 23px 24px #fff ; z-index: 2 }
       .naslov.is_stuck figure, .naslov.is_stuck .novo { display: none; }
-      .naslov.is_stuck .izdelek-menu { float: right; padding-top: 15px; }
-      .naslov.is_stuck h1 { position: absolute; width: 70%; left: -75%; top: -20px; font-size: 20px; background: #fff; padding: 20px 0; box-shadow: 0px 26px 23px 24px #fff }
+      .naslov.is_stuck .izdelek-menu { padding: 15px 0; position: relative; z-index: 3; }
+      .naslov.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 26px 23px 24px #fff; margin: 0; z-index: 2; white-space: nowrap;
+  overflow: hidden;  text-overflow: ellipsis; }
       .popust  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px;}
       .popust .storz {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
-      nav.navbar.is_stuck { z-index: 10; }
+      nav.navbar.is_stuck { z-index: 5; }
 
 .button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
 .button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
@@ -181,6 +186,8 @@ th {width: 30%; vertical-align: top;}
 .mnenja .button:hover { background: #949699 ; color: #fff; }
 
 .sidebar { font-family: 'Roboto Slab', serif;  }
+.sidebar.is_stuck { z-index: 5; }
+.sidebar.is_stuck .button:first-child { margin-top: 15px; }
 .sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
 .button.akcije  { background: #FFAD00; color: #fff;  }
 .button.storzi {background: #A1B007;color: #fff;}
@@ -264,7 +271,7 @@ h3 {font-family: 'Roboto Slab', serif; }
           <div class="col-md-5 pull-right" id="user_menu"  style="padding-top: 28px; text-align: right;">
             <div><i class="fa fa-user"></i> Prijavi se</div>
             <div>O nas <span class="caret"></span></div>
-            <div><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija">Slovenija</div>
+            <div><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Slovenija</div>
             <div><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></div>
           </div>
         </div> 
@@ -523,12 +530,11 @@ h3 {font-family: 'Roboto Slab', serif; }
             <li><a href="#">Lahke</a></li>
             <li class="active">Lahka puhovka Montane Featherlite</li>
             </ol>
-
             <div class="col-md-5">
               <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
                 <a href="img/Puh1-lg.jpg"><img src="img/Puh1.jpg" alt="" width="200" height="350"></a>
               </div>
-              <div id="slider1">
+              <div id="slider1" class="pic-slider">
                 <a class="buttons prev" href="#"><i class="fa fa-chevron-left"></i></a>
                 <div class="viewport">
                   <ul class="thumbnails overview">
@@ -552,9 +558,9 @@ h3 {font-family: 'Roboto Slab', serif; }
                   </ul>
                 </div>
                 <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
-                <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite</h1>
+                <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite Heatherlite Awesomelite</h1>
               </div>
-              <p class="ocena"><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">Na podlagi <strong>34</strong> ocen</p>
+              <div class="rating"><figure><span style="width: 86%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
               <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
               <p class="cena">redna cena:  <strong>219,90&euro;</strong></p>
               <p class="cena akcija">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></p>
@@ -797,7 +803,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                       <strong>299,90€</strong>
                     </figcaption>
                   </li>
-                  <li>
+                  <!--li>
                     <figure><a href="#"><img src="img/sidebar-item2.jpg" alt="1"></a></figure>
                     <figcaption>
                       <h4>Ženska puhovka Montane North Star</h4>
@@ -826,7 +832,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                       <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
                       <strong>299,90€</strong>
                     </figcaption>
-                  </li>
+                  </li-->
                 </ul>
                 <a href="#">več izdelkov iz kategorije...</a>
               </div>
@@ -951,7 +957,7 @@ $(document).ready(function(){
   $(".izdelek-menu a").click(function(e) {
     e.preventDefault();
  
-    anchorScroll( $(this), $($(this).attr("href")), 100 );
+    anchorScroll( $(this), $($(this).attr("href")), 1000 );
   });
 });
  
