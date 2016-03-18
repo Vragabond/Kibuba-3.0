@@ -13,11 +13,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
+
+      /*f   onts*/
+      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
+      h2 { font-weight: 600; }
+      h3 { font-family: 'Roboto Slab', serif; }
+      .item-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
+
+      .button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
+      .button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
+      .button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
+      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
+
+
       .grey { background: #ccc; }
       .greytxt { color: #ccc; }
       #user_menu { float: right; font-size: 13px; }
       #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       #user_menu div:last-child { border-right: 0; } 
+      header {padding: 20px 0}
       .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
       .dropdown-menu { border-radius: 0; border: 0; left: auto;  }
       .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; }
@@ -25,7 +39,7 @@
       .main-menu .full { width: 1170px; left: 0;}
       .nav li {position: static;}
       .nav>li>a {text-transform: uppercase; font-size: 18px;}
-      /*.nav>li>a:hover { background: #C7C7C7 !important; transition: all 100ms linear; }*/
+      nav.navbar.is_stuck { z-index: 6; }
       .dropdown-menu ul { list-style: none; margin: 0; padding: 0 }
       .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-left: 25px; padding-right: 5px; font-family: arial, sans-serif}
       .dropdown-menu a:hover { background: #2C2C2C; color: #fff; text-decoration: none; box-shadow: 0 6px 12px rgba(0,0,0,.175);}
@@ -37,62 +51,70 @@
       .infonav li { display: inline-block; padding: 0 10px;}
       .infonav a {color:#2C2C2C;}
       .infonav strong {font-weight: 600}
+
       .breadcrumb { background: transparent; font-size: 11px}
       .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
       .breadcrumb a {color: #808080; }
       .breadcrumb a:hover {text-decoration: none;color: #FF6600}
 
-      .izdelek-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
-      .naslov figure {margin-top: 15px;}
-      .naslov h1 {margin-top: 10px;}
-      .naslov .box {}
-      .izdelek-menu ul {list-style: none; margin: 0;padding: 0}
-      .izdelek-menu li {display: inline-block; position: relative;}
-      .izdelek-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
-      .izdelek-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
-      .izdelek-menu .active a { background: #FF6600; color: #fff;}
-      .izdelek-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
-h2 { font-weight: 600; }
+      .easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
+      .easyzoom a { display: inline-block;width: 100% }
+      .easyzoom img {  vertical-align: bottom;}
+      .easyzoom.is-loading img {  cursor: progress;}
+      .easyzoom.is-ready img {  cursor: crosshair;}
+      .easyzoom.is-error  img {  cursor: not-allowed;}
+      .easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
+      .easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
+      .easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
+      .easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
+      .thumbnails a {display: inline-block;   text-align: center;}
 
-      .rating { font-size: 12px; }
+      .item-title figure {margin-top: 15px;}
+      .item-title h1 {margin-top: 10px;}
+      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 2 }
+      .item-title.is_stuck figure, .item-title.is_stuck .novo { display: none; }
+      .item-title.is_stuck .item-menu { padding: 15px 0; position: relative; z-index: 3; }
+      .item-title.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 15px 10px 3px #fff; margin: 0; z-index: 2; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis; }
+
+      .item-menu li {display: inline-block; position: relative;}
+      .item-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
+      .item-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
+      .item-menu .active a { background: #FF6600; color: #fff;}
+      .item-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
+
+      .item-info { font-size: 12px; }
+      .item-info div { margin-bottom: 10px; }
+      .item-info .rating figure { margin-right: 10px; }
       .rating img { vertical-align: text-bottom; position: relative;}
-      .rating strong { color: #FF6600; font-weight: 400}
-      .rating figure { background: #A8A8A8; height: 17px; width: 90px; margin-right: 10px; position: relative; display: inline-block;}
+      .rating figure { background: #A8A8A8; height: 17px; width: 90px; position: relative; display: inline-block;}
       .rating span { position: absolute; display: inline-block; background: #FFBA00; height: 17px}
-      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
-      p { font-size: 13px; }
-      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .cena strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
+      .rating strong { color: #FF6600; font-weight: 400}
 
-      .cena.akcija strong { color: #FF6600; display:inline-block; margin-left: 30px;}
-      .cena.storz {background: #E3E7B4;   padding: 0 15px; line-height:45px; }
-      .cena.storz span, .cena.kupcija span {float: right; }
-      .cena.storz i { background-image: url(img/storz.png);background-repeat: no-repeat; display: inline-block; width: 25px; height: 26px; vertical-align: middle; margin-right: 10px;}
-      .cena.kupcija {background: #FFE6B2; padding: 0 15px; line-height:45px; }
-      .cena.kupcija i { margin-right: 10px; font-size: 26px; vertical-align: middle;}
-      .zaloga { color: #70AB07; text-decoration: underline;}
-      .zaloga span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
-      .zaloga.brez span { background: #AD1E2D; }
-      .naslov.is_stuck { background: #fff; box-shadow: 0px 26px 23px 24px #fff ; z-index: 2 }
-      .naslov.is_stuck figure, .naslov.is_stuck .novo { display: none; }
-      .naslov.is_stuck .izdelek-menu { padding: 15px 0; position: relative; z-index: 3; }
-      .naslov.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 26px 23px 24px #fff; margin: 0; z-index: 2; white-space: nowrap;
-  overflow: hidden;  text-overflow: ellipsis; }
-      .popust  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px;}
-      .popust .storz {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
-      nav.navbar.is_stuck { z-index: 5; }
+      .price {line-height:45px;}
+      .price strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
+      .price span { float: right; }
+      .price i { vertical-align: middle; margin-right: 10px; display: inline-block;}
 
-.button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
-.button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
+      .price.action strong { color: #FF6600; display:inline-block; margin-left: 30px;}
+      .price.program { background: #E3E7B4;   padding: 0 15px; }
+      .price.program i { background-image: url(img/storz.png); background-repeat: no-repeat; width: 25px; height: 26px; }
+      .price.deal {background: #FFE6B2; padding: 0 15px;  }
+      .price.deal i { font-size: 26px; }
+      
+      .stock { color: #70AB07; text-decoration: underline; }
+      .stock span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
+      .stock.none span { background: #AD1E2D; }
 
-      .izdelek-moznosti .form-group {width: 50%}
-      .izdelek-moznosti select {width: 100% !important}
-      .izdelek-moznosti button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
-      .izdelek-moznosti button:hover {border: none; background: #000}
-      .popust { vertical-align: bottom; }
-      .popust a {text-decoration: none; color: #000; opacity: .3;}
-      .popust a:hover { opacity: 0.6; }
-      .barve {list-style: none; margin: 0; padding: 0;}
+      .item-options .form-group {width: 50%}
+      .item-options select {width: 100% !important}
+      .item-options button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
+      .item-options button:hover {border: none; background: #000}
+
+      .discount  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px; vertical-align: bottom;}
+      .discount .cone {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
+      .discount a { text-decoration: none; color: #000; opacity: .3; display: block;}
+      .discount a:hover { opacity: 0.6; }
+
       .barve li {display: inline-block; margin: 0;}
       .barve a { display: inline-block; width: 23px; height: 23px; margin-right: 5px; }
       .barve .orange a { background: #DD4320; }
@@ -104,125 +126,104 @@ h2 { font-weight: 600; }
       .kosarica i { margin-right: 10px }
       .kosarica button { background: #FF6600; color: #fff; margin-left: 0;} 
 
-.easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
-.easyzoom a { display: inline-block;width: 100% }
-.easyzoom img {  vertical-align: bottom;}
-.easyzoom.is-loading img {  cursor: progress;}
-.easyzoom.is-ready img {  cursor: crosshair;}
-.easyzoom.is-error  img {  cursor: not-allowed;}
-.easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
-.easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
-.easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
-.easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
-/*.thumbnails { list-style: none; padding: 0; margin: 15px 20px 0;}*/
-/*.thumbnails li {display: inline-block;}*/
-.thumbnails a {display: inline-block;   text-align: center;}
+      .related-items { font-family: 'Roboto Slab', serif; }
+      .related-items h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+      .related-items li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
+      .related-items article { width: 90%; margin: 0 auto; padding: 5px 20px;}
+      .related-items article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+      .related-items figure { line-height: 255px;}
+      .related-items img { vertical-align: middle; }
+      .related-items h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
+      .related-items strong {display: block; line-height: 35px;}
 
-/* Tiny Carousel */
-#slider1 {    height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
-#slider1 .viewport {height: 73px ;overflow: hidden;    position: relative;}
-#slider1 .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
-#slider1 .next {    right: 0;    left: auto;    top: 25%;}
-#slider1 .buttons:hover {    color: #FF6600;    background: #fff;}
-#slider1 .disable {    visibility: hidden;}
-#slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
-#slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
+      .item-pic {font-family: 'Roboto Slab', serif;}
+      .item-pic .button {float: right;}
+      .item-pic .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
+      .item-pic h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
+      .item-pic li {width: 20%; float: left; min-width: 155px;}
+      .item-pic li a:hover {opacity: .7;}
+      .item-pic figure { width: 150px; margin: 0 auto; }
+      .item-pic figcaption { text-align: center; margin-top: 10px;}
+      .item-pic .overlay { position: absolute;height: 150px; line-height: 140px; width: 150px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
+      .overlay a { text-decoration: none; font-size: 50px; color: #fff; }
 
-.komplet { font-family: 'Roboto Slab', serif; overflow: auto }
-.komplet h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.komplet ul { margin: 0; padding: 0; list-style: none; }
-.komplet li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
-.komplet article { width: 90%; margin: 0 auto; padding: 5px 20px;}
-.komplet article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.komplet figure { line-height: 255px;}
-.komplet img { vertical-align: middle; }
-.komplet h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-.komplet strong {display: block; line-height: 35px;}
+      .item-desc h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
+      table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
+      table img { float: left; margin-right: 5px; }
+      .cat { font-weight: 600; }
+      td strong {color: #FF6600;}
+      th {width: 30%; vertical-align: top;}
 
-.fotografije {font-family: 'Roboto Slab', serif;overflow: auto;}
-.fotografije .button {float: right;}
-.button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
-.fotografije .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
-.fotografije h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-.fotografije ul {margin: 0; padding: 0; list-style: none;}
-.fotografije li {width: 20%; float: left; min-width: 155px;}
-.fotografije li a:hover {opacity: .7;}
-.fotografije figure { width: 150px; margin: 0 auto; }
-figure.disabled {}
-.fotografije figcaption { text-align: center; }
-.fotografije .overlay { position: absolute;height: 150px; line-height: 140px; width: 150px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
-.overlay a { text-decoration: none; font-size: 50px; color: #fff; }
-.fotografije figcaption { margin-top: 10px; }
+      .promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
+      .promo { font-family: 'Roboto Slab', serif; }
+      .promo h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+      .promo li { width: 20%; float: left; text-align: center;  }
+      .promo article { width: 90%; margin: 0 auto;}
+      .promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+      .promo figure { line-height: 150px;}
+      .promo img { vertical-align: middle; }
+      .promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
+      .promo strong {display: block; line-height: 35px;}
 
-.opis {margin-top: 2.5em}
-.opis h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
-table img { float: left; margin-right: 5px; }
-.cat { font-weight: 600; }
-td strong {color: #FF6600;}
-th {width: 30%; vertical-align: top;}
+      .item-review li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
+      .item-review li:first-child { border-top: none; margin-top: 0;}
+      .item-review h2, .item-review h3 {  font-family: 'Roboto Slab', serif;  }
+      .item-review h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em; }
+      .item-review h3 {font-size: 15px; }
+      .item-review img { vertical-align: baseline; margin-right: 10px }
+      .mnenje-ocena { color: #808080; }
+      .item-review .button { background: #D3D4D5 ; color: #58595B; }
+      .item-review .button:hover { background: #949699 ; color: #fff; }
 
-.promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
-.promo { font-family: 'Roboto Slab', serif; }
-.promo h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.promo ul { margin: 0; padding: 0; list-style: none; }
-.promo li { width: 20%; float: left; text-align: center;  }
-.promo article { width: 90%; margin: 0 auto;}
-.promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.promo figure { line-height: 150px;}
-.promo img { vertical-align: middle; }
-.promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
-.promo strong {display: block; line-height: 35px;}
+      #slider1 {    height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
+      #slider1 .viewport {height: 73px ;overflow: hidden;    position: relative;}
+      #slider1 .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
+      #slider1 .next {    right: 0;    left: auto;    top: 25%;}
+      #slider1 .buttons:hover {    color: #FF6600;    background: #fff;}
+      #slider1 .disable {    visibility: hidden;}
+      #slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
+      #slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
 
-.mnenja ul { margin: 0; padding: 0; list-style: none; }
-.mnenja li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
-.mnenja li:first-child { border-top: none; }
-.mnenja h2, .mnenja h3 {  font-family: 'Roboto Slab', serif;  }
-.mnenja h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em; }
-.mnenja h3 {font-size: 15px; }
-.mnenja img { vertical-align: baseline; margin-right: 10px }
-.mnenje-ocena { color: #808080; }
-.mnenja .button { background: #D3D4D5 ; color: #58595B; }
-.mnenja .button:hover { background: #949699 ; color: #fff; }
+      .sidebar { font-family: 'Roboto Slab', serif;  }
+      .sidebar.is_stuck { z-index: 5; }
+      .sidebar.is_stuck .button:first-child { margin-top: 15px; }
+      .sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
+      .button.akcije  { background: #FFAD00; color: #fff;  }
+      .button.storzi {background: #A1B007;color: #fff;}
+      .button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
+      .placilo h4 {font-size: 12px;}
+      .placilo i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
+      .akcije strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
+      .storzi strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
+      .storzi span { display: inline-block; vertical-align: middle; width: 45%;}
 
-.sidebar { font-family: 'Roboto Slab', serif;  }
-.sidebar.is_stuck { z-index: 5; }
-.sidebar.is_stuck .button:first-child { margin-top: 15px; }
-.sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
-.button.akcije  { background: #FFAD00; color: #fff;  }
-.button.storzi {background: #A1B007;color: #fff;}
-.button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
-.placilo h4 {font-size: 12px;}
-.placilo i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
-.akcije strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
-.storzi strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
-.storzi span { display: inline-block; vertical-align: middle; width: 45%;}
+      .sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
+      .sidebar ul { margin: 0; padding: 0; list-style: none; }
+      .sidebar li {  }
+      .sidebar li:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
+      .sidebar figure { line-height: 150px; display: inline-block;}
+      .sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
+      .sidebar del {display: block;}
+      .sidebar strong.znizanje { color: #FF6600; }
+      .sidebar h4 { display: inline-block; font-size: 13px;}
+      .sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
+      .sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
+      .sidebar select {float: right; margin-top: 20px; }
 
-.sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.sidebar ul { margin: 0; padding: 0; list-style: none; }
-.sidebar li {  }
-.sidebar li:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.sidebar figure { line-height: 150px; display: inline-block;}
-.sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
-.sidebar del {display: block;}
-.sidebar strong.znizanje { color: #FF6600; }
-.sidebar h4 { display: inline-block; font-size: 13px;}
-.sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
-.sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
-.sidebar select {float: right; margin-top: 20px; }
+      /*.opis table, .opis tr, .opis td, .opis th { display: block; }*/
+      .no-bullet { list-style: none; margin: 0; padding: 0; }
 
-footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
-.footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
-footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
-footer h3 { font-size:14px; font-weight:700;}
-footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
-footer li { line-height:21px; }
-footer li:before { content: "> "; }
-footer li a {color:#2d2d2d;}
-footer li a:hover {color:#000;}
-.footer-side h3 {margin-top: 0;}
-
-h3 {font-family: 'Roboto Slab', serif; }
+      footer {background: #DEDFDF; margin-top: 30px}
+      footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
+      .footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
+      footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
+      footer h3 { font-size:14px; font-weight:700;}
+      footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
+      footer li { line-height:21px; }
+      footer li:before { content: "> "; }
+      footer li a {color:#2d2d2d;}
+      footer li a:hover {color:#000;}
+      .footer-side h3 {margin-top: 0;}
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -235,7 +236,7 @@ h3 {font-family: 'Roboto Slab', serif; }
   <body>
     <div class="container">
       <div class="row">
-        <header style="padding: 20px;">
+        <header>
         <div class="row visible-xs-block visible-sm-block">
           <div class="col-xs-2">Meni</div>
           <div class="col-xs-2">Iskanje</div>
@@ -519,16 +520,16 @@ h3 {font-family: 'Roboto Slab', serif; }
         </nav>
       </div>
     </div>
-    <div class="container" >
+    <div class="container">
       <div class="row" id="main">
         <div class="col-md-9">
           <div class="row">
             <ol class="breadcrumb">
-            <li><a href="#">Katalog</a></li>
-            <li><a href="#">Jakne, puhovke in flisi</a></li>
-            <li><a href="#">Puhovke in Primaloft</a></li>
-            <li><a href="#">Lahke</a></li>
-            <li class="active">Lahka puhovka Montane Featherlite</li>
+              <li><a href="#">Katalog</a></li>
+              <li><a href="#">Jakne, puhovke in flisi</a></li>
+              <li><a href="#">Puhovke in Primaloft</a></li>
+              <li><a href="#">Lahke</a></li>
+              <li class="active">Lahka puhovka Montane Featherlite</li>
             </ol>
             <div class="col-md-5">
               <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
@@ -549,26 +550,28 @@ h3 {font-family: 'Roboto Slab', serif; }
               </div>
             </div>
             <div class="col-md-7">
-              <div class="naslov">
-                <div class="izdelek-menu">
-                  <ul>
-                    <li><a href="#opis">Opis izdelka</a></li>
-                    <li><a href="#mnenja">Mnenja uporabnikov</a></li>
-                    <li><a href="#slike">Fotografije uporabnikov</a></li>
+              <div class="item-title">
+                <div class="item-menu">
+                  <ul class="no-bullet">
+                    <li><a href="#item-desc">Opis izdelka</a></li>
+                    <li><a href="#item-review">Mnenja uporabnikov</a></li>
+                    <li><a href="#item-pic">Fotografije uporabnikov</a></li>
                   </ul>
                 </div>
                 <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
                 <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite Heatherlite Awesomelite</h1>
               </div>
-              <div class="rating"><figure><span style="width: 86%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
-              <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
-              <p class="cena">redna cena:  <strong>219,90&euro;</strong></p>
-              <p class="cena akcija">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></p>
-              <p class="cena storz"><span>v primeru, da imate <em>23,45</em> storža</span><i></i>cena s storži:  <strong>179,90&euro;</strong></p>
-              <p class="cena kupcija"><span>dodajte <em>15</em> storžev</span><i class="fa fa-dot-circle-o"></i>kibubina kupčija  <strong>149,90&euro;</strong></p>
-              <p class="zaloga"><span>na zalogi</span>Predvidena dostava na vaš naslov: petek, 18.09.2015</p>
-              <p class="zaloga brez"><span>ni na zalogi</span></p>
-              <div class="izdelek-moznosti">
+              <div class="item-info">
+                <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
+                <div>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</div>
+                <div class="price">redna cena:  <strong>219,90&euro;</strong></div>
+                <div class="price action">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></div>
+                <div class="price program"><span>v primeru, da imate <em>23,45</em> storža</span><i></i>cena s storži:  <strong>179,90&euro;</strong></div>
+                <div class="price deal"><span>dodajte <em>15</em> storžev</span><i class="fa fa-dot-circle-o"></i>kibubina kupčija  <strong>149,90&euro;</strong></div>
+                <div class="stock"><span>na zalogi</span>Predvidena dostava na vaš naslov: petek, 18.09.2015</div>
+                <div class="stock none"><span>ni na zalogi</span></div>
+              </div>
+              <div class="item-options">
                 <form class="form-inline">
                   <div class="form-group">
                     <select class="form-control">
@@ -579,9 +582,9 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </select>
                   </div>
                   <button type="submit" class="btn btn-primary">izpis zaloge</button>
-                  <div class="popust">
+                  <div class="discount">
                     <a href="#">
-                      <i class="storz"></i>
+                      <i class="cone"></i>
                       <strong>DO 20%</strong> CENEJE
                     </a>
                   </div>
@@ -598,9 +601,9 @@ h3 {font-family: 'Roboto Slab', serif; }
               </div>
             </div>
             <div class="col-md-12">
-              <aside class="komplet">
+              <aside class="related-items clearfix">
                 <h2 class="target">Nakup v kompletu je cenejši</h2>
-                <ul>
+                <ul class="no-bullet">
                   <li>
                     <article>
                       <figure><a href="#"><img src="img/komplet1.jpg"></a></figure>
@@ -627,19 +630,18 @@ h3 {font-family: 'Roboto Slab', serif; }
                   </li>
                 </ul>
               </aside>
-              <section class="fotografije">
-                <a href="" class="button black">dodaj svojo fotografijo</a><h2 class="target" id="slike">Fotografije uporabnikov</h2>
-                <ul>
+              <section class="item-pic clearfix">
+                <a href="" class="button black">dodaj svojo fotografijo</a><h2 class="target" id="item-pic">Fotografije uporabnikov</h2>
+                <ul class="no-bullet">
                   <li><figure><a href="#"><img src="img/uporabnik1.jpg"></a><figcaption>J. K. Kamnik</figcaption></figure></li>
                   <li><figure><a href="#"><img src="img/uporabnik2.jpg"></a><figcaption>Đ. M. Medvode</figcaption></figure></li>
                   <li><figure><a href="#"><img src="img/uporabnik3.jpg"></a><figcaption>M. P., Celje</figcaption></figure></li>
                   <li><figure><a href="#"><img src="img/uporabnik4.jpg"></a><figcaption>J. K., Murska Sobota</figcaption></figure></li>
                   <li><figure class="disabled"><div class="overlay"><a href="#">+32</a></div><img src="img/uporabnik5.jpg"></figure></li>
                 </ul>
-                <p></p>
               </section> 
-              <section class="opis">
-                <h2 class="target"  id="opis">Opis izdelka</h2>
+              <section class="item-desc">
+                <h2 class="target"  id="item-desc">Opis izdelka</h2>
                 <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -658,7 +660,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                           <td><img src="img/mat-brand2.jpg"><strong>PERTEX Quantum</strong>. Lahek material, 100% nepropusten za veter.</td>
                         </tr>
                         <tr>
-                          <th>Kapuca:</t>
+                          <th>Kapuca:</th>
                           <td>Tri točkovno popolnoma nastavljiva kapuca, ki jo lahko nosite preko plezalne čelade.</td>
                         </tr>
                         <tr>
@@ -712,9 +714,9 @@ h3 {font-family: 'Roboto Slab', serif; }
                   </div>
                 </div>
               </section>
-              <aside class="promo">
+              <aside class="promo clearfix">
                   <h2 class="target">Ne spreglejte</h2>
-                  <ul class="clearfix">
+                  <ul class="no-bullet">
                     <li>
                       <article>
                         <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
@@ -757,9 +759,9 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                   </ul>
               </aside>
-              <section class="mnenja">
-                <h2 class="target" id="mnenja">Mnenja uporabnikov</h2>
-                <ul>
+              <section class="item-review">
+                <h2 class="target" id="item-review">Mnenja uporabnikov</h2>
+                <ul class="no-bullet">
                   <li>
                     <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Nejc V., Ljubljana</h3>
                     <p>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</p>
@@ -818,7 +820,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                       <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
                       <strong>299,90€</strong>
                     </figcaption>
-                  </li>
+                  </li-->
                   <li>
                     <figure><img src="img/sidebar-item4.jpg" alt="1"></a></figure>
                     <figcaption>
@@ -832,7 +834,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                       <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
                       <strong>299,90€</strong>
                     </figcaption>
-                  </li-->
+                  </li>
                 </ul>
                 <a href="#">več izdelkov iz kategorije...</a>
               </div>
@@ -841,7 +843,7 @@ h3 {font-family: 'Roboto Slab', serif; }
         </div>
       </div>
     </div>
-    <footer style="background: #DEDFDF; margin-top: 30px">
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-9">
@@ -954,17 +956,16 @@ $('.easyzoom').click( function() {
 
 
 $(document).ready(function(){
-  $(".izdelek-menu a").click(function(e) {
+  $(".item-menu a").click(function(e) {
     e.preventDefault();
- 
-    anchorScroll( $(this), $($(this).attr("href")), 1000 );
+     anchorScroll( $(this), $($(this).attr("href")), 1000 );
   });
 });
  
 function anchorScroll(this_obj, that_obj, base_speed) {
   var this_offset = this_obj.offset();
   var that_offset = that_obj.offset();
-  var gap = $(".navbar").outerHeight() + $(".naslov").outerHeight() + 50;
+  var gap = $(".navbar").outerHeight() + $(".item-title").outerHeight() + 30;
   var offset_diff = Math.abs(that_offset.top - this_offset.top);
   var speed       = (offset_diff * base_speed) / 1000;
  
@@ -978,8 +979,8 @@ function anchorScroll(this_obj, that_obj, base_speed) {
         if($(window).scrollTop() >= ($(this).offset().top) -165) {
 
             var id = $(this).attr('id');
-            $('.izdelek-menu li').removeClass('active');
-            $('.izdelek-menu a[href=#'+ id +']').parent().addClass('active');
+            $('.item-menu li').removeClass('active');
+            $('.item-menu a[href=#'+ id +']').parent().addClass('active');
         }
     });
 });
@@ -993,14 +994,14 @@ $(".sidebar").stick_in_parent({
 });
 
 $('.sidebar')
-.on('sticky_kit:bottom', function(e) {
-    $(this).parent().css('position', 'static');
+.on('sticky_kit:stick', function(e) {
+    $(this).parentsUntil('#main').css('position', 'static');
 })
-.on('sticky_kit:unbottom', function(e) {
-    $(this).parent().css('position', 'relative');
+.on('sticky_kit:unstick', function(e) {
+    $(this).parentsUntil('#main').css('position', 'relative');
 })
 
-$(".naslov").stick_in_parent({
+$(".item-title").stick_in_parent({
   parent: "#main",
   offset_top: $(".navbar").outerHeight()
 });
