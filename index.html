@@ -18,6 +18,7 @@
       h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
       h2 { font-family: 'Roboto Slab', 'Times New Roman', serif; font-weight: 600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; }
       h3 { font-family: 'Roboto Slab', serif; }
+      a { color: #000; }
       .item-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
 
       .button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
@@ -32,6 +33,7 @@
       .user-menu { float: right; font-size: 13px; position: relative; }
       .user-menu>ul>li { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       .user-menu>ul>li:last-child { border-right: 0; } 
+      .user-menu a { color: #000; }
       .cart {  background: #ccc; right: 15px; left: 0; position: absolute; padding: 20px 10px; z-index: 10; min-height: 150px}
 
 
@@ -56,29 +58,32 @@
       .infonav a {color:#2C2C2C;}
       .infonav strong {font-weight: 600}
 
-      .breadcrumb { background: transparent; font-size: 11px}
+      .breadcrumb { background: transparent; font-size: 11px; margin: 0; padding:0 ;}
       .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
       .breadcrumb a {color: #808080; }
       .breadcrumb a:hover {text-decoration: none;color: #FF6600}
 
-      .easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
+      .easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center; margin-top: 15px}
+      .easyzoom .fullscreen { position: absolute; z-index: 3; right: 0; top: 0; padding: 5px; font-size: 20px; background: rgba(255,255,255,.5) }
       .easyzoom a { display: inline-block;width: 100% }
       .easyzoom img {  vertical-align: bottom;}
       .easyzoom.is-loading img {  cursor: progress;}
       .easyzoom.is-ready img {  cursor: crosshair;}
       .easyzoom.is-error  img {  cursor: not-allowed;}
       .easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
-      .easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
+      .easyzoom-flyout {  position:absolute;  z-index: 2;  overflow: hidden;  background: #FFF;}
       .easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
       .easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
       .thumbnails a {display: inline-block;   text-align: center;}
 
+      .item-title {padding: 15px 0;}
       .item-title figure {margin-top: 15px;}
       .item-title h1 {margin-top: 10px;}
-      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 2 }
+      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 2; }
       .item-title.is_stuck figure, .item-title.is_stuck .novo { display: none; }
-      .item-title.is_stuck .item-menu { padding: 15px 0; position: relative; z-index: 3; }
+      .item-title.is_stuck .item-menu { position: relative; z-index: 3; }
       .item-title.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 15px 10px 3px #fff; margin: 0; z-index: 2; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis; }
+      .item-title.is_stuck h1:hover { width: 875px; z-index: 4}
 
       .item-menu li {display: inline-block; position: relative;}
       .item-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
@@ -203,9 +208,10 @@
       #slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
       #slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
 
-      .sidebar { font-family: 'Roboto Slab', serif;  }
+      .sidebar { font-family: 'Roboto Slab', serif; padding-top: 15px;  }
       .sidebar.is_stuck { z-index: 5; }
-      .sidebar.is_stuck .button:first-child { margin-top: 15px; }
+      /*.sidebar.is_stuck .button:first-child { margin-top: 15px; }*/
+      .sidebar .button:first-child { margin-top: 0; }
       .sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
       .button.akcije  { background: #FFAD00; color: #fff;  }
       .button.storzi {background: #A1B007;color: #fff;}      .button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
@@ -569,6 +575,7 @@
             <div class="col-md-5">
               <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
                 <a href="img/Puh1-lg.jpg"><img src="img/Puh1.jpg" alt="" width="200" height="350"></a>
+                <div class="fullscreen"><a href="img/Puh1-lg.jpg"><i class="fa fa-expand"></i></a></div>
               </div>
               <div id="slider1" class="pic-slider">
                 <a class="buttons prev" href="#"><i class="fa fa-chevron-left"></i></a>
@@ -578,7 +585,7 @@
                     <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt=""></a></li>
                     <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
                     <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
+                    <li><a class="swipebox-video" rel="youtube" href="https://www.youtube.com/watch?v=P_FfRT6dqo4"><img src="img/Puh3-tm.jpg" alt=""></a></li>
                   </ul>
                 </div>
                 <a class="buttons next" href="#"><i class="fa fa-chevron-right"></i></a>
@@ -594,7 +601,7 @@
                   </ul>
                 </div>
                 <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
-                <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite Heatherlite Awesomelite</h1>
+                <div class="button novo rep">novo</div><h1>Ženska aktivna majica z dolgimi rokavi Thermowave Originals</h1>
               </div>
               <div class="item-info">
                 <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
@@ -635,7 +642,7 @@
                   <img src="img/social.png">
                 </form>
               </div>
-            </div>
+           </div>
             <div class="col-md-12">
               <section class="stock-table">
                 <div class="button"><a href="#">ni vaše velikosti?</a></div>
@@ -1094,14 +1101,13 @@
 
     $('.thumbnails').on('click', 'a', function(e) {
       var $this = $(this);
-
       e.preventDefault();
-
+      window.item = $(this).parent().index();
       // Use EasyZoom's `swap` method
       api1.swap($this.data('standard'), $this.attr('href'));
     });
 
-var allLinks = $('.thumbnails a').map( function() {
+    var allLinks = $('.thumbnails a').map( function() {
     var arr = []
     var obj = {};
     obj['href'] = $(this).attr('href');
@@ -1111,10 +1117,14 @@ var allLinks = $('.thumbnails a').map( function() {
  
 
 $('.easyzoom').click( function() {
-  $.swipebox( allLinks );
+  $.swipebox( allLinks, {initialIndexOnArray : window.item} );
 } );
-
-    $('.swipebox').swipebox();
+/*
+$('.fullscreen a').click( function() {
+  $.swipebox( allLinks, {initialIndexOnArray : window.item} );
+} );
+*/
+    $('.swipebox-video').swipebox();
 
       $(document).ready(function(e){
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
