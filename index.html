@@ -200,14 +200,12 @@
       .item-review .button { background: #D3D4D5 ; color: #58595B; }
       .item-review .button:hover { background: #949699 ; color: #fff; }
 
-      #slider1 {    height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
-      #slider1 .viewport {height: 73px ;overflow: hidden;    position: relative;}
-      #slider1 .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
-      #slider1 .next {    right: 0;    left: auto;    top: 25%;}
-      #slider1 .buttons:hover {    color: #FF6600;    background: #fff;}
-      #slider1 .disable {    visibility: hidden;}
-      #slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
+      #slider1 {margin: 15px 0 0; position: relative; padding: 0 20px 10px;}
       #slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
+      .microfiche-controls {position: absolute;top: 25%;left: 0px;width: 100%; }
+      .microfiche-film {z-index: 2}
+      .microfiche-button { background: none; border: none; }
+      .microfiche-next-button {right: 0; position: absolute;}
 
       .sidebar { font-family: 'Roboto Slab', serif; padding-top: 15px;  }
       .sidebar.is_stuck { z-index: 5; }
@@ -577,20 +575,17 @@
             <div class="fullscreen"><a href="#"><i class="fa fa-expand"></i></a></div>
               <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
                 <a href="img/Puh1-lg.jpg"><img src="img/Puh1.jpg" alt="" width="200" height="350"></a>
-                
               </div>
-              <div id="slider1" class="pic-slider">
-                <a class="buttons prev" href="#"><i class="fa fa-chevron-left"></i></a>
-                <div class="viewport">
-                  <ul class="thumbnails overview">
-                    <li><a href="img/Puh1-lg.jpg" data-standard="img/Puh1.jpg"><img src="img/Puh1-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                    <li><a class="swipebox-video" rel="youtube" href="https://www.youtube.com/watch?v=P_FfRT6dqo4"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                  </ul>
-                </div>
-                <a class="buttons next" href="#"><i class="fa fa-chevron-right"></i></a>
+              <div id="slider1">
+                <ul class="thumbnails overview no-bullet">
+                  <li><a href="img/Puh1-lg.jpg" data-standard="img/Puh1.jpg"><img src="img/Puh1-tm.jpg" alt=""></a></li>
+                  <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt=""></a></li>
+                  <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
+                  <li><a href="img/Puh4-lg.jpg" data-standard="img/Puh4.jpg"><img src="img/Puh4-tm.jpg" alt=""></a></li>
+                  <li><a href="img/Puh5-lg.jpg" data-standard="img/Puh5.jpg"><img src="img/Puh5-tm.jpg" alt=""></a></li>
+                  <li><a href="img/Puh6-lg.jpg" data-standard="img/Puh6.jpg"><img src="img/Puh6-tm.jpg" alt=""></a></li>
+                  <li><a class="swipebox-video" rel="youtube" href="https://www.youtube.com/watch?v=P_FfRT6dqo4"><img src="img/Puh-video.jpg" alt=""></a></li>
+                </ul>
               </div>
             </div>
             <div class="col-md-7">
@@ -1088,15 +1083,10 @@
     <script src="js/easyzoom.js" type="text/javascript"></script>
     <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
     <script src="js/jquery.tinycarousel.min.js" type="text/javascript"></script>
+    <script src="js/microfiche.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-    $(document).ready(function()
-    {
-      $('#slider1').tinycarousel({
-        infinite: false,
-        animationTime: 100
-    });
-    });
+    $('#slider1').microfiche({ bullets: false, buttons: true, prevButtonLabel: '<i class="fa fa-chevron-left"></i>', nextButtonLabel: '<i class="fa fa-chevron-right"></i>'  });
 
     var $easyzoom = $('.easyzoom').easyZoom();
     var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
