@@ -12,10 +12,16 @@
     <link href="css/swipebox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
+    html {font-size: 62.5%;}
+    body {font-size: 1rem;}
+    a { color: #000; }
+    strong { font-size:1.4rem; }
+    .button { font-size: 1.4rem; }
+    .no-bullet { list-style: none; margin: 0; padding: 0; }
       .grey { background: #ccc; }
       .greytxt { color: #ccc; }
-      #user_menu { float: right; font-size: 13px; }
+      #user_menu { float: right; font-size: 1.3rem; }
       #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       #user_menu div:last-child { border-right: 0; } 
       .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
@@ -405,16 +411,19 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
 .products-sale li { width: 16.6%; min-height: 380px; float: left; text-align: center;  }
 .products-sale article { width: 95%; margin: 0 auto; padding: 5px; position: relative;}
 .products-sale article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.products-sale figure { line-height: 255px;}
+.item-photo { /*line-height: 255px;*/}  
 .products-sale img { vertical-align: middle; }
 .products-sale h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
 .price-correction { display: block; line-height: 35px}
-.products-sale strong {display: block; line-height: 35px;}
-.products-sale .item-5 li { width: 195px; }
+.products-sale strong {display: block; line-height: 35px; font-size: 1.5rem;}
+.item-5 li { width: 195px; }
 .price-correction del, .price-correction strong { display: inline-block; }
 .price-correction strong { color: #FF6600; margin-left: 15px;}
+.products-sale .overlay { position: absolute; bottom: 0; top: 0; left: 0; right: 0; line-height: 240px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden; z-index: 2}
 
-.products-sale .overlay { position: absolute; bottom: 0; top: 0; left: 0; right: 0; line-height: 240px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
+      .rating img { vertical-align: top; position: relative;}
+      .rating figure { background: #A8A8A8; height: 17px; width: 90px; position: relative; display: inline-block;}
+      .rating span { position: absolute; display: inline-block; background: #FFBA00; height: 17px}
 
 .products-sale .slider-control { float: right; margin: 15px 20px 0; ; }
 .slider-control a { color: #808080; text-decoration: none; display: inline-block; margin-right: 5px; background: #D8D9DA; padding: 5px 8px;}
@@ -422,7 +431,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
 .new h2, .new h3, .new h4 { font-family: 'Roboto Slab', serif; }
 .new h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7; padding-bottom: 0.3em;}
 .new h3 { font-size: 22px; font-weight: 600; margin-top: 5px; position: relative;}
-.new-item { float: left; margin-right: 40px; }
+.new-item { float: left; margin-right: 5%; }
 .new-promo { float: right;  margin-left: 30px; position: relative;}
 .new-promo .button { font-size: 20px; top: 60%; right: 20%; font-weight: 600}
 .new p { margin: 20px 0; }
@@ -430,12 +439,13 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
 .new del { font-weight: 600; }
 .new strong { color: #FF6600; font-size: 28px; display: block; }
 .new .button { display: inline-block; font-family: 'Roboto Slab', serif; }
+.button-container { text-align: right; }
 .button.static { font-family: 'Roboto Slab', serif;position: relative; text-transform: uppercase; background: #009BDC; color: #fff; }
 
-.new-banner { clear: both;width: 100%; margin-top: 20px; height: 351px; background: url(img/new-banner.jpg); border-top: 20px solid #fff }
-.new-banner h3, .new-banner h4 { color: #fff; font-size: 55px; margin-right: 50px; text-align: right; font-weight: 600}
-.new-banner h4 { width: 400px; margin-left: auto; font-size: 40px; line-height: 1.5; margin-top: 40px;}
-.new-banner strong {color: #FF6600;}
+.new-banner { clear: both;width: 100%; margin-top: 20px; height: 351px; background: url(img/new-banner.jpg); }
+.new-banner h3, .new-banner h4 { color: #fff; font-size: 5.5em; padding-top: 5%; margin-right: 5%; text-align: right; font-weight: 600}
+.new-banner h4 { width: 35%; margin-left: auto; font-size: 4em; line-height: 1.5; margin-top: 3%;}
+.new-banner strong {color: #FF6600; font-size: 1.1em}
 
 .review h2, .review h3, .review h4 { font-family: 'Roboto Slab', serif; }
 .review h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7; padding-bottom: 0.3em;}
@@ -443,7 +453,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
 .review h4 { font-size: 15px}
 .review p { font-size: 12px; }
 .review .button, .product-day .button { display: inline-block; font-family: 'Roboto Slab', serif; }
-.review figure { float: left; margin-right: 20px }
+.review figure { float: left; margin-right: 3% }
 .button a { color: #fff; }
 .column-2 { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
 
@@ -463,6 +473,65 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
 .product-day figure .button.rep:after { border-top-color: #FF6600;}
 
 .button:hover { background: #FF6600; }
+
+@media (max-width:767px) {
+  strong { font-size: 1.2rem;}
+  .button { font-size: 1.2rem; }
+  .main-menu { background: #CACACD; border-bottom: none;}
+  .logo-small { text-align: center; vertical-align: middle; line-height: 50px }
+  .menu-icons { font-size: 30px; color: #414042; }
+  .navbar-toggle { float: none; margin-right: 0; border: none; }
+  .navbar-collapse { clear: both; }
+  .navbar-default .navbar-toggle .icon-bar { background-color: #414042; }
+  .menu-search { padding: 5px 10px; }
+  .menu-search .input-group-btn button { background-color: #909295; color: #fff; }
+  .menu-extra-buttons li { float: left; line-height: 50px; width: 25%; font-size: 1.5rem; text-transform: uppercase; text-align: center;}
+  .menu-extra-buttons li:last-child { width: 50%}
+  .infonav { display: none; }
+  .brand-cloud { display: none; }
+  .products-sale li, .item-5 li { width: 150px; min-height: auto;}
+  .products-sale h4 { font-size: 1.3rem; height: 40px; overflow: hidden; }
+  #main { background-color: #E3E4E5; padding: 0 5px; }
+  article { background: #fff }
+  .item-photo { line-height: normal;}
+  .item-photo img { width: 100%; }
+  .review img { width: 100%; }
+  .new h3 { font-size: 1.6rem }
+  .new-item { width: 50% }
+  .new-item img { width: 100%; }
+  .new-promo {display: none;}
+  .new-price {display: none}  
+  .new-banner { background-size: cover; height: auto; background-repeat: no-repeat; min-height: 170px}
+  .new-banner h3 { font-size: 2rem; }
+  .new-banner h4 { font-size: 1.5rem; }
+  .new p {height: 80px; overflow: auto;}
+  .new .button { margin: 2% 0; }
+  .slider-control {display: none;}
+  .rating {display: none}
+  .button-container {position: absolute; width: 45%;}
+  .button-container .button { margin: 0;}
+  #slider2, #slider3, #slider4 { width: 100%; overflow: auto; }
+  #slider4 ul { width: 900px; }
+  #slider2 ul, #slider3 ul { width: 750px }
+  .product-day figure { float: none; }
+  .product-day-content { margin: 0; }
+  .product-day h3 { font-size: 1.4rem; }
+  .product-day strong { font-size: 1.4rem; }
+  .product-day .button { display: none; }
+  .review figure { width: 50%; }
+  .review p { display: none; }
+  .review h3 { font-size: 1.4rem; margin-top: 0 }
+  .review h4 { font-size: 1.2rem; height: 55px; overflow: auto;}
+  .service .icon { float: none; text-align: center; width: 100%;}
+  .service article { margin: 0 auto; background: transparent; width: 90%; text-align: center;}
+  .service h3 { font-size: 1.4rem; }
+  .service strong {color: #6D6E71; margin: 10% 0; display: block;height: 28px}
+  .service p { display: none; }
+  .service .button { display: none; }
+  .footer-main { column-count: 1; -moz-column-count: 1; -webkit-column-count: 1; }
+
+
+}
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -475,14 +544,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
   <body>
     <div class="container">
       <div class="row">
-        <header style="padding: 20px;">
-        <div class="row visible-xs-block visible-sm-block">
-          <div class="col-xs-2">Meni</div>
-          <div class="col-xs-2">Iskanje</div>
-          <div class="col-xs-4">Logo</div>
-          <div class="col-xs-2">Mail</div>
-          <div class="col-xs-2">Cart</div>
-        </div>
+        <header>
         <div class="row hidden-xs hidden-sm">
           <div class="col-md-3">
             <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
@@ -517,13 +579,43 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
         </div> 
         </header>
         <nav class="navbar navbar-default main-menu">
-            <div class="navbar-header">
+            <div class="visible-xs-block col-xs-6">
+              <div class="row logo-small"><a href="index.html"><img src="img/kibuba-logo-small.png"></a></div>
+            </div>
+            <div class="navbar-header col-xs-2 visible-xs-block">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+            </div>
+            <div class="visible-xs-block col-xs-4 menu-icons">
+              <div class="row">
+                <div class="col-xs-6"><a href="#"><i class="fa fa-comments"></i></a></div>
+                <div class="col-xs-6"><a href="#"><i class="fa fa-shopping-cart"></i></a></div>
+              </div>
+            </div>
+            <div class="visible-xs-block col-xs-12">
+              <div class="row">
+                <form class="menu-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="x" placeholder="išči po trgovini ...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="visible-xs-block col-xs-12">
+              <div class="row">
+                <ul class="no-bullet menu-extra-buttons">
+                  <li><a href="#">Izdelki</a></li>
+                  <li><a href="#">Akcija</a></li>
+                  <li><a href="#">Izdelek dneva</a></li>
+                </ul>
+              </div>
             </div>
             <div id="navbar" class="navbar-collapse collapse row">
               <ul class="nav navbar-nav">
@@ -757,7 +849,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
               </div>
             </div>
         </nav>
-      </div>
+      </div>    
     </div>
     <div class="container" >
       <div class="row" id="main">
@@ -801,57 +893,59 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
         </section>
         <section class="products-sale">
           <h2>Akcijskih 5</h2>
-          <ul>
-            <li>
-              <article>
-                <figure><a href="#"><img src="img/action5-1.jpg"></a></figure>
-                <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
-                <h4><a href="#">Ženska lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure><a href="#"><img src="img/action5-3.jpg"></a></figure>
-                <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure><a href="#"><img src="img/action5-4.jpg"></a></figure>
-                <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-            <li>
-              <article>
-                <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
-                <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-            <li>
-              <article>
-                <div class="overlay"><a href="#">+32</a></div>
-                <figure><a href="#"><img src="img/action5-5.jpg"></a></figure>
-                <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
-                <strong>219,90€</strong>
-              </article>
-            </li>
-          </ul>
+          <div id="slider4">
+            <ul class="clearfix">
+              <li>
+                <article>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-1.jpg"></a></figure>
+                  <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 22%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                  <h4><a href="#">Ženska lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 35%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-3.jpg"></a></figure>
+                  <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 66%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-4.jpg"></a></figure>
+                  <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 76%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                  <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 65%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <div class="overlay"><a href="#">+32</a></div>
+                  <figure class="item-photo"><a href="#"><img src="img/action5-5.jpg"></a></figure>
+                  <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
+                  <div class="rating"><figure><span style="width: 90%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
+                  <strong>219,90€</strong>
+                </article>
+              </li>
+            </ul>
+          </div>
           <div class="col-md-6">
             <div class="row">
               <div class="slider-control">
@@ -862,41 +956,41 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
                 <ul class="item-5">
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-1.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-1.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 68%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
                       <h4><a href="#">Ženska lahka puhovka Montane Featherlite ...</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 89%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <div class="price-correction"><del>199,90€</del><strong>219,90€</strong></div>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-3.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-3.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 100%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-4.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-4.jpg"></a></figure>
                       <h4><a href="#">Ženska lahka puhovka Montane Featherlite ...</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 40%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 59%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
@@ -914,41 +1008,41 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
                 <ul class="item-5">
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-1.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-1.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 40%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
                       <h4><a href="#">Ženska lahka puhovka Montane Featherlite ...</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 77%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-3.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-3.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 56%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-4.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-4.jpg"></a></figure>
                       <h4><a href="#">Ženska lahka puhovka Montane Featherlite ...</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 75%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/action5-2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/action5-2.jpg"></a></figure>
                       <h4><a href="#">Lahka puhovka Montane Featherlite</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 89%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
@@ -958,14 +1052,16 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
           </div>
         </section>
         <section class="new clearfix">
-          <h2>Novi izdelek</h2>
-          <figure class="new-item"><img src="img/new1.jpg"></figure>
-          <figure class="new-promo"><span class="button novo rep">novo</span><img src="img/new2.jpg"></figure>
-          <div style="text-align: right;"><div class="static button rep">novo</div></div>
-          <h3>Smučarski nahrbtnik Deuter Provoke 16</h3>
-          <p>Deuter Provoke je po prostornini majhen nahrbtnik, ki pa je narejen tako, da je zelo uporaben. Ima možnost pritrditve smuči ali borda, v notranjosti pa se najde dovolj prostora za vso potrebno lavinsko opremo.</p>
-          <p>redna cena:  <del>219,90€</del> <strong>199,90€</strong></p>
-          <div class="button"><a href="#">več o izdelku</a></div>
+          <div class="clearfix">
+            <h2>Novi izdelek</h2>
+            <figure class="new-item"><img src="img/new1.jpg"></figure>
+            <figure class="new-promo"><span class="button novo rep">novo</span><img src="img/new2.jpg"></figure>
+            <div class="button-container"><div class="static button rep">novo</div></div>
+            <h3>Smučarski nahrbtnik Deuter Provoke 16</h3>
+            <p>Deuter Provoke je po prostornini majhen nahrbtnik, ki pa je narejen tako, da je zelo uporaben. Ima možnost pritrditve smuči ali borda, v notranjosti pa se najde dovolj prostora za vso potrebno lavinsko opremo.</p>
+            <p class="new-price">redna cena:  <del>219,90€</del> <strong>199,90€</strong></p>
+            <div class="button"><a href="#">več o izdelku</a></div>
+          </div>
           <div class="new-banner"><h3>Novo v ponudbi!</h3><h4>plezalna oprema blagovne znamke <strong>Chillaz!</strong></h4></div>
         </section>
         <section class="product-day clearfix">
@@ -973,7 +1069,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
           <ul>
             <li>
               <article class="clearfix">
-                <figure><span class="button rep">-30%</span><img src="img/product-day1.jpg"></figure>
+                <figure class="item-photo"><span class="button rep">-30%</span><img src="img/product-day1.jpg"></figure>
                 <div class="product-day-content">
                   <h3><a href="#">Nahrbtnik STS Ultra-Sil Dry Day Pack</a></h3>
                   <span>redna cena:  <del>42,90€</del></span>
@@ -984,7 +1080,7 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
             </li> 
             <li>
               <article class="clearfix">
-                <figure><span class="button rep">-30%</span><img src="img/product-day2.jpg"></figure>
+                <figure class="item-photo"><span class="button rep">-30%</span><img src="img/product-day2.jpg"></figure>
                 <div class="product-day-content">
                   <h3><a href="#">Nahrbtnik STS Ultra-Sil Dry Day Pack</a></h3>
                   <span>redna cena:  <del>42,90€</del></span>
@@ -1082,19 +1178,15 @@ $(document).ready(function() {
     $('.pgwSlider').pgwSlider();
 });
 
-/*
-    $(document).ready(function()
-    {
-      $('#slider1').tinycarousel({
-        infinite: false,
-        animationTime: 100
-    });
-    });
-*/
+if ($(window).width() > 769) {
+  $('#slider1').microfiche({ bullets: false, buttons: false, cyclic: true  });
+  $('#slider2').microfiche({ bullets: false, buttons: false, cyclic: true  });
+  $('#slider3').microfiche({ bullets: false, buttons: false, cyclic: true  });
+}
 
-$('#slider1').microfiche({ bullets: false, buttons: false, cyclic: true  });
-$('#slider2').microfiche({ bullets: false, buttons: false, cyclic: true  });
-$('#slider3').microfiche({ bullets: false, buttons: false, cyclic: true  });
+if ($(window).width() < 769) {
+  $('.service').insertAfter('.review');
+}
 
 
     var $easyzoom = $('.easyzoom').easyZoom();
