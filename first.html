@@ -29,7 +29,7 @@
       .search-bar { padding: 17px 0; }
       .form-control { height: auto; border-right: 0 }
       .search-bar .btn {border-radius: 0}
-      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px;}
+      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px 0 15px;}
       .user-menu-item { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       .user-menu-item:last-child { border-right: 0; } 
       .user-menu a { color: #000; }
@@ -197,6 +197,27 @@ footer li a {color:#2d2d2d;}
 footer li a:hover {color:#000;}
 .footer-side h3 {margin-top: 0;}
 
+@media only screen and (max-width: 1200px) {
+  .main-menu .dropdown-menu {width: 520px}
+  .main-menu .full { width: 970px;}  
+  .item-title.is_stuck h1 { width: 318px; left: -318px; font-size: 16px; line-height: 33px }
+  .item-title.is_stuck h1:hover { width: 690px;}
+  .item-menu { font-size: 12px; }
+  .item-menu a { padding: 8px 10px; }
+  .item-options .form-group {width: 40%}
+  .item-photo img { width: 100%; }
+  .item-pic li { min-width: 20% }
+  .item-pic figure { width: 99%; }
+  .item-pic img {width: 100%;}
+  .sales-box strong, .program-box strong {  font-size: 30px;}
+  .payment-box h4 { width: 60% }
+  .sidebar figcaption { width: 100px }
+  .item-5 li { width: 160px; min-height: auto;}
+  .button-container { float: right; }
+  .new h3 { font-size: 16px }
+  .new-banner h3 { font-size: 40px; }
+  .new .more { margin: 0; }
+}
 
 @media only screen and (max-width : 992px) {
   .user-menu { padding: 0 15px; }
@@ -234,6 +255,11 @@ footer li a:hover {color:#000;}
   .navbar { margin-bottom: 0 }
   .navbar-toggle { float: none; margin-right: 0; border: none; }
   .navbar-collapse { clear: both; }
+  .navbar-collapse.row { margin:0; }
+  .navbar-collapse { position: fixed; background: #808082; width: 100%; z-index: 10; bottom: 0; top: 50px;}
+  .navbar-default .navbar-nav>li>a { background: #58595B; color: #fff; margin-bottom: 3px}
+  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover { color: #FF6600; background-color: #58595B; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background-color: #58595B; color: #FF6600; }
   .navbar-default .navbar-toggle .icon-bar { background-color: #414042; }
   .menu-search { padding: 5px 10px; }
   .menu-search .input-group-btn button { background-color: #909295; color: #fff; }
@@ -276,7 +302,7 @@ footer li a:hover {color:#000;}
   .review h4 { font-size: 12px; height: 55px; overflow: auto;}
   .service li { float: none; width: 100%; clear: left; margin-bottom: 10% }
   .service .icon { float: left; width: 80px}
-  .service article { text-align: left; margin-left: 80px; background: transparent;}
+  .service article { text-align: left; margin-left: 80px; background: transparent;width: auto;}
   .service h3 { font-size: 15px; font-weight: 700; margin: 0;}
   .service strong {color: #6D6E71; margin: 0; display: block; height: 28px}
   .service p { display: none; }
@@ -297,13 +323,13 @@ footer li a:hover {color:#000;}
       <div class="row">
         <header>
         <div class="row hidden-xs">
-          <div class="col-md-3 hidden-sm">
+          <div class="col-md-4 col-lg-3 hidden-sm">
             <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
           </div>
-          <div class="col-sm-3 visible-sm">
+          <div clas="col-sm-3 visible-sm">
             <a class="logo" href="#"><img src="img/kibuba-logo-small.png" alt="logo"></a>
           </div>
-          <div class="col-sm-3 col-md-5 search-bar">
+          <div class="col-sm-3 col-md-3 col-lg-5 search-bar">
             <form>
               <div class="input-group">
                 <div class="input-group-btn search-panel">
@@ -324,7 +350,7 @@ footer li a:hover {color:#000;}
               </div>
             </form>
           </div>
-          <div class="col-sm-6 col-md-4 pull-right user-menu">
+          <div class="col-sm-6 col-md-5 col-lg-4 pull-right user-menu">
             <ul class="no-bullet">
               <li class="user-menu-item"><a href="#"><i class="fa fa-user"></i> Prijavi se</a></li>
               <li class="user-menu-item"><a href="#" data-toggle="dropdown">O nas <span class="caret"></span></a>
@@ -831,7 +857,7 @@ footer li a:hover {color:#000;}
             <h3>Smučarski nahrbtnik Deuter Provoke 16</h3>
             <p>Deuter Provoke je po prostornini majhen nahrbtnik, ki pa je narejen tako, da je zelo uporaben. Ima možnost pritrditve smuči ali borda, v notranjosti pa se najde dovolj prostora za vso potrebno lavinsko opremo.</p>
             <p class="new-price">redna cena:  <del>219,90€</del> <strong>199,90€</strong></p>
-            <div class="button"><a href="#">več o izdelku</a></div>
+            <div class="button more"><a href="#">več o izdelku</a></div>
           </div>
           <div class="new-banner"><h3>Novo v ponudbi!</h3><h4>plezalna oprema blagovne znamke <strong>Chillaz!</strong></h4></div>
         </section>
@@ -940,7 +966,6 @@ footer li a:hover {color:#000;}
     <script src="js/jquery.sticky-kit.min.js"></script>
     <script src="js/easyzoom.js" type="text/javascript"></script>
     <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
-    <script src="js/jquery.tinycarousel.min.js" type="text/javascript"></script>
     <script src="js/pgwslider.min.js" type="text/javascript"></script>
     <script src="js/microfiche.min.js" type="text/javascript"></script>
     <script type="text/javascript">

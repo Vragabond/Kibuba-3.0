@@ -35,7 +35,7 @@
       .search-bar { padding: 17px 0; }
       .search-bar .form-control { height: auto; border-right: 0 }
       .search-bar .btn {border-radius: 0}
-      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px;}
+      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px 0 15px;}
       .user-menu-item { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
       .user-menu-item:last-child { border-right: 0; } 
       .user-menu a { color: #000; }
@@ -97,7 +97,7 @@
       .item-title figure {margin-top: 15px;}
       .item-title h1 {margin-top: 10px; position: relative;}
       .item-title .novo {top: -50px; right: 30px; font-size: 13px;}
-      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 2; }
+      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 4; }
       .item-title.is_stuck figure, .item-title.is_stuck .novo { display: none; }
       .item-title.is_stuck .item-menu { position: relative; z-index: 3; }
       .item-title.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 15px 10px 3px #fff; margin: 0; z-index: 2; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis; }
@@ -265,8 +265,22 @@
       footer li a:hover {color:#000;}
       .footer-side h3 {margin-top: 0;}
     
-@media only screen and (min-width: 1200px) {
-
+@media only screen and (max-width: 1200px) {
+  .main-menu .dropdown-menu {width: 520px}
+  .main-menu .full { width: 970px;}  
+  .item-title.is_stuck h1 { width: 318px; left: -318px; font-size: 16px; line-height: 33px }
+  .item-title.is_stuck h1:hover { width: 690px;}
+  .item-menu { font-size: 12px; }
+  .item-menu a { padding: 8px 10px; }
+  .item-options .form-group {width: 40%}
+  .item-photo img { width: 100%; }
+  .item-pic li { min-width: 20% }
+  .item-pic figure { width: 99%; }
+  .item-pic img {width: 100%;}
+  .sales-box strong, .program-box strong {  font-size: 30px;}
+  .payment-box h4 { width: 60% }
+  .sidebar figcaption { width: 100px }
+  .item-5 li { width: 160px; min-height: auto;}
 }
 
 @media only screen and (max-width : 992px) {
@@ -281,22 +295,16 @@
   .infonav strong { font-size: 14px; }
   .my-selection { padding: 5px 0; }
   .item-list>li { width: 33.3%; height: 440px }
-  .item-photo img { width: 100%; }
   .item-list .price del+strong {font-size: 20px}
   .item-title.is_stuck h1 { width: 327px; left: -327px; font-size: 16px; line-height: 33px }
-  .item-menu { font-size: 12px; }
-  .item-menu a { padding: 8px 10px; }
-  .item-options .form-group {width: 40%}
-  .item-pic li { min-width: 20% }
-  .item-pic figure { width: 99%; }
-  .item-pic img {width: 100%;}
+  .item-title.is_stuck h1:hover { width: 720px;}
   .promo img { width: 100%; }
   .sidebar .button { font-size: 16px; float: left; width: 30%; margin-left: 5%; height: 100px;}
   .sidebar .button:first-child { margin-left: 0; margin-top: 20px;}
   .sales-box, .program-box { text-align: center; }
   .sales-box strong, .program-box strong { display: block; font-size: 40px; width: 100%;}
+  .payment-box h4 {margin-bottom: 0;}
   .program-box span { width: auto; }
-  .payment-box h4 { width: 60% }
   .sidebar li { float: left; width: 130px; }
   .sidebar article { padding: 0 10px; }
   .sidebar figcaption { width: 100%; }
@@ -313,6 +321,11 @@
   .navbar { margin-bottom: 0 }
   .navbar-toggle { float: none; margin-right: 0; border: none; }
   .navbar-collapse { clear: both; }
+  .navbar-collapse.row { margin:0; }
+  .navbar-collapse { position: fixed; background: #808082; width: 100%; z-index: 10; bottom: 0; top: 50px;}
+  .navbar-default .navbar-nav>li>a { background: #58595B; color: #fff; margin-bottom: 3px}
+  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover { color: #FF6600; background-color: #58595B; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background-color: #58595B; color: #FF6600; }
   .navbar-default .navbar-toggle .icon-bar { background-color: #414042; }
   .menu-search { padding: 5px 10px; }
   .menu-search .input-group-btn button { background-color: #909295; color: #fff; }
@@ -321,7 +334,7 @@
   .infonav { display: none; }
   .brand-cloud { display: none; }
   .products-sale li, .item-5 li { width: 150px; min-height: auto;}
-  .products-sale h4 { font-size: 1.3rem; height: 40px; overflow: hidden; }
+  .products-sale h4 { font-size: 1.3px; height: 40px; overflow: hidden; }
   #main { background-color: #E3E4E5; padding: 0 5px; }
   article { background: #fff }
   .item-photo { line-height: normal;}
@@ -375,6 +388,7 @@
   .filters { position: fixed; z-index: 2; top: 0; bottom: 0; background: #fff; margin-left: -100%; width: 100%; overflow: auto; padding: 2% 5%;}
   .filters-close { width: 20px; margin-left: auto; margin-right: 0 }
   .filters .filters-close-btn { position: fixed; padding: 5px 10px; background: #6D6E71; color: #fff; opacity: 0.7;}
+  .easyzoom {  display: block; width: 80%; margin: 15px auto 0;}
   .main-item { display: block; }
   aside, .item-menu, .microfiche-controls, .fullscreen, .desc-short { display: none; }
   #slider1 { padding: 0 }
@@ -940,7 +954,7 @@
                 <ul class="no-bullet">
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet1.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet1.jpg"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
                       <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
@@ -948,7 +962,7 @@
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet2.jpg"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
                       <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
@@ -956,7 +970,7 @@
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet3.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet3.jpg"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
                       <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
@@ -1053,7 +1067,7 @@
                   <ul class="no-bullet">
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled1.jpg"></a></figure>
                         <h4>Montane Featherlite</h4>
                         <strong>219,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -1061,7 +1075,7 @@
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled2.jpg"></a></figure>
                         <h4>Sea to Summit Bomber</h4>
                         <strong>24,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -1069,7 +1083,7 @@
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled3.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled3.jpg"></a></figure>
                         <h4>Lifeventure Print Towel</h4>
                         <strong>19,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -1077,7 +1091,7 @@
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled2.jpg"></a></figure>
                         <h4>Scarpa Boostic</h4>
                         <strong>119,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -1085,7 +1099,7 @@
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled1.jpg"></a></figure>
                         <h4>Sea to Summit Dry 19</h4>
                         <strong>32,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -1102,12 +1116,12 @@
                     <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
                   <li>
-                    <h3><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Primož O., Kamnik</h3>
+                    <h3 class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Primož O., Kamnik</h3>
                     <div>Kaj vam je na izdelku všeč? to da je kratka in jo lahko normalno nosim pri varovanju. -lahka, topla Kaj vam na izdelku ni všeč? Nič. Ostala opažanja: zadrga se ne zapre vedno dobro!</div>
                     <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
                   <li>
-                    <h3><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Nejc V., Ljubljana</h3>
+                    <h3 class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Nejc V., Ljubljana</h3>
                     <div>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</div>
                     <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
@@ -1250,9 +1264,10 @@
     <script src="js/jquery.sticky-kit.min.js"></script>
     <script src="js/easyzoom.js" type="text/javascript"></script>
     <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
-    <script src="js/jquery.tinycarousel.min.js" type="text/javascript"></script>
     <script src="js/microfiche.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      $('#slider1').microfiche({ bullets: false, buttons: true, prevButtonLabel: '<i class="fa fa-chevron-left"></i>', nextButtonLabel: '<i class="fa fa-chevron-right"></i>'  });
+
       if ($(window).width() < 769) {
         $('.item-title').insertBefore('.easyzoom');
         $('.main-item').insertBefore('.easyzoom');
@@ -1281,7 +1296,7 @@
         });
       }
 
-      if ($(window).width() > 1199) {
+      if ($(window).width() > 992) {
         $(".sidebar").stick_in_parent({
           offset_top: $(".navbar").outerHeight(),
           parent: "#main-item"
@@ -1294,76 +1309,74 @@
           .on('sticky_kit:unstick', function(e) {
             $(this).parentsUntil('#main-item').css('position', 'relative');
           })
-        }
+      }
 
-        $('#slider1').microfiche({ bullets: false, buttons: true, prevButtonLabel: '<i class="fa fa-chevron-left"></i>', nextButtonLabel: '<i class="fa fa-chevron-right"></i>'  });
+      var $easyzoom = $('.easyzoom').easyZoom();
+      var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
 
-        var $easyzoom = $('.easyzoom').easyZoom();
-        var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+      $('.thumbnails').on('click', 'a', function(e) {
+        var $this = $(this);
+        e.preventDefault();
+        window.item = $(this).parent().index();
+        api1.swap($this.data('standard'), $this.attr('href'));
+      });
 
-        $('.thumbnails').on('click', 'a', function(e) {
-          var $this = $(this);
-          e.preventDefault();
-          window.item = $(this).parent().index();
-          api1.swap($this.data('standard'), $this.attr('href'));
-        });
-
-        var allLinks = $('.thumbnails a').map( function() {
-          var arr = []
-          var obj = {};
-          obj['href'] = $(this).attr('href');
-          arr.push(obj);
-          return arr;
-        }).get();
+      var allLinks = $('.thumbnails a').map( function() {
+        var arr = []
+        var obj = {};
+        obj['href'] = $(this).attr('href');
+        arr.push(obj);
+        return arr;
+      }).get();
  
-        $('.easyzoom').click( function() {
-          $.swipebox( allLinks, {initialIndexOnArray : window.item} );
-        } );
+      $('.easyzoom').click( function() {
+        $.swipebox( allLinks, {initialIndexOnArray : window.item} );
+      } );
 
-        $('.fullscreen a').click( function() {
-          $.swipebox( allLinks, {initialIndexOnArray : window.item} );
-        } );
+      $('.fullscreen a').click( function() {
+        $.swipebox( allLinks, {initialIndexOnArray : window.item} );
+      } );
 
-        $('.swipebox-video').swipebox();
+      $('.swipebox-video').swipebox();
 
-        $(document).ready(function(e){
-          $('.search-panel .dropdown-menu').find('a').click(function(e) {
-            e.preventDefault();
-            var param = $(this).attr("href").replace("#","");
-            var concept = $(this).text();
-            $('.search-panel span#search_concept').text(concept);
-            $('.input-group #search_param').val(param);
-          });
-        });
-
-        $(document).ready(function(){
-          $(".item-menu a").click(function(e) {
+      $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
           e.preventDefault();
-          anchorScroll( $(this), $($(this).attr("href")), 1000 );
-          });
+          var param = $(this).attr("href").replace("#","");
+          var concept = $(this).text();
+          $('.search-panel span#search_concept').text(concept);
+          $('.input-group #search_param').val(param);
         });
-       
-        function anchorScroll(this_obj, that_obj, base_speed) {
-          var this_offset = this_obj.offset();
-          var that_offset = that_obj.offset();
-          var gap = $(".navbar").outerHeight() + $(".item-title").outerHeight() + 30;
-          var offset_diff = Math.abs(that_offset.top - this_offset.top);
-          var speed       = (offset_diff * base_speed) / 1000;
-       
-          $("html,body").animate({
-            scrollTop: that_offset.top - gap
-          }, speed);
-        }
+      });
 
-        $(window).on('scroll', function() {
-          $('.target').each(function() {
-            if($(window).scrollTop() >= ($(this).offset().top) -165) {
-              var id = $(this).attr('id');
-              $('.item-menu li').removeClass('active');
-              $('.item-menu a[href=#'+ id +']').parent().addClass('active');
-            }
-          });
+      $(document).ready(function(){
+        $(".item-menu a").click(function(e) {
+        e.preventDefault();
+        anchorScroll( $(this), $($(this).attr("href")), 1000 );
         });
+      });
+     
+      function anchorScroll(this_obj, that_obj, base_speed) {
+        var this_offset = this_obj.offset();
+        var that_offset = that_obj.offset();
+        var gap = $(".navbar").outerHeight() + $(".item-title").outerHeight() + 30;
+        var offset_diff = Math.abs(that_offset.top - this_offset.top);
+        var speed       = (offset_diff * base_speed) / 1000;
+     
+        $("html,body").animate({
+          scrollTop: that_offset.top - gap
+        }, speed);
+      }
+
+      $(window).on('scroll', function() {
+        $('.target').each(function() {
+          if($(window).scrollTop() >= ($(this).offset().top) -165) {
+            var id = $(this).attr('id');
+            $('.item-menu li').removeClass('active');
+            $('.item-menu a[href=#'+ id +']').parent().addClass('active');
+          }
+        });
+      });
     </script>
   </body>
 </html>
