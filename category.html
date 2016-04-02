@@ -12,584 +12,109 @@
     <link href="css/swipebox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
+    a { color: #000; }
+    p { font-size: 13px }
+
+    .button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; font-family: 'Roboto Slab', serif;}
+    .button { font-size: 1.4rem; }
+    .button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
+    .button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
+    .button:hover { background: #FF6600; }
+    .no-bullet { list-style: none; margin: 0; padding: 0; }
+    h1, h2, h3 {font-family: 'Roboto Slab', serif; }
+    .overlay a { text-decoration: none; font-size: 50px; color: #fff; }
+    .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
+    .no-bullet { list-style: none; margin: 0; padding: 0; }
       .grey { background: #ccc; }
       .greytxt { color: #ccc; }
-      #user_menu { float: right; font-size: 13px; }
-      #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
-      #user_menu div:last-child { border-right: 0; } 
+      header>div { padding: 20px 0; }
+      .search-bar { padding: 17px 0; }
+      .form-control { height: auto; border-right: 0 }
+      .btn {border-radius: 0}
+      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px;}
+      .user-menu-item { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
+      .user-menu-item:last-child { border-right: 0; } 
+      .user-menu a { color: #000; }
       .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
       .dropdown-menu { border-radius: 0; border: 0; left: auto;  }
-      .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; }
+      .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; width: 600px}
       .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background: #009BDC; color: #fff; }
       .main-menu .full { width: 1170px; left: 0;}
       .nav li {position: static;}
-      .nav>li>a {text-transform: uppercase; font-size: 18px;}
-      /*.nav>li>a:hover { background: #C7C7C7 !important; transition: all 100ms linear; }*/
+      nav.navbar.is_stuck { z-index: 6; }
+      .main-menu .dropdown-toggle {text-transform: uppercase; font-size: 18px;}
       .dropdown-menu ul { list-style: none; margin: 0; padding: 0 }
-      .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-left: 25px; padding-right: 5px; font-family: arial, sans-serif}
+      .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-right: 5px; font-family: arial, sans-serif}
+      .dropdown-menu.full a {padding-left: 25px;}
       .dropdown-menu a:hover { background: #2C2C2C; color: #fff; text-decoration: none; box-shadow: 0 6px 12px rgba(0,0,0,.175);}
-      
-      .dropdown-header { font-size: 15px; font-weight: 600; padding: 12px 5px 0; }
-      li.dropdown-header a, li.special-item a {font-family: 'Roboto Slab', 'Times New Roman', serif; padding-left:5px;}
-      .infonav {height: 30px; margin: 10px 0; font-size: 18px}
-      .infonav ul {border-left: 1px solid; list-style: none; margin: 0; padding: 0; height: 30px;}
-      .infonav li { display: inline-block; padding: 0 10px;}
+      .dropdown-header { font-size: 15px; font-weight: 700; padding: 12px 5px 0; }
+      .dropdown-menu li.dropdown-header a, .dropdown-menu li.special-item a {font-family: 'Roboto Slab', 'Times New Roman', serif; padding-left:5px;}
+
+      .infonav { font-size: 18px; padding: 15px 0; line-height: 20px;}
+      .infonav ul {border-left: 1px solid; }
+      .infonav li { display: inline-block; padding: 0 10px; }
       .infonav a {color:#2C2C2C;}
-      .infonav strong {font-weight: 600}
-      .breadcrumb { background: transparent; font-size: 11px; padding: 8px 0;}
+      .infonav strong { font-size: 18px;}
+
+      .breadcrumb { background: transparent; font-size: 11px}
       .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
       .breadcrumb a {color: #808080; }
       .breadcrumb a:hover {text-decoration: none;color: #FF6600}
 
-      .izdelek-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
-      .naslov figure {margin-top: 15px;}
-      .naslov h1 {margin-top: 10px;}
-      .naslov .box {}
-      .izdelek-menu ul {list-style: none; margin: 0;padding: 0}
-      .izdelek-menu li {display: inline-block; position: relative;}
-      .izdelek-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
-      .izdelek-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
-      .izdelek-menu .active a { background: #FF6600; color: #fff;}
-      .izdelek-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
-h2 { font-weight: 600; }
-      .ocena { font-size: 12px; }
-      .ocena img { margin-right: 10px; vertical-align: text-bottom; }
-      .ocena strong { color: #FF6600; font-weight: 400}
-      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
-      p { font-size: 13px; }
-      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .cena strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
-      .cena.akcija strong { color: #FF6600; display:inline-block; margin-left: 30px;}
-      .cena.storz {background: #E3E7B4;   padding: 0 15px; line-height:45px; }
-      .cena.storz span, .cena.kupcija span {float: right; }
-      .cena.storz i { background-image: url(img/storz.png);background-repeat: no-repeat; display: inline-block; width: 25px; height: 26px; vertical-align: middle; margin-right: 10px;}
-      .cena.kupcija {background: #FFE6B2; padding: 0 15px; line-height:45px; }
-      .cena.kupcija i { margin-right: 10px; font-size: 26px; vertical-align: middle;}
-      .zaloga { color: #70AB07; text-decoration: underline;}
-      .zaloga span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
-      .zaloga.brez span { background: #AD1E2D; }
-      .naslov.is_stuck { background: #fff; box-shadow: 0px 26px 23px 24px #fff ; z-index: 2 }
-      .naslov.is_stuck figure, .naslov.is_stuck .novo { display: none; }
-      .naslov.is_stuck .izdelek-menu { float: right; padding-top: 15px; }
-      .naslov.is_stuck h1 { position: absolute; width: 70%; left: -75%; top: -20px; font-size: 20px; background: #fff; padding: 20px 0; box-shadow: 0px 26px 23px 24px #fff }
-      .popust  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px;}
-      .popust .storz {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
-      nav.navbar.is_stuck { z-index: 10; }
+      .filters { margin-right: 40px; }
+      .filters h2 { font-family: 'Roboto Slab', serif; font-weight: 400; border-bottom: 1px dotted; font-size: 18px; margin-bottom: 0; padding-bottom: 5px;}
+      .filters h2:first-child {margin-top: 0;}
+      .filters h3 { font-family: Arial, sans-serif; font-weight: 600; font-size: 14px; }
+      .categories { list-style: none; margin: 0; padding: 5px 15px; background: #DEDFDF;}
+      .categories li { font-size: 13px; margin: 0 0 20px 0;}
+      .categories h4 { font-weight: 600; padding-left: 0; font-size: 13px;}
+      .categories h5 { padding-left: 20px; font-size: 13px;}
+      .categories h6 { padding-left: 40px; }
+      .categories .active { font-weight: 600 }
+      .active i { margin-left: -15px; font-size: 10px; width: 15px;}
 
-.button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
-.button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
+      .my-selection { list-style: none; margin: 0; padding: 5px 10px; }
+      .my-selection li { margin: 8px 0 }
 
-      .izdelek-moznosti .form-group {width: 50%}
-      .izdelek-moznosti select {width: 100% !important}
-      .izdelek-moznosti button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
-      .izdelek-moznosti button:hover {border: none; background: #000}
-      .popust { vertical-align: bottom; }
-      .popust a {text-decoration: none; color: #000; opacity: .3;}
-      .popust a:hover { opacity: 0.6; }
-      .barve {list-style: none; margin: 0; padding: 0;}
-      .barve li {display: inline-block; margin: 0;}
-      .barve a { display: inline-block; width: 23px; height: 23px; margin-right: 5px; }
-      .barve a:hover {box-shadow: -1px 1px 0px 0px #000;}
-      .kosarica { margin: 20px 0; color: #FF6600; }
-      .kosarica i { margin-right: 10px }
-      .kosarica button { background: #FF6600; color: #fff; margin-left: 0;} 
+      .filters a { color: #3B3B3B; text-decoration: none; }
+      .filters a:hover { color: #D40000; }
 
-.easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
-.easyzoom a { display: inline-block;width: 100% }
-.easyzoom img {  vertical-align: bottom;}
-.easyzoom.is-loading img {  cursor: progress;}
-.easyzoom.is-ready img {  cursor: crosshair;}
-.easyzoom.is-error  img {  cursor: not-allowed;}
-.easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
-.easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
-.easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
-.easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
-/*.thumbnails { list-style: none; padding: 0; margin: 15px 20px 0;}*/
-/*.thumbnails li {display: inline-block;}*/
-.thumbnails a {display: inline-block;   text-align: center;}
+      .slider-container {  width: 100%;}
+      .slider-container .back-bar {  height: 10px;  position: relative;}
+      .slider-container .back-bar .selected-bar {  position: absolute;  height: 100%;}
+      .slider-container .back-bar .pointer {  position: absolute;  width: 10px;  height: 10px;  background-color: red;  cursor: col-resize;  opacity: 1;  z-index: 2;}
+      .slider-container .back-bar .pointer.last-active {  z-index: 3;}
+      .slider-container .back-bar .pointer-label {  position: absolute;  top: -17px;  font-size: 8px;  background: white;  white-space: nowrap;  line-height: 1;}
+      .slider-container .back-bar .focused {  z-index: 4;}
+      .slider-container .clickable-dummy {  cursor: pointer;  position: absolute;  width: 100%;  height: 100%;  z-index: 1;}
+      .slider-container .scale {  top: 2px;  position: relative;}
+      .slider-container .scale span {  position: absolute;  height: 5px;  border-left: 1px solid #999;  font-size: 0;}
+      .slider-container .scale ins {  font-size: 9px;  text-decoration: none;  position: absolute;  left: 0;  top: 5px;  color: #999;  line-height: 1;}
+      .slider-container.slider-readonly .clickable-dummy,.slider-container.slider-readonly .pointer {  cursor: auto;}
+      .theme-green .back-bar {  height: 5px;  border-radius: 2px;  background-color: #eeeeee;}
+      .theme-green .back-bar .selected-bar {  background-color: #BEC0C1;}
+      .theme-green .back-bar .pointer {  width: 8px;  height: 14px;  top: -5px;  border: 1px solid #AAA;  background: #BEC0C1;}
+      .theme-green .back-bar .pointer-label {  color: #999;}
+      .theme-green .back-bar .focused {  color: #333;}
+      .theme-green .scale span {  border-left: 1px solid #e5e5e5;}
+      .theme-green .scale ins {  color: #999;}
+      .range { margin-top: 20px; }
+      .min, .max { display: inline-block; border: 1px solid; background: #DEDFDF; color: #6D6E71; width: 50px; text-align: right; padding: 2px 5px; margin-right: 10px; margin-top: 20px;}
 
-/* Tiny Carousel */
+      .brand-filter li { margin: 8px 10px;  }
+      .brand-filter li.extra-items { margin: 8px 0; }
+      .brand-filter .right-caret { display: inline-block; width: 15px; color: #A9ABAD; }
+      .brand-filter .right-caret:hover { color: #D40000; }
 
-.slider {   height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
-.slider .viewport {height: 100% ;overflow: hidden;    position: relative;}
-.slider .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
-.slider .next {    right: 0;    left: auto;    top: 25%;}
-.slider .buttons:hover {    color: #FF6600;    background: #fff;}
-.slider .disable {    visibility: hidden;}
-.slider .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
-.slider .overview li {    display: inline-block;    margin: 0 5px 0 0; /*   height: 73px;    width: 70px; border: 1px solid #C7C7C7;*/ text-align: center; font-size: 20px;}
+      .size-filter li { float: left; width: 50%; margin: 8px 0; padding-left: 20px;}
+      .size-filter a { display: inline-block; min-width: 26px; height: 26px; border: 1px solid; background: #DEDFDF; color: #6D6E71; text-align: center; vertical-align: baseline; margin-right: 10px; font-size: 17px; padding: 0 3px;}
 
-.brand-cloud { position: relative; }
-.brand-cloud ul {    list-style: none;    padding: 0;    margin: 0;}
-.brand-cloud li { display: inline-block;    margin: 0 5px 0 0; /*   height: 73px;    width: 70px; border: 1px solid #C7C7C7;*/ text-align: center; font-size: 20px;}
-.brand-cloud li a { color: #C7C7C7; text-decoration: none }
+      .color-filter li { float: left; width: 50%; margin: 8px 0; padding-left: 20px;}
+      .color-filter a { display: inline-block; min-width: 26px; height: 26px;  background: #DEDFDF; color: #6D6E71; text-align: center; vertical-align: middle; margin-right: 10px; }
 
-.brand-cloud .slider-control { position: absolute; top: 30%;  }
-.brand-cloud .slider-control a { color: #C7C7C7; text-decoration: none }
-.slider-control.next { right: -30px; }
-.slider-control.prev { left: -30px; }}
-
-.komplet { font-family: 'Roboto Slab', serif; overflow: auto }
-.komplet h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.komplet ul { margin: 0; padding: 0; list-style: none; }
-.komplet li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
-.komplet article { width: 90%; margin: 0 auto; padding: 5px 20px;}
-.komplet article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.komplet figure { line-height: 255px;}
-.komplet img { vertical-align: middle; }
-.komplet h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-.komplet strong {display: block; line-height: 35px;}
-
-.fotografije {font-family: 'Roboto Slab', serif;overflow: auto;}
-.fotografije .button {float: right;}
-.button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
-.fotografije .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
-.fotografije h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-.fotografije ul {margin: 0; padding: 0; list-style: none;}
-.fotografije li {width: 20%; float: left; min-width: 155px;}
-.fotografije li a:hover {opacity: .7;}
-.fotografije figure { width: 150px; margin: 0 auto; }
-figure.disabled {}
-.fotografije figcaption { text-align: center; }
-.fotografije .overlay { position: absolute;height: 150px; line-height: 140px; width: 150px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
-.overlay a { text-decoration: none; font-size: 50px; color: #fff; }
-.fotografije figcaption { margin-top: 10px; }
-
-.opis {margin-top: 2.5em}
-.opis h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
-table img { float: left; margin-right: 5px; }
-.cat { font-weight: 600; }
-td strong {color: #FF6600;}
-th {width: 30%; vertical-align: top;}
-
-.promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
-.promo { font-family: 'Roboto Slab', serif; }
-.promo h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.promo ul { margin: 0; padding: 0; list-style: none; }
-.promo li { width: 20%; float: left; text-align: center;  }
-.promo article { width: 90%; margin: 0 auto;}
-.promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.promo figure { line-height: 150px;}
-.promo img { vertical-align: middle; }
-.promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
-.promo strong {display: block; line-height: 35px;}
-
-.mnenja ul { margin: 0; padding: 0; list-style: none; }
-.mnenja li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
-.mnenja li:first-child { border-top: none; }
-.mnenja h2, .mnenja h3 {  font-family: 'Roboto Slab', serif;  }
-.mnenja h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em; }
-.mnenja h3 {font-size: 15px; }
-.mnenja img { vertical-align: baseline; margin-right: 10px }
-.mnenje-ocena { color: #808080; }
-.mnenja .button { background: #D3D4D5 ; color: #58595B; }
-.mnenja .button:hover { background: #949699 ; color: #fff; }
-
-.sidebar { font-family: 'Roboto Slab', serif;  }
-.sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
-.button.akcije  { background: #FFAD00; color: #fff;  }
-.button.storzi {background: #A1B007;color: #fff;}
-.button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
-.placilo h4 {font-size: 12px;}
-.placilo i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
-.akcije strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
-.storzi strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
-.storzi span { display: inline-block; vertical-align: middle; width: 45%;}
-
-.sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.sidebar ul { margin: 0; padding: 0; list-style: none; }
-.sidebar li {  }
-.sidebar li:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.sidebar figure { line-height: 150px; display: inline-block;}
-.sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
-.sidebar del {display: block;}
-.sidebar strong.znizanje { color: #FF6600; }
-.sidebar h4 { display: inline-block; font-size: 13px;}
-.sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
-.sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
-.sidebar select {float: right; margin-top: 20px; }
-
-footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
-.footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
-footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
-footer h3 { font-size:14px; font-weight:700;}
-footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
-footer li { line-height:21px; }
-footer li:before { content: "> "; }
-footer li a {color:#2d2d2d;}
-footer li a:hover {color:#000;}
-.footer-side h3 {margin-top: 0;}
-
-.banner { overflow: auto; }
-
-.service { margin-top: 2em; }
-.service ul { margin: 0; padding: 0; list-style: none }
-.service li { float: left; width: 33.3%}
-.service .icon { float: left; width: 80px;}
-.icon i { background: #FF6600; color: #fff; font-size: 30px; width: 60px; height: 60px; border-radius: 40px; line-height: 60px; text-align: center;}
-.service strong { color: #C7C7C7; font-family: 'Roboto Slab', serif;}
-.service h3 { margin-top: 0; }
-.service article { margin-left: 80px; margin-right: 30px }
-.service .button { display: inline-block; font-family: 'Roboto Slab', serif;}
-.button.blue { background-color: #00A0E1; }
-
-.brand-cloud {  font-family: 'Roboto Slab', serif; }
-
-h3 {font-family: 'Roboto Slab', serif; }
-
-.pgwSlider { width: 100%; color: #fff;}
-.pgwSlider a { display: block;text-decoration: none;color: #fff;}
-.pgwSlider .ps-current {float: left;width: 74%;overflow: hidden;height: inherit;position: relative;font-size: 1rem;}
-
-.pgwSlider.listOnTheLeft .ps-current {    float: right;}
-.pgwSlider .ps-current ul {    width: 100%;}
-.pgwSlider .ps-current li {    width: 100%;    z-index: 1;    opacity: 0;    display: none;}
-.pgwSlider .ps-current img {    max-width: 100%;    min-width: 100%;    height: auto;    display: block;    transition: margin-top 250ms linear;}
-.pgwSlider .ps-caption {    position: absolute;    width: 100%;    padding: 12px;    background: rgba(0, 0, 0, 0.7);    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);    left: 0;
-    bottom: 0;
-    display: none;
-    z-index: 3;
-    visibility: hidden;
-}
-
-ul.pgwSlider,
-.pgwSlider  ul {
-    float: right;
-    width: 25%;
-    padding: 0;
-    list-style: none;
-    margin: 0;
-}
-
-ul.pgwSlider.listOnTheLeft,
-.pgwSlider.listOnTheLeft > ul {
-    float: left;
-}
-
-ul.pgwSlider > li,
-.pgwSlider > .ps-list > li {
-    height: 50px;
- /*   margin-bottom: 6px;*/
-    overflow: hidden;
-    position: relative;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    font-size: 0.8rem;
-    transition: opacity 200ms linear;
-}
-
-ul.pgwSlider > li:last-child,
-.pgwSlider > ul > li:last-child {
-    margin-bottom: 0;
-}
-
-ul.pgwSlider > li span,
-.pgwSlider > .ps-list > li span {
-    display: block;
-    width: 100%;
-    position: absolute;
-    color: #fff;
-    text-align: right;
-    font-family: 'Roboto Slab', serif;
-    font-size: 16px;
-    bottom: 0;
-    padding: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-ul.pgwSlider > li:hover,
-.pgwSlider > ul > li:hover {
-    opacity: 1 !important;
-}
-
-ul.pgwSlider > li img,
-.pgwSlider > ul > li img {
-    width: 100%;
-    min-height: 100%;
-    display: block;
-    transition: margin-top 250ms linear;
-}
-
-.pgwSlider .ps-prevIcon {
-    border-color:transparent #fff transparent;
-    border-style: solid;
-    border-width: 10px 10px 10px 0;
-    display: block;
-}
-
-.pgwSlider .ps-nextIcon {
-    border-color:transparent #fff transparent;
-    border-style: solid;
-    border-width: 10px 0 10px 10px;
-    display: block;
-}
-
-.pgwSlider .ps-current .ps-prev {
-    background: rgba(0, 0, 0, 0.5);
-    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000')";
-    border: 1px solid #777;
-    border-left: 0;
-    border-radius: 0 4px 4px 0;
-    position: absolute;
-    padding: 20px 20px 20px 17px;
-    left: 0;
-    top: 45%;
-    cursor: pointer;
-}
-
-.pgwSlider .ps-current .ps-next {
-    background: rgba(0, 0, 0, 0.5);
-    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000')";
-    border: 1px solid #777;
-    border-right: 0;
-    border-radius: 4px 0 0 4px;
-    position: absolute;
-    padding: 20px 17px 20px 20px;
-    right: 0;
-    top: 45%;
-    cursor: pointer;
-}
-
-ul.pgwSlider.wide > li,.pgwSlider.wide > ul > li {    width: 100% !important;}
-
-.pgwSlider.narrow .ps-current {    margin-bottom: 6px;    font-size: 0.8rem;}
-.pgwSlider.narrow .ps-current img {    width: 100%;    min-height: inherit;}
-.pgwSlider.narrow .ps-current,ul.pgwSlider.narrow,.pgwSlider.narrow > ul {    width: 100%;}
-ul.pgwSlider.narrow > li,.pgwSlider.narrow > .ps-list > li {    float: left;    min-height: 50px;    max-height: 70px;    min-width: 15%;    font-size: 0.7rem;    margin-bottom: 0;}
-ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > li {    float: right;}
-.pgwSlider.narrow .ps-caption {    padding: 8px;}
-.pgwSlider.narrow .ps-current .ps-prev {    padding: 15px 15px 15px 12px;    top: 40%;}
-.pgwSlider.narrow .ps-current .ps-next {    padding: 15px 12px 15px 15px;    top: 40%;}
-
-.microfiche-controls {
-  display: block;
-  text-align: center;
-  font-size: 10px;
-  padding: 5px 0px;
-}
-.microfiche-bullet {
-  display: inline-block;
-  cursor: pointer;
-  width: 10px; height: 10px;
-  border-radius: 6px;
-  background: #000;
-  overflow: hidden;
-  text-indent: -1000px;
-  margin: 0 5px;
-  opacity: 0.25;
-  appearance: none;
-  border: none;
-  outline: none;
-  padding: 0;
-}
-.microfiche-bullet.selected {
-  opacity: 1;
-}
-.microfiche-button {
-  margin: 0 15px;
-}
-
-.slider-container {
-  width: 100%;
-}
-.slider-container .back-bar {
-  height: 10px;
-  position: relative;
-}
-.slider-container .back-bar .selected-bar {
-  position: absolute;
-  height: 100%;
-}
-.slider-container .back-bar .pointer {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  cursor: col-resize;
-  opacity: 1;
-  z-index: 2;
-}
-.slider-container .back-bar .pointer.last-active {
-  z-index: 3;
-}
-.slider-container .back-bar .pointer-label {
-  position: absolute;
-  top: -17px;
-  font-size: 8px;
-  background: white;
-  white-space: nowrap;
-  line-height: 1;
-}
-.slider-container .back-bar .focused {
-  z-index: 10;
-}
-.slider-container .clickable-dummy {
-  cursor: pointer;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.slider-container .scale {
-  top: 2px;
-  position: relative;
-}
-.slider-container .scale span {
-  position: absolute;
-  height: 5px;
-  border-left: 1px solid #999;
-  font-size: 0;
-}
-.slider-container .scale ins {
-  font-size: 9px;
-  text-decoration: none;
-  position: absolute;
-  left: 0;
-  top: 5px;
-  color: #999;
-  line-height: 1;
-}
-.slider-container.slider-readonly .clickable-dummy,
-.slider-container.slider-readonly .pointer {
-  cursor: auto;
-}
-.theme-green .back-bar {
-  height: 5px;
-  border-radius: 2px;
-  background-color: #eeeeee;
-}
-.theme-green .back-bar .selected-bar {
-  background-color: #BEC0C1;
-}
-.theme-green .back-bar .pointer {
-  width: 8px;
-  height: 14px;
-  top: -5px;
-  border: 1px solid #AAA;
-  background: #BEC0C1;
-}
-.theme-green .back-bar .pointer-label {
-  color: #999;
-}
-.theme-green .back-bar .focused {
-  color: #333;
-}
-.theme-green .scale span {
-  border-left: 1px solid #e5e5e5;
-}
-.theme-green .scale ins {
-  color: #999;
-}
-
-.range { margin-top: 20px; }
-.min, .max { display: inline-block; border: 1px solid; background: #DEDFDF; color: #6D6E71; width: 50px; text-align: right; padding: 2px 5px; margin-right: 10px; margin-top: 20px;}
-
-.products-sale { font-family: 'Roboto Slab', serif; overflow: auto }
-.products-sale h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7; padding-bottom: 0.3em;}
-.products-sale ul { margin: 10px 0; padding: 0; list-style: none; }
-.products-sale li { width: 16.6%; min-height: 380px; float: left; text-align: center;  }
-.products-sale article { width: 95%; margin: 0 auto; padding: 5px; position: relative;}
-.products-sale article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.products-sale figure { line-height: 255px;}
-.products-sale img { vertical-align: middle; }
-.products-sale h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-.price-correction { display: block; line-height: 35px}
-.products-sale strong {display: block; line-height: 35px;}
-.products-sale .item-5 li { width: 195px; }
-.price-correction del, .price-correction strong { display: inline-block; }
-.price-correction strong { color: #FF6600; margin-left: 15px;}
-
-.products-sale .overlay { position: absolute; bottom: 0; top: 0; left: 0; right: 0; line-height: 240px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
-
-.products-sale .slider-control { float: right; margin: 15px 20px 0; ; }
-.slider-control a { color: #808080; text-decoration: none; display: inline-block; margin-right: 5px; background: #D8D9DA; padding: 5px 8px;}
-
-.new h2, .new h3, .new h4 { font-family: 'Roboto Slab', serif; }
-.new h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7; padding-bottom: 0.3em;}
-.new h3 { font-size: 22px; font-weight: 600; margin-top: 5px; position: relative;}
-.new-item { float: left; margin-right: 40px; }
-.new-promo { float: right;  margin-left: 30px; position: relative;}
-.new-promo .button { font-size: 20px; top: 60%; right: 20%; font-weight: 600}
-.new p { margin: 20px 0; }
-.new del, .new strong { font-family: 'Roboto Slab', serif; }
-.new del { font-weight: 600; }
-.new strong { color: #FF6600; font-size: 28px; display: block; }
-.new .button { display: inline-block; font-family: 'Roboto Slab', serif; }
-.button.static { font-family: 'Roboto Slab', serif;position: relative; text-transform: uppercase; background: #009BDC; color: #fff; }
-
-.new-banner { clear: both;width: 100%; margin-top: 20px; height: 351px; background: url(img/new-banner.jpg); border-top: 20px solid #fff }
-.new-banner h3, .new-banner h4 { color: #fff; font-size: 55px; margin-right: 50px; text-align: right; font-weight: 600}
-.new-banner h4 { width: 400px; margin-left: auto; font-size: 40px; line-height: 1.5; margin-top: 40px;}
-.new-banner strong {color: #FF6600;}
-
-.review h2, .review h3, .review h4 { font-family: 'Roboto Slab', serif; }
-.review h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7; padding-bottom: 0.3em;}
-.review h3 { font-size: 22px; font-weight: 600;}
-.review h4 { font-size: 15px}
-.review p { font-size: 12px; }
-.review .button, .product-day .button { display: inline-block; font-family: 'Roboto Slab', serif; }
-.review figure { float: left; margin-right: 20px }
-.button a { color: #fff; }
-.column-2 { column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
-
-.product-day { font-family: 'Roboto Slab', serif; overflow: auto }
-.product-day h2 { color: #000; font-size: 20px; border-bottom: 1px solid #C7C7C7;  padding-bottom: 0.3em;}
-.product-day ul { margin: 5px 0; padding: 0; list-style: none; }
-.product-day li { width: 50%; float: left; margin: 5px 0;  }
-.product-day article { width: 95%; margin: 0 auto; padding: 5px;}
-.product-day article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.product-day figure { float: left; position: relative;}
-.product-day-content { margin-left: 330px; }
-.product-day del { font-weight: 600; }
-.product-day img { vertical-align: middle; }
-.product-day h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-.product-day strong { color: #FF6600; font-size: 28px; display: block; }
-.product-day figure .button { background: #FF6600; font-size: 16px; padding: 0 8px; display: inline-block; position: absolute; top: 10%; right: 15%; margin: 0; font-weight: 600}
-.product-day figure .button.rep:after { border-top-color: #FF6600;}
-
-.button:hover { background: #FF6600; }
-
-.filters { margin-right: 40px; }
-.filters h2 { font-family: 'Roboto Slab', serif; font-weight: 400; border-bottom: 1px dotted; font-size: 18px; margin-bottom: 0; padding-bottom: 5px;}
-.filters h3 { font-family: Arial, sans-serif; font-weight: 600; font-size: 14px; }
-.categories { list-style: none; margin: 0; padding: 5px 15px; background: #DEDFDF;}
-.categories li { font-size: 13px; margin: 0 0 20px 0;}
-.categories h4 { font-weight: 600; padding-left: 0; font-size: 13px;}
-.categories h5 { padding-left: 20px; font-size: 13px;}
-.categories h6 { padding-left: 40px; }
-.categories .active { font-weight: 600 }
-.active i { margin-left: -15px; font-size: 10px; width: 15px;}
-
-.my-selection { list-style: none; margin: 0; padding: 5px 10px; }
-.my-selection li { margin: 8px 0 }
-
-.filters a { color: #3B3B3B; text-decoration: none; }
-.filters a:hover { color: #D40000; }
-
-.no-bullet { list-style: none; margin: 0; padding: 0; }
-
-.brand-filter li { margin: 8px 10px;  }
-.brand-filter li.extra-items { margin: 8px 0; }
-.brand-filter .right-caret { display: inline-block; width: 15px; color: #A9ABAD; }
-.brand-filter .right-caret:hover { color: #D40000; }
-
-.size-filter li { float: left; width: 50%; margin: 8px 0; padding-left: 20px;}
-.size-filter a { display: inline-block; min-width: 26px; height: 26px; border: 1px solid; background: #DEDFDF; color: #6D6E71; text-align: center; vertical-align: baseline; margin-right: 10px; font-size: 17px; padding: 0 3px;}
-
-.color-filter li { float: left; width: 50%; margin: 8px 0; padding-left: 20px;}
-.color-filter a { display: inline-block; min-width: 26px; height: 26px;  background: #DEDFDF; color: #6D6E71; text-align: center; vertical-align: middle; margin-right: 10px; }
-
-.category-items h1 { font-size: 30px; font-weight: 400}
-
-.category-items>ul>li { float: left; width: 25%}
-.colors li { display: inline-block; }
-.colors a { width: 15px; height: 15px; display: inline-block; }
+      .colors li { display: inline-block; }
+      .colors a { width: 15px; height: 15px; display: inline-block; }
 
       .rating { font-size: 12px; }
       .rating img { vertical-align: text-bottom; position: relative;}
@@ -603,12 +128,12 @@ ul.pgwSlider.narrow.listOnTheLeft > li, .pgwSlider.narrow.listOnTheLeft > ul > l
       .green a {background: #A1B007;}
       .magenta a {background:#C71C5C}
 
-h1 { margin-top: 0; }
-.filters h2:first-child {margin-top: 0;}
-.breadcrumb {margin-bottom: 0}
+      .breadcrumb {margin-bottom: 0}
 
-      .item-list>li { border-bottom: 1px dotted #6D6E71; height: 480px;}      
-      .item-list article { width: 95%; margin: 0 auto; padding: 10px 5px; height: 100%; position: relative;}
+      h1 { margin-top: 0; }
+      .category-items h1 { font-size: 30px; font-weight: 400}
+      .item-list>li { float: left; width: 25%; border-bottom: 1px dotted #6D6E71; height: 480px;}      
+      .item-list article { width: 100%; padding: 10px 5px; height: 100%; position: relative;}
       .item-list article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
       .item-list article:hover .size { display: block; }
       .item-list .size { display: none; position: absolute; right: 10%; top: 5%; }
@@ -620,9 +145,9 @@ h1 { margin-top: 0; }
       .item-list .price del { font-size: 16px; }
       .item-list .price strong { font-size: 18px; }
       .item-list .price del+strong { color: #FF6600; font-size: 24px; padding-left: 10px; }
-      .item-list h4 { font-family: 'Roboto Slab', serif; margin: 5px 15px; font-size: 15px; line-height: 1.5; }
+      .item-list h4 { font-family: 'Roboto Slab', serif; margin: 5px 15px; font-size: 15px; line-height: 1.5; height: 45px; overflow: hidden; }
       .item-list .button { margin: 5px; display: inline-block; background: #808285; font-family: 'Roboto Slab', serif; font-weight: bold; font-size: 12px }
-      .item-list .button:hover { background: #FF6600; }
+      .item-list .button a { color: #fff; }
 
       .cat-description { background: #DEDFDF; padding: 10px 15px; clear:left; }
       .cat-description h2 {  font-family: 'Roboto Slab', serif; font-size: 23px; font-weight: 600; color: #4B4748; margin: 25px 10px;}
@@ -633,6 +158,111 @@ h1 { margin-top: 0; }
 
       .item-list .novo { text-transform: initial; background: #D40000; font-size: 14px; }
       .item-list .novo:after { border-top-color: #D40000 ;  }
+
+footer {background: #DEDFDF; margin-top: 30px}
+footer section { background: #fff; margin: 20px 0; padding: 20px 15px; font-size: 14px}
+.footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
+footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
+footer h3 { font-size:14px; font-weight:700;}
+footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
+footer li { line-height:21px; }
+footer li:before { content: "> "; }
+footer li a {color:#2d2d2d;}
+footer li a:hover {color:#000;}
+.footer-side h3 {margin-top: 0;}
+
+@media only screen and (max-width : 992px) {
+  .user-menu { padding: 0 15px; }
+  .search-bar { padding: 0; }
+  .btn, .dropdown-menu a, .form-control { font-size: 12px; }
+  .form-control { height: auto; border-right: 0 }
+  .search-bar { padding: 4px 0; }
+  .user-menu {padding: 11px 15px;}
+  .main-menu .dropdown-toggle, .infonav {font-size: 14px; height: auto}
+  .main-menu .dropdown-menu {width: 420px}
+  .main-menu .full { width: 750px;}
+  .infonav strong { font-size: 14px; }
+  .my-selection { padding: 5px 0; }
+  .item-list>li { width: 33.3%; height: 440px }
+  .item-photo img { width: 100%; }
+  .item-list .price del+strong {font-size: 20px}
+  footer section { font-size: 12px }
+}
+
+@media only screen and (max-width:767px) {
+  strong { font-size: 12px;}
+  .button { font-size: 12px; }
+  .main-menu { background: #CACACD; border-bottom: none;}
+  .logo-small { text-align: center; vertical-align: middle; line-height: 50px }
+  .menu-icons { font-size: 30px; color: #414042; }
+  .navbar { margin-bottom: 0 }
+  .navbar-toggle { float: none; margin-right: 0; border: none; }
+  .navbar-collapse { clear: both; }
+  .navbar-default .navbar-toggle .icon-bar { background-color: #414042; }
+  .menu-search { padding: 5px 10px; }
+  .menu-search .input-group-btn button { background-color: #909295; color: #fff; }
+  .menu-extra-buttons li { float: left; line-height: 50px; width: 25%; font-size: 1.5rem; text-transform: uppercase; text-align: center;}
+  .menu-extra-buttons li:last-child { width: 50%}
+  .infonav { display: none; }
+  .brand-cloud { display: none; }
+  .products-sale li, .item-5 li { width: 150px; min-height: auto;}
+  .products-sale h4 { font-size: 1.3rem; height: 40px; overflow: hidden; }
+  #main { background-color: #E3E4E5; padding: 0 5px; }
+  article { background: #fff }
+  .item-photo { line-height: normal;}
+  .item-photo img { width: 100%; }
+  .review img { width: 100%; }
+  .new h3 { font-size: 1.6rem }
+  .new-item { width: 50% }
+  .new-item img { width: 100%; }
+  .new-promo {display: none;}
+  .new-price {display: none}  
+  .new-banner { background-size: cover; height: auto; background-repeat: no-repeat; min-height: 170px}
+  .new-banner h3 { font-size: 2rem; }
+  .new-banner h4 { font-size: 1.5rem; }
+  .new p {height: 80px; overflow: auto;}
+  .new .button { margin: 2% 0; }
+  .slider-control {display: none;}
+  .rating {display: none}
+  .button-container {position: absolute; width: 45%;}
+  .button-container .button { margin: 0;}
+  #slider-climb, #slider-travel, .slider-action5 { width: 100%; overflow: auto; }
+  .slider-action5 ul { width: 900px; }
+  #slider-climb ul, #slider-travel ul { width: 750px }
+  .product-day figure { float: none; }
+  .product-day-content { margin: 0; }
+  .product-day h3 { font-size: 1.4rem; }
+  .product-day strong { font-size: 1.4rem; }
+  .product-day .button { display: none; }
+  .review figure { width: 50%; }
+  .review p { display: none; }
+  .review h3 { font-size: 14px; margin-top: 0 }
+  .review h4 { font-size: 12px; height: 55px; overflow: auto;}
+  .service li { float: none; width: 100%; clear: left; margin-bottom: 10% }
+  .service .icon { float: left; width: 80px}
+  .service article { text-align: left; margin-left: 80px; background: transparent;}
+  .service h3 { font-size: 15px; font-weight: 700; margin: 0;}
+  .service strong {color: #6D6E71; margin: 0; display: block; height: 28px}
+  .service p { display: none; }
+  .service .button { display: none; }
+  .breadcrumb {display: none;}
+  .category-items { background-color: #DEDFDF; }
+  .category-items h1 { font-size: 20px; padding: 5px 10px; background: #CACACD; margin-top: -1px; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0}
+  .category-items .item-list .cat-description { width: 100%; float: none; padding: 1% 3%; height: auto;}
+  .item-list>li { width: 50%; border-bottom: none; margin: 5px 0; height: 375px}
+  .item-list article { width: 95%; margin: 0 auto; }
+  .category-items .size, .category-items .colors, .items-list .button { display: none }
+  .category-items .item-list .cat-description { padding: 1% 0 }
+  .cat-description h2 { font-size: 18px; margin: 3% 0 0 10px;}
+  .cat-description h3 { font-size: 14px; margin: 2% 90px 3% 10px; line-height: 1.2;}
+  .filters-button { position: absolute; right: 15px; top: 40px; margin: 0; background-color: #6D6E71}
+  .filters-open { color: #fff; font-size: 14px; font-weight: 700; }
+  .filters { position: fixed; z-index: 2; top: 0; bottom: 0; background: #fff; margin-left: -100%; width: 100%; overflow: auto; padding: 2% 5%;}
+  .filters-close { width: 20px; margin-left: auto; margin-right: 0 }
+  .filters .filters-close-btn { position: fixed; padding: 5px 10px; background: #6D6E71; color: #fff; opacity: 0.7;}
+
+  .footer-main { column-count: 1; -moz-column-count: 1; -webkit-column-count: 1; }
+}      
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -645,62 +275,96 @@ h1 { margin-top: 0; }
   <body>
     <div class="container">
       <div class="row">
-        <header style="padding: 20px;">
-          <div class="row visible-xs-block visible-sm-block">
-            <div class="col-xs-2">Meni</div>
-            <div class="col-xs-2">Iskanje</div>
-            <div class="col-xs-4">Logo</div>
-            <div class="col-xs-2">Mail</div>
-            <div class="col-xs-2">Cart</div>
+        <header>
+        <div class="row hidden-xs">
+          <div class="col-md-3 hidden-sm">
+            <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
           </div>
-          <div class="row hidden-xs hidden-sm">
-            <div class="col-md-3">
-              <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
+          <div class="col-sm-3 visible-sm">
+            <a class="logo" href="#"><img src="img/kibuba-logo-small.png" alt="logo"></a>
+          </div>
+          <div class="col-sm-3 col-md-5 search-bar">
+            <form>
+              <div class="input-group">
+                <div class="input-group-btn search-panel">
+                  <button type="button" class="btn btn-default dropdown-toggle grey" data-toggle="dropdown">
+                    <span id="search_concept">Vse</span> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#contains">Vse</a></li>
+                    <li><a href="#its_equal">Izbrano kategorijo</a></li>
+                    <li><a href="#less_than">Clanki</a></li>
+                  </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="išči po trgovini ...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="border-left: 0; border-radius: 0"><i class="fa fa-search greytxt"></i></button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-6 col-md-4 pull-right user-menu">
+            <ul class="no-bullet">
+              <li class="user-menu-item"><a href="#"><i class="fa fa-user"></i> Prijavi se</a></li>
+              <li class="user-menu-item"><a href="#" data-toggle="dropdown">O nas <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Kdo smo</a></li>
+                  <li><a href="#">Kje smo</a></li>
+                  <li><a href="#">Zakaj smo</a></li>
+                  <li><a href="#">Kontakt</a></li>
+                </ul>
+              </li>
+              <li class="user-menu-item"><a href="#" data-toggle="dropdown"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Slovenija</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Österreich</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Deutschland</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Italia</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Europe</a></li>
+                </ul>
+              </li>
+              <li class="user-menu-item"><a href="#" data-toggle="collapse" data-target=".cart"><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></a></li>
+            </ul>
+            <div class="cart collapse">This area is the shopping cart</div>
+          </div>
+        </div> 
+        </header>
+        <nav class="navbar navbar-default main-menu">
+          <div class="visible-xs-block col-xs-6">
+            <div class="row logo-small"><a href="index.html"><img src="img/kibuba-logo-small.png"></a></div>
+          </div>
+          <div class="navbar-header col-xs-2 visible-xs-block">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="visible-xs-block col-xs-4 menu-icons">
+            <div class="row">
+              <div class="col-xs-6"><a href="#"><i class="fa fa-comments"></i></a></div>
+              <div class="col-xs-6"><a href="#"><i class="fa fa-shopping-cart"></i></a></div>
             </div>
-            <div class="col-md-4 search_wrap" style="padding-top: 22px">
-              <form>
+          </div>
+          <div class="visible-xs-block col-xs-12">
+            <div class="row">
+              <form class="menu-search">
                 <div class="input-group">
-                  <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle grey" data-toggle="dropdown" style=" border-radius: 0">
-                      <span id="search_concept">Vse</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#contains">Vse</a></li>
-                      <li><a href="#its_equal">Izbrano kategorijo</a></li>
-                      <li><a href="#less_than">Clanki</a></li>
-                    </ul>
-                  </div>
-                  <input type="hidden" name="search_param" value="all" id="search_param">         
-                  <input type="text" class="form-control" name="x" placeholder="išči po trgovini ..." style="border-right: 0;">
+                  <input type="text" class="form-control" name="x" placeholder="išči po trgovini ...">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" style="border-left: 0; border-radius: 0"><i class="fa fa-search greytxt"></i></button>
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                   </span>
                 </div>
               </form>
             </div>
-            <div class="col-md-5 pull-right" id="user_menu"  style="padding-top: 28px; text-align: right;">
-              <div><i class="fa fa-user"></i> Prijavi se</div>
-              <div>O nas <span class="caret"></span></div>
-              <div><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Slovenija</div>
-              <div><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></div>
-            </div>
-          </div> 
-        </header>
-        <nav class="navbar navbar-default main-menu">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse row">
+          </div>
+          <div id="navbar" class="navbar-collapse collapse row">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oblačila <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul>
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -715,7 +379,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -729,7 +393,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                      </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -744,7 +408,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -758,7 +422,7 @@ h1 { margin-top: 0; }
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Obutev <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -773,7 +437,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -787,7 +451,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -802,7 +466,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -816,7 +480,7 @@ h1 { margin-top: 0; }
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oprema <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -831,7 +495,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -845,7 +509,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -860,7 +524,7 @@ h1 { margin-top: 0; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -873,9 +537,9 @@ h1 { margin-top: 0; }
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ostale kategorije <span class="caret"></span></a>
-                  <div class="dropdown-menu row" style="width: 600px;">
-                    <div class="col-md-6">
-                      <ul class="">
+                  <div class="dropdown-menu row">
+                    <div class="col-sm-6">
+                      <ul>
                         <li class="special-item"><a href="#">VSE ZA TURNO SMUČANJE</a></li>
                         <li class="special-item"><a href="#">TEČAJNIŠKI NABOR</a></li>
                         <li class="special-item"><a href="#">PRIPRAVITE SE NA MARATON</a></li>
@@ -895,8 +559,8 @@ h1 { margin-top: 0; }
                         <li><a href="#">Spalne vreče in podloge</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-6">
-                      <ul class="">
+                    <div class="col-sm-6">
+                      <ul>
                         <li><a href="#">Plezalna oprema</a></li>
                         <li><a href="#">Popotniška oprema</a></li>
                         <li><a href="#">Nogavice in gamaše</a></li>
@@ -920,12 +584,12 @@ h1 { margin-top: 0; }
                 </li>
               </ul>
               <div class="pull-right infonav">
-                <ul class="">
+                <ul class="no-bullet">
                   <li><a href="mailto:info@kibuba.com">info@kibuba.com</a></li>
                   <li><strong>080 35 56</strong></li>
                 </ul>
               </div>
-            </div>
+          </div>
         </nav>
       </div>
     </div>
@@ -936,9 +600,10 @@ h1 { margin-top: 0; }
           <li><a href="#">Jakne, puhovke in flisi</a></li>
           <li class="active">Puhovke in Primaloft</li>
         </ol>
-        <div class="col-md-3">
+        <div class="col-sm-4 col-md-3">
           <div class="row">
             <section class="filters">
+              <div class="filters-close visible-xs"><a class="filters-close-btn" href="#"><i class="fa fa-times"></i></a></div>
               <h2>Kategorije</h2>
               <ul class="categories">
                 <li><h4><a href="#">Jakne, puhovke in flisi</a></h4></li>
@@ -1008,10 +673,11 @@ h1 { margin-top: 0; }
             </section>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-sm-8 col-md-9">
           <div class="row">
             <section class="category-items">
               <h1>Puhovke in Primaloft</h1>
+              <div class="visible-xs button filters-button"><a href="#" class="filters-open">filtriraj</a></div>
               <ul class="no-bullet item-list">
                 <li class="cat-description">
                   <h2>Toplejše</h2>
@@ -1025,7 +691,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat1.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat1.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="black"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1044,7 +710,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><span class="button novo rep">Akcija</span><img src="img/cat2.jpg"></figure>
+                    <figure class="item-photo"><span class="button novo rep">Akcija</span><img src="img/cat2.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="magenta"><a href="#"></a></li>
                     </ul>
@@ -1062,7 +728,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat3.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat3.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1083,7 +749,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat4.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat4.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1104,7 +770,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat5.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat5.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1125,7 +791,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat6.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat6.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1146,7 +812,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat7.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat7.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1171,7 +837,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat1.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat1.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="black"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1190,7 +856,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><span class="button novo rep">Kibubina kupčija</span><img src="img/cat2.jpg"></figure>
+                    <figure class="item-photo"><span class="button novo rep">Kibubina kupčija</span><img src="img/cat2.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="magenta"><a href="#"></a></li>
                     </ul>
@@ -1208,7 +874,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat3.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat3.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1229,7 +895,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat4.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat4.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1250,7 +916,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat5.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat5.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1278,7 +944,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat1.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat1.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="black"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1297,7 +963,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat2.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat2.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="magenta"><a href="#"></a></li>
                     </ul>
@@ -1315,7 +981,7 @@ h1 { margin-top: 0; }
                       <li><a href="#">L</a></li>
                       <li><a href="#">XL</a></li>
                     </ul>
-                    <figure><img src="img/cat3.jpg"></figure>
+                    <figure class="item-photo"><img src="img/cat3.jpg"></figure>
                     <ul class="colors no-bullet">
                       <li class="orange"><a href="#"></a></li>
                       <li class="blue"><a href="#"></a></li>
@@ -1334,7 +1000,7 @@ h1 { margin-top: 0; }
         </div>
       </div>
     </div>
-    <footer style="background: #DEDFDF; margin-top: 30px">
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-9">
@@ -1403,70 +1069,31 @@ h1 { margin-top: 0; }
     <script src="js/jquery.range-min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
-$(document).ready(function() {
-    $('.pgwSlider').pgwSlider();
-});
-
-/*
-    $(document).ready(function()
-    {
-      $('#slider1').tinycarousel({
-        infinite: false,
-        animationTime: 100
-    });
-    });
-*/
-
-$('#slider1').microfiche({ bullets: false, buttons: false, cyclic: true  });
-$('#slider2').microfiche({ bullets: false, buttons: false, cyclic: true  });
-$('#slider3').microfiche({ bullets: false, buttons: false, cyclic: true  });
-
-        $(document).ready(function(){
-            $('.range-slider').jRange({
-                from: 19,
-                to: 1999,
-                step: 1,
-                width: 250,
-                isRange : true,
-                showLabels: false,
-                showScale: false
-            });
+      if ($(window).width() > 769) {
+        $(".navbar").stick_in_parent({
+          parent: "body"
         });
+      }
 
-            $('.range-slider').change(function(){
-              var $val = $(this).val();
-              var $arr = new Array();
-              $arr = $val.split(',');
-              $('.min').html($arr[0]);
-              $('.max').html($arr[1]);
-            })
+      $(document).ready(function(){
+        $('.range-slider').jRange({
+          from: 19,
+          to: 1999,
+          step: 1,
+          width: '85%',
+          isRange : true,
+          showLabels: false,
+          showScale: false
+        });
+      });
 
-    var $easyzoom = $('.easyzoom').easyZoom();
-    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
-
-    $('.thumbnails').on('click', 'a', function(e) {
-      var $this = $(this);
-
-      e.preventDefault();
-
-      // Use EasyZoom's `swap` method
-      api1.swap($this.data('standard'), $this.attr('href'));
-    });
-
-var allLinks = $('.thumbnails a').map( function() {
-    var arr = []
-    var obj = {};
-    obj['href'] = $(this).attr('href');
-    arr.push(obj);
-    return arr;
-}).get();
- 
-
-$('.easyzoom').click( function() {
-  $.swipebox( allLinks );
-} );
-
-    $('.swipebox').swipebox();
+      $('.range-slider').change(function(){
+        var $val = $(this).val();
+        var $arr = new Array();
+        $arr = $val.split(',');
+        $('.min').html($arr[0]);
+        $('.max').html($arr[1]);
+      })
 
       $(document).ready(function(e){
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
@@ -1478,59 +1105,19 @@ $('.easyzoom').click( function() {
         });
       });
 
+      $(document).ready(function() {
+        $('.filters-open').click(function() {
+          var $filt = $('.filters');
+          $filt.css('width', $(window).width());
+          $('.filters').animate({'margin-left': 0});
+        });
+      });
 
-$(document).ready(function(){
-  $(".izdelek-menu a").click(function(e) {
-    e.preventDefault();
- 
-    anchorScroll( $(this), $($(this).attr("href")), 100 );
-  });
-});
- 
-function anchorScroll(this_obj, that_obj, base_speed) {
-  var this_offset = this_obj.offset();
-  var that_offset = that_obj.offset();
-  var gap = $(".navbar").outerHeight() + $(".naslov").outerHeight() + 50;
-  var offset_diff = Math.abs(that_offset.top - this_offset.top);
-  var speed       = (offset_diff * base_speed) / 1000;
- 
-  $("html,body").animate({
-    scrollTop: that_offset.top - gap
-  }, speed);
-}
-
-      $(window).on('scroll', function() {
-    $('.target').each(function() {
-        if($(window).scrollTop() >= ($(this).offset().top) -165) {
-
-            var id = $(this).attr('id');
-            $('.izdelek-menu li').removeClass('active');
-            $('.izdelek-menu a[href=#'+ id +']').parent().addClass('active');
-        }
-    });
-});
-$(".navbar").stick_in_parent({
-  parent: "body"
-});
-
-$(".sidebar").stick_in_parent({
-  offset_top: $(".navbar").outerHeight(),
-    parent: "#main"
-});
-
-$('.sidebar')
-.on('sticky_kit:bottom', function(e) {
-    $(this).parent().css('position', 'static');
-})
-.on('sticky_kit:unbottom', function(e) {
-    $(this).parent().css('position', 'relative');
-})
-
-$(".naslov").stick_in_parent({
-  parent: "#main",
-  offset_top: $(".navbar").outerHeight()
-});
-
+      $(document).ready(function(){
+        $('.filters-close-btn').click(function() {
+          $('.filters').animate({'margin-left': '-100%'});
+        });
+      });
     </script>
   </body>
 </html>
