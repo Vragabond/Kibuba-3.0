@@ -11,400 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/swipebox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
-
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&subset=latin,latin-ext);
-    a { color: #000; }
-    p { font-size: 13px }
-
-    .button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; font-family: 'Roboto Slab', serif;}
-    .button { font-size: 1.4rem; }
-    .button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
-    .button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
-    .button:hover { background: #FF6600; }
-    .no-bullet { list-style: none; margin: 0; padding: 0; }
-    h1, h2, h3 {font-family: 'Roboto Slab', serif; }
-    .overlay a { text-decoration: none; font-size: 50px; color: #fff; }
-    .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-    .no-bullet { list-style: none; margin: 0; padding: 0; }
-    .disabled { position: relative; }
-      .grey { background: #ccc; }
-      .greytxt { color: #ccc; }
-      header>div { padding: 20px 0; }
-      .search-bar { padding: 17px 0; }
-      .search-bar .form-control { height: auto; border-right: 0; box-shadow: none;}
-      .search-bar .btn {border-radius: 0}
-      .user-menu { font-size: 13px; position: relative; text-align: right; padding:19px 15px 0 15px;}
-      .user-menu-item { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
-      .user-menu-item:last-child { border-right: 0; } 
-      .user-menu a { color: #000; }
-      .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
-      .dropdown-menu { border-radius: 0; border: 0; left: auto;  }
-      .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; width: 600px}
-      .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background: #009BDC; color: #fff; }
-      .main-menu .full { width: 1170px; left: 0;}
-      .nav li {position: static;}
-      nav.navbar.is_stuck { z-index: 6; }
-      .main-menu .dropdown-toggle {text-transform: uppercase; font-size: 18px;}
-      .dropdown-menu ul { list-style: none; margin: 0; padding: 0 }
-      .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-right: 5px; font-family: arial, sans-serif}
-      .dropdown-menu.full a {padding-left: 25px;}
-      .dropdown-menu a:hover { background: #2C2C2C; color: #fff; text-decoration: none; box-shadow: 0 6px 12px rgba(0,0,0,.175);}
-      .dropdown-header { font-size: 15px; font-weight: 700; padding: 12px 5px 0; }
-      .dropdown-menu li.dropdown-header a, .dropdown-menu li.special-item a {font-family: 'Roboto Slab', 'Times New Roman', serif; padding-left:5px;}
-
-      .infonav { font-size: 18px; padding: 15px 0; line-height: 20px;}
-      .infonav ul {border-left: 1px solid; }
-      .infonav li { display: inline-block; padding: 0 10px; }
-      .infonav a {color:#2C2C2C;}
-      .infonav strong { font-size: 18px;}
-
-      .breadcrumb { background: transparent; font-size: 11px}
-      .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
-      .breadcrumb a {color: #808080; }
-      .breadcrumb a:hover {text-decoration: none;color: #FF6600}
-
-
-      /*fonts*/
-      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
-      h2 { font-family: 'Roboto Slab', 'Times New Roman', serif; font-weight: 600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; }
-      h3 { font-family: 'Roboto Slab', serif; }
-      a { color: #000; }
-      .item-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
-
-      .button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
-      .button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
-      .button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
-      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .black-grey { border-bottom: 5px solid black;    border-top: 5px solid gray;    border-left: 5px solid black;  border-right: 5px solid gray;  display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .cart {  background: #ccc; right: 15px; left: 0; position: absolute; padding: 20px 10px; z-index: 10; min-height: 150px}
-
-      .easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center; margin-top: 15px}
-      .fullscreen { position: absolute; z-index: 3; right: 16px; top: 16px; padding: 5px; font-size: 20px; background: rgba(255,255,255,.5) }
-      .easyzoom a { display: inline-block;width: 100% }
-      .easyzoom img {  vertical-align: bottom;}
-      .easyzoom.is-loading img {  cursor: progress;}
-      .easyzoom.is-ready img {  cursor: crosshair;}
-      .easyzoom.is-error  img {  cursor: not-allowed;}
-      .easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
-      .easyzoom-flyout {  position:absolute;  z-index: 2;  overflow: hidden;  background: #FFF;}
-      .easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
-      .easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
-      .thumbnails a {display: inline-block;   text-align: center;}
-
-      .item-title {padding: 15px 0; }
-      .item-title figure {margin-top: 15px;}
-      .item-title h1 {margin-top: 10px; position: relative;}
-      .item-title .novo {top: -50px; right: 30px; font-size: 13px;}
-      .item-title.is_stuck { background: #fff; box-shadow: 0px 15px 10px 3px #fff ; z-index: 4; }
-      .item-title.is_stuck figure, .item-title.is_stuck .novo { display: none; }
-      .item-title.is_stuck .item-menu { position: relative; z-index: 3; }
-      .item-title.is_stuck h1 { position: absolute; width: 380px; left: -380px; top: 0px; font-size: 20px; line-height: 40px; background: #fff; padding: 15px 10px; box-shadow: 0px 15px 10px 3px #fff; margin: 0; z-index: 2; white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis; }
-      .item-title.is_stuck h1:hover { width: 875px; z-index: 4}
-
-      .item-menu li {display: inline-block; position: relative;}
-      .item-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
-      .item-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
-      .item-menu .active a { background: #FF6600; color: #fff;}
-      .item-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
-
-      .item-info { font-size: 12px; }
-      .item-info div { margin-bottom: 10px; }
-      .item-info .rating figure { margin-right: 10px; }
-      .rating img { vertical-align: top; position: relative;}
-      .rating figure { background: #A8A8A8; height: 17px; width: 90px; position: relative; display: inline-block;}
-      .rating span { position: absolute; display: inline-block; background: #FFBA00; height: 17px}
-      .rating strong { color: #FF6600; font-weight: 400}
-
-      .price {line-height:45px;}
-      .price strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
-      .price span { float: right; }
-      .price i { vertical-align: middle; margin-right: 10px; display: inline-block;}
-
-      .price.action strong { color: #FF6600; display:inline-block; margin-left: 30px;}
-      .price.program { background: #E3E7B4;   padding: 0 15px; }
-      .price.program i { background-image: url(img/storz.png); background-repeat: no-repeat; width: 25px; height: 26px; }
-      .price.deal {background: #FFE6B2; padding: 0 15px;  }
-      .price.deal i { font-size: 26px; }
-      
-      .stock { color: #70AB07; text-decoration: underline; }
-      .stock span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
-      .stock.none span { background: #AD1E2D; }
-
-      .item-options .form-group {width: 50%}
-      .item-options select {width: 100% !important}
-      .item-options button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
-      .item-options button:hover {border: none; background: #000}
-
-      .discount  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px; vertical-align: bottom;}
-      .discount .cone {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
-      .discount a { text-decoration: none; color: #000; opacity: .3; display: block;}
-      .discount a:hover { opacity: 0.6; }
-
-      .color li {display: inline-block; margin: 0;}
-      .color a { display: inline-block; width: 23px; height: 23px; margin-right: 5px; }
-      .color .orange a { background: #DD4320; }
-      .color .blue a {background: #397FA5;}
-      .color .black a {background: #1A1718;}
-      .color .green a {background: #A1B007;}
-      .color a:hover {box-shadow: -1px 1px 0px 0px #000;}
-      .cart-button { margin: 20px 0; color: #FF6600; }
-      .cart-button i { margin-right: 10px }
-      .cart-button button { background: #FF6600; color: #fff; margin-left: 0;} 
-
-      .stock-table { font-family: 'Roboto Slab', serif; }
-      .stock-table .button { float: right; background-color: #AB1E2D; }
-      .stock-table .button a { color: #fff; }
-      .stock-table table { width: 100%; border-collapse: collapse; overflow: hidden;}
-      .stock-table th { width: 100px; position: relative; }
-      .stock-table th.store { width: 50px; text-align: center; }
-      .stock-table td { padding: 4px 0; position: relative;}
-      .stock-table .fa-check { color: #A1B007; }
-      .stock-table .fa-times { color: #AB1E2D; }
-      .stock-table tr:nth-child(even) {background: #DEDFDF}
-      .stock-table td:nth-child(n+3) { border-left: 1px solid #949699; text-align: center;}
-      .stock-table .orange  { background: #DD4320; }
-      .stock-table .blue  {background: #397FA5;}
-      .stock-table .black {background: #1A1718;}
-      .stock-table span { display: inline-block; margin:0 5px; width: 10px; height: 10px}
-      .stock-table .black-grey { border-bottom: 5px solid black;    border-top: 5px solid gray;    border-left: 5px solid black;  border-right: 5px solid gray;  display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .table-legend {display: inline-block; margin-left: 20px}
-      .hover {background: #949699;}
-
-      aside h2 {color: #FF6600;}
-
-      .related-items { font-family: 'Roboto Slab', serif; }
-      .related-items li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
-      .related-items article { width: 90%; margin: 0 auto; padding: 5px 20px;}
-      .related-items article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-      .related-items article>figure { line-height: 255px;}
-      .related-items h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-      .related-items strong {display: block; line-height: 35px;}
-
-      .item-pic {font-family: 'Roboto Slab', serif;}
-      .item-pic .button {float: right; margin-bottom: 0}
-      .item-pic .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
-      .item-pic li {width: 20%; float: left; min-width: 155px;}
-      .item-pic li a:hover {opacity: .7;}
-      .item-pic figure { width: 150px; margin: 0 auto; }
-      .item-pic figcaption { text-align: center; margin-top: 10px;}
-      .item-pic .overlay { position: absolute;height: 100%; line-height: 140px; width: 100%;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
-      .overlay a { text-decoration: none; font-size: 50px; color: #fff; }
-
-      .item-desc h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-      table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
-      table img { float: left; margin-right: 5px; }
-      .cat { font-weight: 600; }
-      td strong {color: #FF6600;}
-      th {width: 30%; vertical-align: top;}
-
-      .promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
-      .promo { font-family: 'Roboto Slab', serif; }
-      .promo li { width: 20%; float: left; text-align: center;  }
-      .promo article { width: 90%; margin: 0 auto;}
-      .promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-      .promo figure { line-height: 150px;}
-      .promo img { vertical-align: middle; }
-      .promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
-      .promo strong {display: block; line-height: 35px;}
-
-      .item-review li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
-      .item-review li:first-child { border-top: none; margin-top: 0;}
-      .item-review h3 {font-size: 15px; }
-      .item-review .rating figure { margin-right: 10px; }
-      .review-helpful { margin: 20px 0; color: #808080; }
-      .item-review .button { background: #D3D4D5 ; color: #58595B; }
-      .item-review .button:hover { background: #949699 ; color: #fff; }
-
-      #slider1 {margin: 15px 0 0; position: relative; padding: 0 20px 10px;}
-      #slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
-      .microfiche-controls {position: absolute;top: 25%;left: 0px;width: 100%; }
-      .microfiche-film {z-index: 2}
-      .microfiche-button { background: none; border: none; }
-      .microfiche-next-button {right: 0; position: absolute;}
-
-      .sidebar { font-family: 'Roboto Slab', serif; padding-top: 15px;  }
-      .sidebar.is_stuck { z-index: 5; }
-      .sidebar .button:first-child { margin-top: 0; }
-      .sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
-      .button.sales-box  { background: #FFAD00; color: #fff;  }
-      .button.program-box {background: #A1B007;color: #fff;}
-      .button.payment-box {background: #DEDFDF;color: #808080; text-align: right;}
-      .payment-box h4 {font-size: 12px;}
-      .payment-box i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
-      .sales-box strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
-      .program-box strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
-      .program-box span { display: inline-block; vertical-align: middle; width: 45%;}
-
-      .sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-      .sidebar ul { margin: 0; padding: 0; list-style: none; }
-      .sidebar li {  }
-      .sidebar article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-      .sidebar figure { line-height: 150px; display: inline-block;}
-      .sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
-      .sidebar del {display: block;}
-      .sidebar strong.znizanje { color: #FF6600; }
-      .sidebar h4 { display: inline-block; font-size: 13px;}
-      .sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
-      .sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
-      .sidebar select {float: right; margin-top: 20px; }
-
-      /*.opis table, .opis tr, .opis td, .opis th { display: block; }*/
-      .no-bullet { list-style: none; margin: 0; padding: 0; }
-
-      footer {background: #DEDFDF; margin-top: 30px}
-      footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
-      .footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
-      footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
-      footer h3 { font-size:14px; font-weight:700;}
-      footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
-      footer li { line-height:21px; }
-      footer li:before { content: "> "; }
-      footer li a {color:#2d2d2d;}
-      footer li a:hover {color:#000;}
-      .footer-side h3 {margin-top: 0;}
-    
-@media only screen and (max-width: 1200px) {
-  .main-menu .dropdown-menu {width: 520px}
-  .main-menu .full { width: 970px;}  
-  .item-title.is_stuck h1 { width: 318px; left: -318px; font-size: 16px; line-height: 33px }
-  .item-title.is_stuck h1:hover { width: 690px;}
-  .item-menu { font-size: 12px; }
-  .item-menu a { padding: 8px 10px; }
-  .item-options .form-group {width: 40%}
-  .item-photo img { width: 100%; }
-  .item-pic li { min-width: 20% }
-  .item-pic figure { width: 99%; }
-  .item-pic img {width: 100%;}
-  .sales-box strong, .program-box strong {  font-size: 30px;}
-  .payment-box h4 { width: 60% }
-  .sidebar figcaption { width: 100px }
-  .item-5 li { width: 160px; min-height: auto;}
-}
-
-@media only screen and (max-width : 992px) {
-  .user-menu { padding: 0 15px; }
-  .search-bar { padding: 0; }
-  .btn, .dropdown-menu a, .form-control { font-size: 12px; }
-  .search-bar { padding: 4px 0; }
-  .user-menu {padding: 11px 15px;}
-  .main-menu .dropdown-toggle, .infonav {font-size: 14px; height: auto}
-  .main-menu .dropdown-menu {width: 420px}
-  .main-menu .full { width: 750px;}
-  .infonav strong { font-size: 14px; }
-  .my-selection { padding: 5px 0; }
-  .item-list>li { width: 33.3%; height: 440px }
-  .item-list .price del+strong {font-size: 20px}
-  .item-title.is_stuck h1 { width: 327px; left: -327px; font-size: 16px; line-height: 33px }
-  .item-title.is_stuck h1:hover { width: 720px;}
-  .promo img { width: 100%; }
-  .sidebar .button { font-size: 16px; float: left; width: 30%; margin-left: 5%; height: 100px;}
-  .sidebar .button:first-child { margin-left: 0; margin-top: 20px;}
-  .sales-box, .program-box { text-align: center; }
-  .sales-box strong, .program-box strong { display: block; font-size: 40px; width: 100%;}
-  .payment-box h4 {margin-bottom: 0;}
-  .program-box span { width: auto; }
-  .sidebar li { float: left; width: 130px; }
-  .sidebar article { padding: 0 10px; }
-  .sidebar figcaption { width: 100%; }
-  .sidebar h4 { height: 42px; overflow: hidden; }
-  footer section { font-size: 12px }
-}
-
-@media only screen and (max-width:767px) {
-  strong { font-size: 12px;}
-  .button { font-size: 12px; }
-  .main-menu { background: #CACACD; border-bottom: none;}
-  .logo-small { text-align: center; vertical-align: middle; line-height: 50px }
-  .menu-icons { font-size: 30px; color: #414042; }
-  .navbar { margin-bottom: 0 }
-  .navbar-toggle { float: none; margin-right: 0; border: none; }
-  .navbar-collapse { clear: both; }
-  .navbar-collapse.row { margin:0; }
-  .navbar-collapse { position: fixed; background: #808082; width: 100%; z-index: 10; bottom: 0; top: 50px;}
-  .navbar-default .navbar-nav>li>a { background: #58595B; color: #fff; margin-bottom: 3px}
-  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover { color: #FF6600; background-color: #58595B; }
-  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background-color: #58595B; color: #FF6600; }
-  .navbar-default .navbar-toggle .icon-bar { background-color: #414042; }
-  .menu-search { padding: 5px 10px; }
-  .menu-search .input-group-btn button { background-color: #909295; color: #fff; }
-  .menu-extra-buttons li { float: left; line-height: 50px; width: 25%; font-size: 1.5rem; text-transform: uppercase; text-align: center;}
-  .menu-extra-buttons li:last-child { width: 50%}
-  .infonav { display: none; }
-  .brand-cloud { display: none; }
-  .products-sale li, .item-5 li { width: 150px; min-height: auto;}
-  .products-sale h4 { font-size: 1.3px; height: 40px; overflow: hidden; }
-  #main { background-color: #E3E4E5; padding: 0 5px; }
-  article { background: #fff }
-  .item-photo { line-height: normal;}
-  .item-photo img { width: 100%; }
-  .review img { width: 100%; }
-  .new h3 { font-size: 1.6rem }
-  .new-item { width: 50% }
-  .new-item img { width: 100%; }
-  .new-promo {display: none;}
-  .new-price {display: none}  
-  .new-banner { background-size: cover; height: auto; background-repeat: no-repeat; min-height: 170px}
-  .new-banner h3 { font-size: 2rem; }
-  .new-banner h4 { font-size: 1.5rem; }
-  .new p {height: 80px; overflow: auto;}
-  .new .button { margin: 2% 0; }
-  .slider-control {display: none;}
-  .rating {display: none}
-  .button-container {position: absolute; width: 45%;}
-  .button-container .button { margin: 0;}
-  #slider-climb, #slider-travel, .slider-action5 { width: 100%; overflow: auto; }
-  .slider-action5 ul { width: 900px; }
-  #slider-climb ul, #slider-travel ul { width: 750px }
-  .product-day figure { float: none; }
-  .product-day-content { margin: 0; }
-  .product-day h3 { font-size: 1.4rem; }
-  .product-day strong { font-size: 1.4rem; }
-  .product-day .button { display: none; }
-  .review figure { width: 50%; }
-  .review p { display: none; }
-  .review h3 { font-size: 14px; margin-top: 0 }
-  .review h4 { font-size: 12px; height: 55px; overflow: auto;}
-  .service li { float: none; width: 100%; clear: left; margin-bottom: 10% }
-  .service .icon { float: left; width: 80px}
-  .service article { text-align: left; margin-left: 80px; background: transparent;}
-  .service h3 { font-size: 15px; font-weight: 700; margin: 0;}
-  .service strong {color: #6D6E71; margin: 0; display: block; height: 28px}
-  .service p { display: none; }
-  .service .button { display: none; }
-  .breadcrumb {display: none;}
-  .category-items { background-color: #DEDFDF; }
-  .category-items h1 { font-size: 20px; padding: 5px 10px; background: #CACACD; margin-top: -1px; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0}
-  .category-items .item-list .cat-description { width: 100%; float: none; padding: 1% 3%; height: auto;}
-  .item-list>li { width: 50%; border-bottom: none; margin: 5px 0; height: 375px}
-  .item-list article { width: 95%; margin: 0 auto; }
-  .category-items .size, .category-items .colors, .items-list .button { display: none }
-  .category-items .item-list .cat-description { padding: 1% 0 }
-  .cat-description h2 { font-size: 18px; margin: 3% 0 0 10px;}
-  .cat-description h3 { font-size: 14px; margin: 2% 90px 3% 10px; line-height: 1.2;}
-  .filters-button { position: absolute; right: 15px; top: 40px; margin: 0; background-color: #6D6E71}
-  .filters-open { color: #fff; font-size: 14px; font-weight: 700; }
-  .filters { position: fixed; z-index: 2; top: 0; bottom: 0; background: #fff; margin-left: -100%; width: 100%; overflow: auto; padding: 2% 5%;}
-  .filters-close { width: 20px; margin-left: auto; margin-right: 0 }
-  .filters .filters-close-btn { position: fixed; padding: 5px 10px; background: #6D6E71; color: #fff; opacity: 0.7;}
-  .easyzoom {  display: block; width: 80%; margin: 15px auto 0;}
-  .main-item { display: block; }
-  aside, .item-menu, .microfiche-controls, .fullscreen, .desc-short { display: none; }
-  #slider1 { padding: 0 }
-  .item-pic li { width: 33.3% }
-  .stock-table table, .stock-table tr, .stock-table td, .stock-table tbody {display: block;}
-  .stock-table tr { border: 1px solid #cde2a8; margin: 5px 0; text-align: center; background: #eaf2da !important; }
-  .stock-table .storeTD { display: none; }
-  .stock-table .storeTD-show { display: block; margin-right: 0 }
-  .stock-table td { display: inline-block; margin-right: 5px; cursor: pointer;}
-  .stock-table td:nth-child(n+3) { border: none; background: #fff;}
-  .stock-table th { display: none; }
-  .stock-table tr.activeTR { background: #70ab07 !important; }
-  .footer-main { column-count: 1; -moz-column-count: 1; -webkit-column-count: 1; }
-}      
-    </style>
-
+    <link rel="stylesheet" href="kibuba.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -416,7 +23,7 @@
     <div class="container">
       <div class="row">
         <header>
-        <div class="row hidden-xs">
+        <div class="clearfix hidden-xs">
           <div class="col-md-4 col-lg-3 hidden-sm">
             <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
           </div>
@@ -499,7 +106,7 @@
               </form>
             </div>
           </div>
-          <div id="navbar" class="navbar-collapse collapse row">
+          <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oblačila <span class="caret"></span></a>
@@ -771,7 +378,8 @@
                   </ul>
                 </div>
                 <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
-                <h1>Ženska aktivna majica z dolgimi rokavi Thermowave Originals <div class="button novo rep">novo</div></h1>
+                <h1>Ženska aktivna majica z dolgimi rokavi Thermowave Originals </h1>
+                <div class="button novo rep">novo</div>
               </div>
               <div class="item-info">
                 <div class="rating main-item"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
@@ -802,10 +410,10 @@
                   </div>
                   <h5>Barve:</h5>
                   <ul class="color no-bullet">
-                    <li class="orange"><a href="#"></a></li>
-                    <li class="blue"><a href="#"></a></li>
-                    <li class="black"><a href="#"></a></li>
-                    <li class="green"><a href="#"></a></li>
+                    <li><a class="orange" href="#"></a></li>
+                    <li><a class="blue" href="#"></a></li>
+                    <li><a class="black" href="#"></a></li>
+                    <li><a class="green" href="#"></a></li>
                   </ul>
                   <div class="cart-button"><button class="btn btn-primary">Dodaj v košarico</button><i class="fa fa-truck"></i>Brezplačna dostava</div>
                   <img src="img/social.png">
@@ -1155,7 +763,7 @@
                       </figcaption>
                     </article>
                   </li>
-                  <!--li>
+                  <li>
                     <article>
                       <figure><a href="#"><img src="img/sidebar-item2.jpg" alt="1"></a></figure>
                       <figcaption>
@@ -1166,7 +774,7 @@
                       </figcaption>
                     </article>
                   </li>
-                  <li>
+                  <!--li>
                     <article>
                       <figure><img src="img/sidebar-item3.jpg" alt="1"></a></figure>
                       <figcaption>
@@ -1174,7 +782,7 @@
                         <strong>299,90€</strong>
                       </figcaption>
                     </article>
-                  </li-->
+                  </li>
                   <li>
                     <article>
                       <figure><img src="img/sidebar-item4.jpg" alt="1"></a></figure>
@@ -1183,7 +791,7 @@
                         <strong>299,90€</strong>
                       </figcaption>
                     </article>
-                  </li>
+                  </li-->
                   <li>
                     <article>
                       <figure><img src="img/sidebar-item1.jpg" alt="1"></a></figure>
@@ -1266,9 +874,38 @@
     <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
     <script src="js/microfiche.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      if ($(window).width() >= 768) {
+        $(".navbar").stick_in_parent({
+          parent: "body"
+        });
+
+        $(".item-title").stick_in_parent({
+          parent: "#main-item",
+          offset_top: $(".navbar").outerHeight(),
+          spacer: false
+        });
+
+        $('.main-menu .dropdown').hover(function() {
+          $(this).find('.dropdown-menu').stop(true, true).show();
+        }, function() {
+          $(this).find('.dropdown-menu').stop(true, true).hide();
+        });
+      }
+
+      if ($(window).width() < 768) {
+        $('.navbar-toggle').click(function(){
+          if ($(this).attr('aria-expanded') == 'false') {
+            $('.main-menu').addClass('is_stuck');
+          }
+          else {
+            $('.main-menu').removeClass('is_stuck');
+          }
+        });
+      }
+
       $('#slider1').microfiche({ bullets: false, buttons: true, prevButtonLabel: '<i class="fa fa-chevron-left"></i>', nextButtonLabel: '<i class="fa fa-chevron-right"></i>'  });
 
-      if ($(window).width() < 769) {
+      if ($(window).width() < 768) {
         $('.item-title').insertBefore('.easyzoom');
         $('.main-item').insertBefore('.easyzoom');
 
@@ -1283,16 +920,6 @@
         $('.stock-table tr').click(function(){
           $(this).toggleClass('activeTR')
           $(this).children('.storeTD').toggleClass('storeTD-show');
-        });
-      }
-
-      if ($(window).width() > 768) {
-        $(".navbar").stick_in_parent({
-          parent: "body"
-        });
-        $(".item-title").stick_in_parent({
-          parent: "#main-item",
-          offset_top: $(".navbar").outerHeight()
         });
       }
 
@@ -1359,7 +986,7 @@
       function anchorScroll(this_obj, that_obj, base_speed) {
         var this_offset = this_obj.offset();
         var that_offset = that_obj.offset();
-        var gap = $(".navbar").outerHeight() + $(".item-title").outerHeight() + 30;
+        var gap = $(".navbar").outerHeight() + $(".item-menu").outerHeight() + 45;
         var offset_diff = Math.abs(that_offset.top - this_offset.top);
         var speed       = (offset_diff * base_speed) / 1000;
      
@@ -1376,6 +1003,23 @@
             $('.item-menu a[href=#'+ id +']').parent().addClass('active');
           }
         });
+      });
+
+      var ww = $(window).width();
+      var limit = 768;
+
+      function refresh() {
+         ww = $(window).width();
+         var w =  ww<limit ? (location.reload(true)) :  ( ww>limit ? (location.reload(true)) : ww=limit );
+      }
+
+      var tOut;
+      $(window).resize(function() {
+          var resW = $(window).width();
+          clearTimeout(tOut);
+          if ( (ww>limit && resW<limit) || (ww<limit && resW>limit) ) {        
+              tOut = setTimeout(refresh, 100);
+          }
       });
     </script>
   </body>
