@@ -985,7 +985,8 @@
       function anchorScroll(this_obj, that_obj, base_speed) {
         var this_offset = this_obj.offset();
         var that_offset = that_obj.offset();
-        var gap = $(".navbar").outerHeight() + $(".item-menu").outerHeight() + 45;
+        var gap = $(".navbar").outerHeight() + $(".item-menu").outerHeight();
+        ($(window).scrollTop() < 175) ?  gap += 140 : gap += 50 ;
         var offset_diff = Math.abs(that_offset.top - this_offset.top);
         var speed       = (offset_diff * base_speed) / 1000;
      
