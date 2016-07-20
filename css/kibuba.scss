@@ -599,13 +599,20 @@ footer {
 		position: absolute;
 		width: 100%;
 		padding: 12px;
-		background: rgba($black,.7);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
 		left: 0;
 		bottom: 0;
 		display: none;
 		z-index: 3;
-		visibility: hidden;
+		font-size: 40px;
+		margin: 0 20px;
+		font-family: $title-font;
+		text-transform: uppercase;
+		b { 
+			display: none; 
+		}
+		strong { 
+			font-size: 80px;
+		}
 	}
 	ul {
 		@extend %extend_1;

@@ -219,7 +219,9 @@ footer li a:hover { color: #000; }
 .pgwSlider .ps-current .ps-next { background: rgba(0, 0, 0, 0.5); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000')"; border: 1px solid #808082; border-right: 0; border-radius: 4px 0 0 4px; position: absolute; padding: 20px 17px 20px 20px; right: 0; top: 45%; cursor: pointer; }
 .pgwSlider.listOnTheLeft .ps-current { float: right; }
 .pgwSlider.listOnTheLeft > ul { float: left; }
-.pgwSlider .ps-caption { position: absolute; width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.7); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); left: 0; bottom: 0; display: none; z-index: 3; visibility: hidden; }
+.pgwSlider .ps-caption { position: absolute; width: 100%; padding: 12px; left: 0; bottom: 0; display: none; z-index: 3; font-size: 40px; margin: 0 20px; font-family: "Roboto Slab", "Times New Roman", serif; text-transform: uppercase; }
+.pgwSlider .ps-caption b { display: none; }
+.pgwSlider .ps-caption strong { font-size: 80px; }
 .pgwSlider .ps-prevIcon { border-color: transparent #fff transparent; border-style: solid; border-width: 10px 10px 10px 0; display: block; }
 .pgwSlider .ps-nextIcon { border-color: transparent #fff transparent; border-style: solid; border-width: 10px 0 10px 10px; display: block; }
 .pgwSlider.narrow .ps-current { margin-bottom: 6px; font-size: 0.8rem; width: 100%; }
