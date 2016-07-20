@@ -707,7 +707,7 @@ td strong { color: #ff6600; }
   .product-day-content { margin: 0; }
   .service li { float: none; width: 100%; clear: left; margin-bottom: 10%; }
   .service .icon { float: left; width: 80px; }
-  .service article { text-align: left; margin-left: 80px; background: transparent; }
+  .service article { text-align: left; margin-left: 80px; background: transparent; width: auto; }
   .service h3 { font-size: 15px; font-weight: 700; margin: 0; }
   .service strong { color: #58595b; margin: 0; display: block; height: 28px; }
   .service p { display: none; }
