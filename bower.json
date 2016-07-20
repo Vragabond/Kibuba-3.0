@@ -1,0 +1,16 @@
+{
+  "name": "Kibuba",
+  "version": 3,
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "latest",
+    "swipebox": "latest",
+    "microfiche": "latest",
+    "jRange": "latest",
+    "sticky-kit": "latest"
+  },
+  "private": true,
+  "resolutions": {
+    "jquery": "2.2.3"
+  }
+}

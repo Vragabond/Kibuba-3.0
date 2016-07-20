@@ -9,215 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/swipebox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <style>
-    @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700);
-      .grey { background: #ccc; }
-      .greytxt { color: #ccc; }
-      #user_menu { float: right }
-      #user_menu div { display: inline-block; padding: 0 5px; border-right: 1px solid #333; } 
-      #user_menu div:last-child { border-right: 0; } 
-      .main-menu { border-radius: 0; background: #E7E7E7; border: 0; border-bottom: 5px solid #2C2C2C; position: relative; font-family: 'Roboto Slab', 'Times New Roman', serif }
-      .dropdown-menu { border-radius: 0; border: 0; left: auto;  }
-      .main-menu .dropdown-menu {border-top: 5px solid #009BDC; background: #E7E7E7; padding: 10px; }
-      .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover { background: #009BDC; color: #fff; }
-      .main-menu .full { width: 1170px; left: 0;}
-      .nav li {position: static;}
-      .nav>li>a {text-transform: uppercase; font-size: 18px;}
-      /*.nav>li>a:hover { background: #C7C7C7 !important; transition: all 100ms linear; }*/
-      .dropdown-menu ul { list-style: none; margin: 0; padding: 0 }
-      .dropdown-menu a { color: #2C2C2C; font-size: 14px; display: block; line-height: 2; padding-left: 25px; padding-right: 5px; font-family: arial, sans-serif}
-      .dropdown-menu a:hover { background: #2C2C2C; color: #fff; text-decoration: none; box-shadow: 0 6px 12px rgba(0,0,0,.175);}
-      
-      .dropdown-header { font-size: 15px; font-weight: 600; padding: 12px 5px 0; }
-      li.dropdown-header a, li.special-item a {font-family: 'Roboto Slab', 'Times New Roman', serif; padding-left:5px;}
-      .infonav {height: 30px; margin: 10px 0; font-size: 18px}
-      .infonav ul {border-left: 1px solid; list-style: none; margin: 0; padding: 0; height: 30px;}
-      .infonav li { display: inline-block; padding: 0 10px;}
-      .infonav a {color:#2C2C2C;}
-      .infonav strong {font-weight: 600}
-      .breadcrumb { background: transparent; font-size: 11px}
-      .breadcrumb > li + li:before { color:#808080; content:"\2192"; }
-      .breadcrumb a {color: #808080; }
-      .breadcrumb a:hover {text-decoration: none;color: #FF6600}
-
-      .izdelek-menu {font-family: 'Roboto Slab', 'Times New Roman', serif; font-size: 14px}
-      .naslov figure {margin-top: 15px;}
-      .naslov h1 {margin-top: 10px;}
-      .naslov .box {}
-      .izdelek-menu ul {list-style: none; margin: 0;padding: 0}
-      .izdelek-menu li {display: inline-block; position: relative;}
-      .izdelek-menu a {display: block; padding: 10px 15px; background: #D3D4D5; color: #808080; }
-      .izdelek-menu a:hover {background: #009BDC; text-decoration: none; color: #fff;}
-      .izdelek-menu .active a { background: #FF6600; color: #fff;}
-      .izdelek-menu .active:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-top-color: #FF6600; border-width: 10px;}
-h2 { font-weight: 600; }
-      .ocena { font-size: 12px; }
-      .ocena img { margin-right: 10px; vertical-align: text-bottom; }
-      .ocena strong { color: #FF6600; font-weight: 400}
-      h1 {font: 26px 'Roboto Slab', serif; font-weight: 600;}
-      p { font-size: 13px; }
-      .right-caret { border-bottom: 4px solid transparent;    border-top: 4px solid transparent;    border-left: 4px solid;    display: inline-block;    height: 0;    vertical-align: middle;    width: 0;}
-      .cena strong { font: 20px 'Roboto Slab', serif; font-weight: 600; }
-      .cena.akcija strong { color: #FF6600; display:inline-block; margin-left: 30px;}
-      .cena.storz {background: #E3E7B4;   padding: 0 15px; line-height:45px; }
-      .cena.storz span, .cena.kupcija span {float: right; }
-      .cena.storz i { background-image: url(img/storz.png);background-repeat: no-repeat; display: inline-block; width: 25px; height: 26px; vertical-align: middle; margin-right: 10px;}
-      .cena.kupcija {background: #FFE6B2; padding: 0 15px; line-height:45px; }
-      .cena.kupcija i { margin-right: 10px; font-size: 26px; vertical-align: middle;}
-      .zaloga { color: #70AB07; text-decoration: underline;}
-      .zaloga span { display: inline-block; padding: 5px 10px; text-transform: uppercase; font-family: 'Roboto Slab', serif; color: #fff; background: #70AB07; margin-right: 10px;}
-      .zaloga.brez span { background: #AD1E2D; }
-      .naslov.is_stuck { background: #fff; box-shadow: 0px 26px 23px 24px #fff ; z-index: 2 }
-      .naslov.is_stuck figure, .naslov.is_stuck .novo { display: none; }
-      .naslov.is_stuck .izdelek-menu { float: right; padding-top: 15px; }
-      .naslov.is_stuck h1 { position: absolute; width: 70%; left: -75%; top: -20px; font-size: 20px; background: #fff; padding: 20px 0; box-shadow: 0px 26px 23px 24px #fff }
-      .popust  { display: inline-block; text-transform: uppercase; font-family: 'Roboto Slab', serif; width: 85px;}
-      .popust .storz {background-image: url(img/storz.png);background-repeat: no-repeat; width: 25px; height: 26px; float: right; margin-top: 8px}
-      nav.navbar.is_stuck { z-index: 10; }
-
-.button.novo { font-family: 'Roboto Slab', serif;position: absolute; text-transform: uppercase; background: #009BDC; color: #fff; right: 50px; top: 40px;}
-.button.rep:after { top: 100%; left: 20%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-width: 5px; border-top-color: #009BDC;}
-
-      .izdelek-moznosti .form-group {width: 50%}
-      .izdelek-moznosti select {width: 100% !important}
-      .izdelek-moznosti button {border-radius: 0; margin: 0 10px; background: #D3D4D5; color: #808080; border: none; font-family: 'Roboto Slab', serif;}
-      .izdelek-moznosti button:hover {border: none; background: #000}
-      .popust { vertical-align: bottom; }
-      .popust a {text-decoration: none; color: #000; opacity: .3;}
-      .popust a:hover { opacity: 0.6; }
-      .barve {list-style: none; margin: 0; padding: 0;}
-      .barve li {display: inline-block; margin: 0;}
-      .barve a { display: inline-block; width: 23px; height: 23px; margin-right: 5px; }
-      .barve .orange a { background: #DD4320; }
-      .barve .blue a {background: #397FA5;}
-      .barve .black a {background: #1A1718;}
-      .barve .green a {background: #A1B007;}
-      .barve a:hover {box-shadow: -1px 1px 0px 0px #000;}
-      .kosarica { margin: 20px 0; color: #FF6600; }
-      .kosarica i { margin-right: 10px }
-      .kosarica button { background: #FF6600; color: #fff; margin-left: 0;} 
-
-.easyzoom {  position: relative;  display: inline-block;  *display: inline;  *zoom: 1; width: 100%; border: 1px solid #C7C7C7; text-align: center;}
-.easyzoom a { display: inline-block;width: 100% }
-.easyzoom img {  vertical-align: bottom;}
-.easyzoom.is-loading img {  cursor: progress;}
-.easyzoom.is-ready img {  cursor: crosshair;}
-.easyzoom.is-error  img {  cursor: not-allowed;}
-.easyzoom-notice {  position: absolute;  top: 50%;  left: 50%;  z-index: 150;  width: 10em;  margin: -1em 0 0 -5em;  line-height: 2em;  text-align: center;  background: #FFF;  box-shadow: 0 0 10px #888;}
-.easyzoom-flyout {  position:absolute;  z-index: 100;  overflow: hidden;  background: #FFF;}
-.easyzoom--overlay .easyzoom-flyout {  top: 0;  left: 0;  width: 100%;  height: 100%;}
-.easyzoom--adjacent .easyzoom-flyout {  top: 0;  left: 100%;  width: 100%;  height: 100%;  margin-left: 20px;} 
-/*.thumbnails { list-style: none; padding: 0; margin: 15px 20px 0;}*/
-/*.thumbnails li {display: inline-block;}*/
-.thumbnails a {display: inline-block;   text-align: center;}
-
-/* Tiny Carousel */
-#slider1 {    height: 73px;    margin: 15px 0 0;    overflow: hidden;    position: relative;    padding: 0 20px 10px;}
-#slider1 .viewport {height: 73px ;overflow: hidden;    position: relative;}
-#slider1 .buttons {display: block;position: absolute;top: 25%;left: 0;height: 35px;color: #C7C7C7;font-weight: bold;text-align: center;line-height: 35px;text-decoration: none;font-size: 22px;}
-#slider1 .next {    right: 0;    left: auto;    top: 25%;}
-#slider1 .buttons:hover {    color: #FF6600;    background: #fff;}
-#slider1 .disable {    visibility: hidden;}
-#slider1 .overview {    list-style: none;    position: absolute;    padding: 0;    margin: 0;    width: 100%;    left: 0;    top: 0;}
-#slider1 .overview li {    float: left;    margin: 0 5px 0 0;    height: 73px;    width: 70px; border: 1px solid #C7C7C7; text-align: center;}
-
-.komplet { font-family: 'Roboto Slab', serif; overflow: auto }
-.komplet h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.komplet ul { margin: 0; padding: 0; list-style: none; }
-.komplet li { width: 33.3%; min-height: 380px; float: left; text-align: center;  }
-.komplet article { width: 90%; margin: 0 auto; padding: 5px 20px;}
-.komplet article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.komplet figure { line-height: 255px;}
-.komplet img { vertical-align: middle; }
-.komplet h4 { margin-bottom: 0.5em; color: #000; font-size: 15px;}
-.komplet strong {display: block; line-height: 35px;}
-
-.fotografije {font-family: 'Roboto Slab', serif;overflow: auto;}
-.fotografije .button {float: right;}
-.button { background: #000; color: #fff; padding: 5px 10px; margin: 20px 0; }
-.fotografije .button:hover { text-decoration: none; background: #FF6600; color: #fff;}
-.fotografije h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-.fotografije ul {margin: 0; padding: 0; list-style: none;}
-.fotografije li {width: 20%; float: left; min-width: 155px;}
-.fotografije li a:hover {opacity: .7;}
-.fotografije figure { width: 150px; margin: 0 auto; }
-figure.disabled {}
-.fotografije figcaption { text-align: center; }
-.fotografije .overlay { position: absolute;height: 150px; line-height: 140px; width: 150px;  text-align: center;font-weight: 600; background: rgba(0,0,0,.5); overflow: hidden;}
-.overlay a { text-decoration: none; font-size: 50px; color: #fff; }
-.fotografije figcaption { margin-top: 10px; }
-
-.opis {margin-top: 2.5em}
-.opis h2 {font-family: 'Roboto Slab', serif;font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em;}
-table {font-size: 13px; border-collapse:separate; border-spacing:0 7px;}
-table img { float: left; margin-right: 5px; }
-.cat { font-weight: 600; }
-td strong {color: #FF6600;}
-th {width: 30%; vertical-align: top;}
-
-.promo .button {background: #FF6600; display: inline-block; margin-top: 0; margin-bottom: 10px;}
-.promo { font-family: 'Roboto Slab', serif; }
-.promo h2 { color: #FF6600; font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.promo ul { margin: 0; padding: 0; list-style: none; }
-.promo li { width: 20%; float: left; text-align: center;  }
-.promo article { width: 90%; margin: 0 auto;}
-.promo article:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.promo figure { line-height: 150px;}
-.promo img { vertical-align: middle; }
-.promo h4 { margin-bottom: 0.5em; color: #000; font-size: 13px; padding: 0 5px; min-height: 30px;}
-.promo strong {display: block; line-height: 35px;}
-
-.mnenja ul { margin: 0; padding: 0; list-style: none; }
-.mnenja li { margin-top: 20px;border-top: 1px solid #D3D4D5; }
-.mnenja li:first-child { border-top: none; }
-.mnenja h2, .mnenja h3 {  font-family: 'Roboto Slab', serif;  }
-.mnenja h2 {font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em; margin-bottom: 1em; }
-.mnenja h3 {font-size: 15px; }
-.mnenja img { vertical-align: baseline; margin-right: 10px }
-.mnenje-ocena { color: #808080; }
-.mnenja .button { background: #D3D4D5 ; color: #58595B; }
-.mnenja .button:hover { background: #949699 ; color: #fff; }
-
-.sidebar { font-family: 'Roboto Slab', serif;  }
-.sidebar .button {display: block; margin: 20px 0; font-size: 18px; font-weight: bold; padding: 5px 20px}
-.button.akcije  { background: #FFAD00; color: #fff;  }
-.button.storzi {background: #A1B007;color: #fff;}
-.button.placilo {background: #DEDFDF;color: #808080; text-align: right;}
-.placilo h4 {font-size: 12px;}
-.placilo i { width: 41px; height: 49px; background-image: url(img/placilo-varno.png); float: left; margin-top: 10px;}
-.akcije strong  { display: inline-block; font-size: 63px; vertical-align: middle; margin-right: 10px;}
-.storzi strong { display: inline-block; font-size: 44px; vertical-align: middle; margin-right: 10px; width: 50%;}
-.storzi span { display: inline-block; vertical-align: middle; width: 45%;}
-
-.sidebar h3 { font-size: 20px; border-bottom: 1px solid; display: inline-block; padding-bottom: 0.3em;}
-.sidebar ul { margin: 0; padding: 0; list-style: none; }
-.sidebar li {  }
-.sidebar li:hover {box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);}
-.sidebar figure { line-height: 150px; display: inline-block;}
-.sidebar figcaption { display: inline-block; width: 150px; vertical-align: middle; position: relative;}
-.sidebar del {display: block;}
-.sidebar strong.znizanje { color: #FF6600; }
-.sidebar h4 { display: inline-block; font-size: 13px;}
-.sidebar figcaption .button { background: #AB1E2D; font-size: 12px; padding: 0 3px; display: inline-block; position: absolute; bottom: 10px; right: 30px; margin: 0;}
-.sidebar figcaption .button.rep:after { border-top-color: #AB1E2D;}
-.sidebar select {float: right; margin-top: 20px; }
-
-footer section { background: #fff; margin: 20px 0; padding: 20px 15px}
-.footer-main {column-count: 4; -moz-column-count: 4; -webkit-column-count: 4;}
-footer p {font-family: 'Roboto Slab', serif; color:#2d2d2d;}
-footer h3 { font-size:14px; font-weight:700;}
-footer ul {   list-style: none;   margin-left: 0;   padding-left: 1em;   text-indent: -1em;}
-footer li { line-height:21px; }
-footer li:before { content: "> "; }
-footer li a {color:#2d2d2d;}
-footer li a:hover {color:#000;}
-.footer-side h3 {margin-top: 0;}
-
-h3 {font-family: 'Roboto Slab', serif; }
-    </style>
-
+    <link rel="stylesheet" href="css/kibuba.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -228,23 +21,19 @@ h3 {font-family: 'Roboto Slab', serif; }
   <body>
     <div class="container">
       <div class="row">
-        <header style="padding: 20px;">
-        <div class="row visible-xs-block visible-sm-block">
-          <div class="col-xs-2">Meni</div>
-          <div class="col-xs-2">Iskanje</div>
-          <div class="col-xs-4">Logo</div>
-          <div class="col-xs-2">Mail</div>
-          <div class="col-xs-2">Cart</div>
-        </div>
-        <div class="row hidden-xs hidden-sm">
-          <div class="col-md-3">
+        <header>
+        <div class="clearfix hidden-xs">
+          <div class="col-md-4 col-lg-3 hidden-sm">
             <a class="logo" href="#"><img src="img/kibuba-logo.png" alt="logo" width="232" height="72"></a>
           </div>
-          <div class="col-md-4 search_wrap" style="padding-top: 22px">
+          <div class="col-sm-3 visible-sm">
+            <a class="logo" href="#"><img src="img/kibuba-logo-small.png" alt="logo" width="131" height="40"></a>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-5 search-bar">
             <form>
               <div class="input-group">
                 <div class="input-group-btn search-panel">
-                  <button type="button" class="btn btn-default dropdown-toggle grey" data-toggle="dropdown" style=" border-radius: 0">
+                  <button type="button" class="btn btn-default dropdown-toggle grey" data-toggle="dropdown">
                     <span id="search_concept">Vse</span> <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
@@ -254,36 +43,74 @@ h3 {font-family: 'Roboto Slab', serif; }
                   </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="išči po trgovini ..." style="border-right: 0;">
+                <input type="text" class="form-control" name="x" placeholder="išči po trgovini ...">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="border-left: 0; border-radius: 0"><i class="fa fa-search greytxt"></i></button>
                 </span>
               </div>
             </form>
           </div>
-          <div class="col-md-5 pull-right" id="user_menu"  style="padding-top: 28px; text-align: right;">
-            <div><i class="fa fa-user"></i> Prijavi se</div>
-            <div>O nas <span class="caret"></span></div>
-            <div><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija">Slovenija</div>
-            <div><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></div>
+          <div class="col-sm-6 col-md-5 col-lg-4 pull-right user-menu">
+            <ul class="no-bullet">
+              <li class="user-menu-item"><a href="#"><i class="fa fa-user"></i> Prijavi se</a></li>
+              <li class="user-menu-item"><a href="#" data-toggle="dropdown">O nas <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Kdo smo</a></li>
+                  <li><a href="#">Kje smo</a></li>
+                  <li><a href="#">Zakaj smo</a></li>
+                  <li><a href="#">Kontakt</a></li>
+                </ul>
+              </li>
+              <li class="user-menu-item"><a href="#" data-toggle="dropdown"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Slovenija</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Österreich</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Deutschland</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Italia</a></li>
+                  <li><a href="#"><img src="img/flag-slo.png" width="26" height="16" alt="Slovenija"> Europe</a></li>
+                </ul>
+              </li>
+              <li class="user-menu-item"><a href="#" data-toggle="collapse" data-target=".cart"><i class="fa fa-shopping-cart"></i> Košarica <span class="caret"></span></a></li>
+            </ul>
+            <div class="cart collapse">This area is the shopping cart</div>
           </div>
         </div> 
         </header>
         <nav class="navbar navbar-default main-menu">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+          <div class="visible-xs-block col-xs-6">
+            <div class="row logo-small"><a href="index.html"><img src="img/kibuba-logo-small.png" alt="logo" width="131" height="40"></a></div>
+          </div>
+          <div class="navbar-header col-xs-2 visible-xs-block">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="visible-xs-block col-xs-4 menu-icons">
+            <div class="row">
+              <div class="col-xs-6"><a href="#"><i class="fa fa-comments"></i></a></div>
+              <div class="col-xs-6"><a href="#"><i class="fa fa-shopping-cart"></i></a></div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse row">
+          </div>
+          <div class="visible-xs-block col-xs-12">
+            <div class="row">
+              <form class="menu-search">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="x" placeholder="išči po trgovini ...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oblačila <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul>
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -298,7 +125,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -312,7 +139,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                      </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -327,7 +154,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -341,7 +168,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Obutev <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -356,7 +183,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -370,7 +197,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -385,7 +212,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -399,7 +226,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oprema <span class="caret"></span></a>
                   <div class="dropdown-menu row full">
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Nizki pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moški</a></li>
@@ -414,7 +241,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Ženski</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Otroški pohodniški</a></li>
                         <li><a href="#"><span class="right-caret"></span> Za dojenčke in malčke</a></li>
@@ -428,7 +255,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Nizki</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Plezalniki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Moške na ježke</a></li>
@@ -443,7 +270,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#"><span class="right-caret"></span> Otroški sandali</a></li>
                       </ul>                  
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
                       <ul class="">
                         <li class="dropdown-header"><a href="#">Dodatki</a></li>
                         <li><a href="#"><span class="right-caret"></span> Vezalke</a></li>
@@ -456,9 +283,9 @@ h3 {font-family: 'Roboto Slab', serif; }
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ostale kategorije <span class="caret"></span></a>
-                  <div class="dropdown-menu row" style="width: 600px;">
-                    <div class="col-md-6">
-                      <ul class="">
+                  <div class="dropdown-menu row">
+                    <div class="col-sm-6">
+                      <ul>
                         <li class="special-item"><a href="#">VSE ZA TURNO SMUČANJE</a></li>
                         <li class="special-item"><a href="#">TEČAJNIŠKI NABOR</a></li>
                         <li class="special-item"><a href="#">PRIPRAVITE SE NA MARATON</a></li>
@@ -478,8 +305,8 @@ h3 {font-family: 'Roboto Slab', serif; }
                         <li><a href="#">Spalne vreče in podloge</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-6">
-                      <ul class="">
+                    <div class="col-sm-6">
+                      <ul>
                         <li><a href="#">Plezalna oprema</a></li>
                         <li><a href="#">Popotniška oprema</a></li>
                         <li><a href="#">Nogavice in gamaše</a></li>
@@ -503,66 +330,67 @@ h3 {font-family: 'Roboto Slab', serif; }
                 </li>
               </ul>
               <div class="pull-right infonav">
-                <ul class="">
+                <ul class="no-bullet">
                   <li><a href="mailto:info@kibuba.com">info@kibuba.com</a></li>
                   <li><strong>080 35 56</strong></li>
                 </ul>
               </div>
-            </div>
+          </div>
         </nav>
-      </div>
+      </div>    
     </div>
-    <div class="container" >
-      <div class="row" id="main">
+    <div class="container">
+      <div class="row" id="main-item">
         <div class="col-md-9">
           <div class="row">
             <ol class="breadcrumb">
-            <li><a href="#">Katalog</a></li>
-            <li><a href="#">Jakne, puhovke in flisi</a></li>
-            <li><a href="#">Puhovke in Primaloft</a></li>
-            <li><a href="#">Lahke</a></li>
-            <li class="active">Lahka puhovka Montane Featherlite</li>
+              <li><a href="#">Katalog</a></li>
+              <li><a href="#">Jakne, puhovke in flisi</a></li>
+              <li><a href="#">Puhovke in Primaloft</a></li>
+              <li><a href="#">Lahke</a></li>
+              <li class="active">Lahka puhovka Montane Featherlite</li>
             </ol>
-
-            <div class="col-md-5">
+            <div class="col-sm-5 clearfix">
+            <div class="fullscreen"><a href="#"><i class="fa fa-expand"></i></a></div>
               <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
                 <a href="img/Puh1-lg.jpg"><img src="img/Puh1.jpg" alt="" width="200" height="350"></a>
               </div>
               <div id="slider1">
-                <a class="buttons prev" href="#"><i class="fa fa-chevron-left"></i></a>
-                <div class="viewport">
-                  <ul class="thumbnails overview">
-                    <li><a href="img/Puh1-lg.jpg" data-standard="img/Puh1.jpg"><img src="img/Puh1-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                    <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt=""></a></li>
-                  </ul>
-                </div>
-                <a class="buttons next" href="#"><i class="fa fa-chevron-right"></i></a>
+                <ul class="thumbnails overview no-bullet">
+                  <li><a href="img/Puh1-lg.jpg" data-standard="img/Puh1.jpg"><img src="img/Puh1-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a href="img/Puh2-lg.jpg" data-standard="img/Puh2.jpg"><img src="img/Puh2-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a href="img/Puh3-lg.jpg" data-standard="img/Puh3.jpg"><img src="img/Puh3-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a href="img/Puh4-lg.jpg" data-standard="img/Puh4.jpg"><img src="img/Puh4-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a href="img/Puh5-lg.jpg" data-standard="img/Puh5.jpg"><img src="img/Puh5-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a href="img/Puh6-lg.jpg" data-standard="img/Puh6.jpg"><img src="img/Puh6-tm.jpg" alt="" width="45" height="70"></a></li>
+                  <li><a class="swipebox-video" rel="youtube" href="https://www.youtube.com/watch?v=P_FfRT6dqo4"><img src="img/Puh-video.jpg" alt="" width="45" height="70"></a></li>
+                </ul>
               </div>
             </div>
-            <div class="col-md-7">
-              <div class="naslov">
-                <div class="izdelek-menu">
-                  <ul>
-                    <li><a href="#opis">Opis izdelka</a></li>
-                    <li><a href="#mnenja">Mnenja uporabnikov</a></li>
-                    <li><a href="#slike">Fotografije uporabnikov</a></li>
+            <div class="col-sm-7 clearfix">
+              <div class="item-title">
+                <div class="item-menu">
+                  <ul class="no-bullet">
+                    <li><a href="#item-desc">Opis izdelka</a></li>
+                    <li><a href="#item-review">Mnenja uporabnikov</a></li>
+                    <li><a href="#item-pic">Fotografije uporabnikov</a></li>
                   </ul>
                 </div>
                 <figure><img src="img/brand1.jpg" width="103" height="21" alt="Montane"></figure>
-                <div class="button novo rep">novo</div><h1>Puhovka Montane Featherlite</h1>
+                <h1>Ženska aktivna majica z dolgimi rokavi Thermowave Originals </h1>
+                <div class="button novo rep">novo</div>
               </div>
-              <p class="ocena"><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">Na podlagi <strong>34</strong> ocen</p>
-              <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
-              <p class="cena">redna cena:  <strong>219,90&euro;</strong></p>
-              <p class="cena akcija">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></p>
-              <p class="cena storz"><span>v primeru, da imate <em>23,45</em> storža</span><i></i>cena s storži:  <strong>179,90&euro;</strong></p>
-              <p class="cena kupcija"><span>dodajte <em>15</em> storžev</span><i class="fa fa-dot-circle-o"></i>kibubina kupčija  <strong>149,90&euro;</strong></p>
-              <p class="zaloga"><span>na zalogi</span>Predvidena dostava na vaš naslov: petek, 18.09.2015</p>
-              <p class="zaloga brez"><span>ni na zalogi</span></p>
-              <div class="izdelek-moznosti">
+              <div class="item-info">
+                <div class="rating main-item"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Na podlagi <strong>34</strong> ocen</div>
+                <div class="desc-short">Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</div>
+                <div class="price">redna cena:  <strong>219,90&euro;</strong></div>
+                <div class="price action">redna cena:  <s>219,90&euro;</s>, prihranite 40,09&euro; (40%)  <strong>179,81&euro;</strong></div>
+                <div class="price program"><span>v primeru, da imate <em>23,45</em> storža</span><i></i>cena s storži:  <strong>179,90&euro;</strong></div>
+                <div class="price deal"><span>dodajte <em>15</em> storžev</span><i class="fa fa-dot-circle-o"></i>kibubina kupčija  <strong>149,90&euro;</strong></div>
+                <div class="stock"><span>na zalogi</span>Predvidena dostava na vaš naslov: petek, 18.09.2015</div>
+                <div class="stock none"><span>ni na zalogi</span></div>
+              </div>
+              <div class="item-options">
                 <form class="form-inline">
                   <div class="form-group">
                     <select class="form-control">
@@ -573,75 +401,210 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </select>
                   </div>
                   <button type="submit" class="btn btn-primary">izpis zaloge</button>
-                  <div class="popust">
+                  <div class="discount">
                     <a href="#">
-                      <i class="storz"></i>
+                      <i class="cone"></i>
                       <strong>DO 20%</strong> CENEJE
                     </a>
                   </div>
                   <h5>Barve:</h5>
-                  <ul class="barve">
-                    <li class="orange"><a href="#"></a></li>
-                    <li class="blue"><a href="#"></a></li>
-                    <li class="black"><a href="#"></a></li>
-                    <li class="green"><a href="#"></a></li>
+                  <ul class="color no-bullet">
+                    <li><a class="orange" href="#"></a></li>
+                    <li><a class="blue" href="#"></a></li>
+                    <li><a class="black" href="#"></a></li>
+                    <li><a class="green" href="#"></a></li>
                   </ul>
-                  <div class="kosarica"><button class="btn btn-primary">Dodaj v košarico</button><i class="fa fa-truck"></i>Brezplačna dostava</div>
-                  <img src="img/social.png">
+                  <div class="cart-button"><button class="btn btn-primary">Dodaj v košarico</button><i class="fa fa-truck"></i>Brezplačna dostava</div>
+                  <img src="img/social.png" width="294" height="31">
                 </form>
               </div>
-            </div>
-            <div class="col-md-12">
-              <aside class="komplet">
+           </div>
+            <div class="col-md-12 clearfix">
+              <section class="stock-table">
+                <div class="button"><a href="#">ni vaše velikosti?</a></div>
+                <h2>Izpis celotne zaloge</h2><div class="table-legend"><i class="fa fa-times"></i> izdelka ni na zalogi</div><div class="table-legend"><i class="fa fa-check"></i> izdelek je na zalogi</div>
+                <table>
+                  <tr>
+                    <th>Barva</th>
+                    <th>Velikost</th>
+                    <th class="store">www</th>
+                    <th class="store">LJ-BTC</th>
+                    <th class="store">LJ-ŠIŠKA</th>
+                    <th class="store">LJ-SUP</th>
+                    <th class="store">CELJE</th>
+                    <th class="store">KRANJ</th>
+                  </tr>
+                  <tr>
+                    <td><span class="black"></span>Črna</td>
+                    <td>S</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="black"></span>Črna</td>
+                    <td>M</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="black"></span>Črna</td>
+                    <td>L</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="blue"></span>Modra</td>
+                    <td>S</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="blue"></span>Modra</td>
+                    <td>L</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="blue"></span>Modra</td>
+                    <td>XL</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="orange"></span>Svetlo rdeča</td>
+                    <td>XS</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="orange"></span>Svetlo rdeča</td>
+                    <td>M</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="orange"></span>Svetlo rdeča</td>
+                    <td>L</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="orange"></span>Svetlo rdeča</td>
+                    <td>XXL</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="black-grey"></span>Temno siva/Črna</td>
+                    <td>L</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td><span class="black-grey"></span>Temno siva/Črna</td>
+                    <td>3XL</td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-times"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                    <td><i class="fa fa-check"></i></td>
+                  </tr>
+                </table>
+              </section>
+              <aside class="related-items clearfix">
                 <h2 class="target">Nakup v kompletu je cenejši</h2>
-                <ul>
+                <ul class="no-bullet">
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet1.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet1.jpg" width="215" height="208"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet2.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet2.jpg" width="190" height="255"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                   <li>
                     <article>
-                      <figure><a href="#"><img src="img/komplet3.jpg"></a></figure>
+                      <figure class="item-photo"><a href="#"><img src="img/komplet3.jpg" width="181" height="249"></a></figure>
                       <h4><a href="#">Merino Primaloft majica Montane Primino 140</a></h4>
-                      <img src="img/ocena.png" width="90" height="17" alt="4.2 od 5">
+                      <div class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure></div>
                       <strong>219,90€</strong>
                     </article>
                   </li>
                 </ul>
               </aside>
-              <section class="fotografije">
-                <a href="" class="button black">dodaj svojo fotografijo</a><h2 class="target" id="slike">Fotografije uporabnikov</h2>
-                <ul>
-                  <li><figure><a href="#"><img src="img/uporabnik1.jpg"></a><figcaption>J. K. Kamnik</figcaption></figure></li>
-                  <li><figure><a href="#"><img src="img/uporabnik2.jpg"></a><figcaption>Đ. M. Medvode</figcaption></figure></li>
-                  <li><figure><a href="#"><img src="img/uporabnik3.jpg"></a><figcaption>M. P., Celje</figcaption></figure></li>
-                  <li><figure><a href="#"><img src="img/uporabnik4.jpg"></a><figcaption>J. K., Murska Sobota</figcaption></figure></li>
-                  <li><figure class="disabled"><div class="overlay"><a href="#">+32</a></div><img src="img/uporabnik5.jpg"></figure></li>
+              <section class="item-pic clearfix">
+                <a href="" class="button black">dodaj svojo fotografijo</a><h2 class="target" id="item-pic">Fotografije uporabnikov</h2>
+                <ul class="no-bullet">
+                  <li><figure><a href="#"><img src="img/uporabnik1.jpg" width="150" height="149"></a><figcaption>J. K. Kamnik</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik2.jpg" width="150" height="149"></a><figcaption>Đ. M. Medvode</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik3.jpg" width="150" height="149"></a><figcaption>M. P., Celje</figcaption></figure></li>
+                  <li><figure><a href="#"><img src="img/uporabnik4.jpg" width="150" height="149"></a><figcaption>J. K., Murska Sobota</figcaption></figure></li>
+                  <li><figure class="disabled"><div class="overlay"><a href="#">+32</a></div><img src="img/uporabnik5.jpg" width="150" height="149"></figure></li>
                 </ul>
-                <p></p>
               </section> 
-              <section class="opis">
-                <h2 class="target"  id="opis">Opis izdelka</h2>
-                <p>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</p>
+              <section class="item-desc">
+                <h2 class="target"  id="item-desc">Opis izdelka</h2>
+                <div>Montane Featherlite je ultralahka puhovka s kapuco iz lahkega in odpornega materiala za vse vrste aktivnosti v gorah. Shranite jo lahko v priročno vrečko, ki zavzame izredno malo prostora.</div>
                 <div class="row">
                   <div class="col-md-6">
                     <table>
                       <tbody>
                         <tr>
                           <th>Zunanji sloj:</th>
-                          <td><img src="img/mat-brand1.jpg"><strong>PEAQ® Down</strong>. hitro sušeč material, ki odlično diha in je udoben za nošenje.</td>
+                          <td><img src="img/mat-brand1.jpg" width="38" height="38"><strong>PEAQ® Down</strong>. hitro sušeč material, ki odlično diha in je udoben za nošenje.</td>
                         </tr>
                         <tr>
                           <th>Rokavi:</th>
@@ -649,10 +612,10 @@ h3 {font-family: 'Roboto Slab', serif; }
                         </tr>
                         <tr>
                           <th>Polnilo:</th>
-                          <td><img src="img/mat-brand2.jpg"><strong>PERTEX Quantum</strong>. Lahek material, 100% nepropusten za veter.</td>
+                          <td><img src="img/mat-brand2.jpg" width="38" height="38"><strong>PERTEX Quantum</strong>. Lahek material, 100% nepropusten za veter.</td>
                         </tr>
                         <tr>
-                          <th>Kapuca:</t>
+                          <th>Kapuca:</th>
                           <td>Tri točkovno popolnoma nastavljiva kapuca, ki jo lahko nosite preko plezalne čelade.</td>
                         </tr>
                         <tr>
@@ -706,12 +669,12 @@ h3 {font-family: 'Roboto Slab', serif; }
                   </div>
                 </div>
               </section>
-              <aside class="promo">
+              <aside class="promo clearfix">
                   <h2 class="target">Ne spreglejte</h2>
-                  <ul class="clearfix">
+                  <ul class="no-bullet">
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled1.jpg" width="138" height="147"></a></figure>
                         <h4>Montane Featherlite</h4>
                         <strong>219,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -719,7 +682,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled2.jpg" width="138" height="147"></a></figure>
                         <h4>Sea to Summit Bomber</h4>
                         <strong>24,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -727,7 +690,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled3.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled3.jpg" width="138" height="147"></a></figure>
                         <h4>Lifeventure Print Towel</h4>
                         <strong>19,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -735,7 +698,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled2.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled2.jpg" width="138" height="147"></a></figure>
                         <h4>Scarpa Boostic</h4>
                         <strong>119,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -743,7 +706,7 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                     <li>
                       <article>
-                        <figure><a href="#"><img src="img/spregled1.jpg"></a></figure>
+                        <figure class="item-photo"><a href="#"><img src="img/spregled1.jpg" width="138" height="147"></a></figure>
                         <h4>Sea to Summit Dry 19</h4>
                         <strong>32,90€</strong>
                         <a href="" class="button">v košarico</a>
@@ -751,23 +714,23 @@ h3 {font-family: 'Roboto Slab', serif; }
                     </li>
                   </ul>
               </aside>
-              <section class="mnenja">
-                <h2 class="target" id="mnenja">Mnenja uporabnikov</h2>
-                <ul>
+              <section class="item-review">
+                <h2 class="target" id="item-review">Mnenja uporabnikov</h2>
+                <ul class="no-bullet">
                   <li>
-                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Nejc V., Ljubljana</h3>
-                    <p>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</p>
-                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                    <h3 class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Nejc V., Ljubljana</h3>
+                    <div>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</div>
+                    <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
                   <li>
-                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Primož O., Kamnik</h3>
-                    <p>Kaj vam je na izdelku všeč? to da je kratka in jo lahko normalno nosim pri varovanju. -lahka, topla Kaj vam na izdelku ni všeč? Nič. Ostala opažanja: zadrga se ne zapre vedno dobro!</p>
-                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                    <h3 class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Primož O., Kamnik</h3>
+                    <div>Kaj vam je na izdelku všeč? to da je kratka in jo lahko normalno nosim pri varovanju. -lahka, topla Kaj vam na izdelku ni všeč? Nič. Ostala opažanja: zadrga se ne zapre vedno dobro!</div>
+                    <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
                   <li>
-                    <h3><img src="img/ocena.png" width="90" height="17" alt="4.2 od 5"> Nejc V., Ljubljana</h3>
-                    <p>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</p>
-                    <p class="mnenje-ocena">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></p>
+                    <h3 class="rating"><figure><span style="width: 73%;"></span><img src="img/ocena-p.png" width="90" height="17" alt="4.2 od 5"></figure>Nejc V., Ljubljana</h3>
+                    <div>Kaj vam je na izdelku všeč? Puhovka je res topla, sicer preizkušena pri -13'C, pa vendar. Kapuca je dovolj velika, tako da je pod njo dovolj prostora za kapo, ali celo kakšno alpinistično čelado. Tudi žepi so veliki in zadrge se ne zatikajo. Kaj vam na izdelku ni všeč? Sem in tja pogleda ven kakšen puhec, vendar nič kritičnega. Ostala opažanja: Z zeleno-rumeno barvno kombinacijo ne morete zgrešiti.</div>
+                    <div class="review-helpful">Se vam zdi mnenje koristno? <a href="" class="button">Da, 2</a> <a href="" class="button">Ne, 0</a></div>
                   </li>
                 </ul>
               </section>
@@ -777,10 +740,10 @@ h3 {font-family: 'Roboto Slab', serif; }
         <div class="col-md-3">
           <div class="row">
             <aside class="sidebar">
-              <div class="button akcije"><strong>124</strong> izdelkov v akciji</div>          
-              <div class="button storzi"><strong>storži</strong><span>nagrajujemo zvestobo</span></div>
-              <div class="button placilo"><i class=""></i><h4>Varno in zanesljivo nakupovanje</h4>
-                <img src="img/placilo.png" alt="kartice"> 
+              <div class="button sales-box"><strong>124</strong> izdelkov v akciji</div>          
+              <div class="button program-box"><strong>storži</strong><span>nagrajujemo zvestobo</span></div>
+              <div class="button payment-box"><i class=""></i><h4>Varno in zanesljivo nakupovanje</h4>
+                <img src="img/placilo.png" alt="kartice" width="193" height="35"> 
               </div>
               <h3>Sorodni izdelki</h3>
               <select class="">
@@ -789,43 +752,53 @@ h3 {font-family: 'Roboto Slab', serif; }
                 <option>S</option>
                 <option>L</option>
               </select>
-              <ul>
+              <ul class="no-bullet clearfix">
                   <li>
-                    <figure><a href="#"><img src="img/sidebar-item1.jpg" alt="1"></a></figure>
-                    <figcaption>
-                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
-                      <strong>299,90€</strong>
-                    </figcaption>
+                    <article>
+                      <figure><a href="#"><img src="img/sidebar-item1.jpg" alt="1" width="116" height="127"></a></figure>
+                      <figcaption>
+                        <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                        <strong>299,90€</strong>
+                      </figcaption>
+                    </article>
                   </li>
                   <li>
-                    <figure><a href="#"><img src="img/sidebar-item2.jpg" alt="1"></a></figure>
-                    <figcaption>
-                      <h4>Ženska puhovka Montane North Star</h4>
-                      <del>299,90€</del>
-                      <strong class="znizanje">179,90€</strong>
-                      <div class="button rep">-32%</div>
-                    </figcaption>
+                    <article>
+                      <figure><a href="#"><img src="img/sidebar-item2.jpg" alt="1" width="116" height="127"></a></figure>
+                      <figcaption>
+                        <h4>Ženska puhovka Montane North Star</h4>
+                        <del>299,90€</del>
+                        <strong class="znizanje">179,90€</strong>
+                        <div class="button rep">-32%</div>
+                      </figcaption>
+                    </article>
+                  </li>
+                  <!--li>
+                    <article>
+                      <figure><img src="img/sidebar-item3.jpg" alt="1" width="116" height="127"></a></figure>
+                      <figcaption>
+                        <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                        <strong>299,90€</strong>
+                      </figcaption>
+                    </article>
                   </li>
                   <li>
-                    <figure><img src="img/sidebar-item3.jpg" alt="1"></a></figure>
-                    <figcaption>
-                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
-                      <strong>299,90€</strong>
-                    </figcaption>
-                  </li>
+                    <article>
+                      <figure><img src="img/sidebar-item4.jpg" alt="1" width="116" height="127"></a></figure>
+                      <figcaption>
+                        <h4>Ženska puhovka Montane North Star</h4>
+                        <strong>299,90€</strong>
+                      </figcaption>
+                    </article>
+                  </li-->
                   <li>
-                    <figure><img src="img/sidebar-item4.jpg" alt="1"></a></figure>
-                    <figcaption>
-                      <h4>Ženska puhovka Montane North Star</h4>
-                      <strong>299,90€</strong>
-                    </figcaption>
-                  </li>
-                  <li>
-                    <figure><img src="img/sidebar-item1.jpg" alt="1"></a></figure>
-                    <figcaption>
-                      <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
-                      <strong>299,90€</strong>
-                    </figcaption>
+                    <article>
+                      <figure><img src="img/sidebar-item1.jpg" alt="1" width="116" height="127"></a></figure>
+                      <figcaption>
+                        <h4>Puhovka Black Diamond Cold Forge Hoody</h4>
+                        <strong>299,90€</strong>
+                      </figcaption>
+                    </article>
                   </li>
                 </ul>
                 <a href="#">več izdelkov iz kategorije...</a>
@@ -835,13 +808,13 @@ h3 {font-family: 'Roboto Slab', serif; }
         </div>
       </div>
     </div>
-    <footer style="background: #DEDFDF; margin-top: 30px">
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-9">
             <section class="footer-main">
-            <p><strong>Kibuba d.o.o.</strong><br>Selo pri Vodicah 11c<br>1217 Vodice
-            </p>
+            <div><strong>Kibuba d.o.o.</strong><br>Selo pri Vodicah 11c<br>1217 Vodice
+            </div>
             <ul>
               <li><a href="#">080 35 56</a></li>
               <li><a href="#">info@kibuba.com</a></li>
@@ -898,43 +871,99 @@ h3 {font-family: 'Roboto Slab', serif; }
     <script src="js/jquery.sticky-kit.min.js"></script>
     <script src="js/easyzoom.js" type="text/javascript"></script>
     <script src="js/jquery.swipebox.min.js" type="text/javascript"></script>
-    <script src="js/jquery.tinycarousel.min.js" type="text/javascript"></script>
+    <script src="js/microfiche.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      if ($(window).width() >= 768) {
+        $(".navbar").stick_in_parent({
+          parent: "body"
+        });
 
-    $(document).ready(function()
-    {
-      $('#slider1').tinycarousel({
-        infinite: false,
-        animationTime: 100
-    });
-    });
+        $(".item-title").stick_in_parent({
+          parent: "#main-item",
+          offset_top: $(".navbar").outerHeight(),
+          spacer: false
+        });
 
-    var $easyzoom = $('.easyzoom').easyZoom();
-    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+        $('.main-menu .dropdown').hover(function() {
+          $(this).find('.dropdown-menu').stop(true, true).show();
+        }, function() {
+          $(this).find('.dropdown-menu').stop(true, true).hide();
+        });
+      }
 
-    $('.thumbnails').on('click', 'a', function(e) {
-      var $this = $(this);
+      if ($(window).width() < 768) {
+        $('.navbar-toggle').click(function(){
+          if ($(this).attr('aria-expanded') == 'false') {
+            $('.main-menu').addClass('is_stuck');
+          }
+          else {
+            $('.main-menu').removeClass('is_stuck');
+          }
+        });
+      }
 
-      e.preventDefault();
+      $('#slider1').microfiche({ bullets: false, buttons: true, prevButtonLabel: '<i class="fa fa-chevron-left"></i>', nextButtonLabel: '<i class="fa fa-chevron-right"></i>'  });
 
-      // Use EasyZoom's `swap` method
-      api1.swap($this.data('standard'), $this.attr('href'));
-    });
+      if ($(window).width() < 768) {
+        $('.item-title').insertBefore('.easyzoom');
+        $('.main-item').insertBefore('.easyzoom');
 
-var allLinks = $('.thumbnails a').map( function() {
-    var arr = []
-    var obj = {};
-    obj['href'] = $(this).attr('href');
-    arr.push(obj);
-    return arr;
-}).get();
+        $('.stock-table td').each(function(index){
+          index = $(this).index();
+          if($('.stock-table th').eq(index).attr('class') == 'store') {
+            $(this).prepend($('.stock-table th').eq(index).html() + " ");
+            $(this).addClass('storeTD');
+          }
+        });
+
+        $('.stock-table tr').click(function(){
+          $(this).toggleClass('activeTR')
+          $(this).children('.storeTD').toggleClass('storeTD-show');
+        });
+      }
+
+      if ($(window).width() > 992) {
+        $(".sidebar").stick_in_parent({
+          offset_top: $(".navbar").outerHeight(),
+          parent: "#main-item"
+        });
+
+        $('.sidebar')
+          .on('sticky_kit:stick', function(e) {
+          $(this).parentsUntil('#main-item').css('position', 'static');
+          })
+          .on('sticky_kit:unstick', function(e) {
+            $(this).parentsUntil('#main-item').css('position', 'relative');
+          })
+      }
+
+      var $easyzoom = $('.easyzoom').easyZoom();
+      var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
+
+      $('.thumbnails').on('click', 'a', function(e) {
+        var $this = $(this);
+        e.preventDefault();
+        window.item = $(this).parent().index();
+        api1.swap($this.data('standard'), $this.attr('href'));
+      });
+
+      var allLinks = $('.thumbnails a').map( function() {
+        var arr = []
+        var obj = {};
+        obj['href'] = $(this).attr('href');
+        arr.push(obj);
+        return arr;
+      }).get();
  
+      $('.easyzoom').click( function() {
+        $.swipebox( allLinks, {initialIndexOnArray : window.item} );
+      } );
 
-$('.easyzoom').click( function() {
-  $.swipebox( allLinks );
-} );
+      $('.fullscreen a').click( function() {
+        $.swipebox( allLinks, {initialIndexOnArray : window.item} );
+      } );
 
-    $('.swipebox').swipebox();
+      $('.swipebox-video').swipebox();
 
       $(document).ready(function(e){
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
@@ -946,59 +975,52 @@ $('.easyzoom').click( function() {
         });
       });
 
-
-$(document).ready(function(){
-  $(".izdelek-menu a").click(function(e) {
-    e.preventDefault();
- 
-    anchorScroll( $(this), $($(this).attr("href")), 100 );
-  });
-});
- 
-function anchorScroll(this_obj, that_obj, base_speed) {
-  var this_offset = this_obj.offset();
-  var that_offset = that_obj.offset();
-  var gap = $(".navbar").outerHeight() + $(".naslov").outerHeight() + 50;
-  var offset_diff = Math.abs(that_offset.top - this_offset.top);
-  var speed       = (offset_diff * base_speed) / 1000;
- 
-  $("html,body").animate({
-    scrollTop: that_offset.top - gap
-  }, speed);
-}
+      $(document).ready(function(){
+        $(".item-menu a").click(function(e) {
+        e.preventDefault();
+        anchorScroll( $(this), $($(this).attr("href")), 1000 );
+        });
+      });
+     
+      function anchorScroll(this_obj, that_obj, base_speed) {
+        var this_offset = this_obj.offset();
+        var that_offset = that_obj.offset();
+        var gap = $(".navbar").outerHeight() + $(".item-menu").outerHeight();
+        ($(window).scrollTop() < 175) ?  gap += 140 : gap += 50 ;
+        var offset_diff = Math.abs(that_offset.top - this_offset.top);
+        var speed       = (offset_diff * base_speed) / 1000;
+     
+        $("html,body").animate({
+          scrollTop: that_offset.top - gap
+        }, speed);
+      }
 
       $(window).on('scroll', function() {
-    $('.target').each(function() {
-        if($(window).scrollTop() >= ($(this).offset().top) -165) {
-
+        $('.target').each(function() {
+          if($(window).scrollTop() >= ($(this).offset().top) -165) {
             var id = $(this).attr('id');
-            $('.izdelek-menu li').removeClass('active');
-            $('.izdelek-menu a[href=#'+ id +']').parent().addClass('active');
-        }
-    });
-});
-$(".navbar").stick_in_parent({
-  parent: "body"
-});
+            $('.item-menu li').removeClass('active');
+            $('.item-menu a[href=#'+ id +']').parent().addClass('active');
+          }
+        });
+      });
 
-$(".sidebar").stick_in_parent({
-  offset_top: $(".navbar").outerHeight(),
-    parent: "#main"
-});
+      var ww = $(window).width();
+      var limit = 768;
 
-$('.sidebar')
-.on('sticky_kit:bottom', function(e) {
-    $(this).parent().css('position', 'static');
-})
-.on('sticky_kit:unbottom', function(e) {
-    $(this).parent().css('position', 'relative');
-})
+      function refresh() {
+         ww = $(window).width();
+         var w =  ww<limit ? (location.reload(true)) :  ( ww>limit ? (location.reload(true)) : ww=limit );
+      }
 
-$(".naslov").stick_in_parent({
-  parent: "#main",
-  offset_top: $(".navbar").outerHeight()
-});
-
+      var tOut;
+      $(window).resize(function() {
+          var resW = $(window).width();
+          clearTimeout(tOut);
+          if ( (ww>limit && resW<limit) || (ww<limit && resW>limit) ) {        
+              tOut = setTimeout(refresh, 100);
+          }
+      });
     </script>
   </body>
 </html>
